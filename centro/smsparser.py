@@ -17,6 +17,7 @@ CONF_NAME = "%s.conf" % APP_NAME
 CONF_FILES = [os.path.expanduser("~/.%s" % CONF_NAME),
     os.path.expanduser("~/%s" % CONF_NAME)]
 LOG_FILE = os.path.expanduser("~/.%s.log" % APP_NAME)
+VERBOSE = 1 # modified on __main__
 
 
 def get_options():
@@ -32,6 +33,9 @@ def get_options():
         help="Increment verbosity")
     optparser.add_option("-q", "--quiet", action="count", dest="quiet",
         help="Decrement verbosity")
+    optparser.add_option("-t", "--test", action="store_true", dest="test",
+        help="Process the files given as argument and sent in the order"
+            "given to the testing address")
 
     # Define the default options
     optparser.set_defaults(verbose=0, quiet=0, logfile="%s.log" % APP_NAME)
@@ -93,17 +97,37 @@ class Logging(object):
 
 
 def send_mail(server, user, password, fromaddr, toaddr, mailfile):
-    msg = "From: %s\r\nTo: %s\r\nSubject: %s\r\n\r\n%s" % (
+    """
+        Sends a mail fetching Subject and Body from a text file with the
+        form:
+
+        "
+        Subject: The subject
+
+
+        Start of the body.
+        Body Body Body.
+
+        Spam Spam Spam
+        Body Body.
+        The end.
+        "
+    """
+
+    subject_body = "\r\n".join(open(mailfile).readlines())
+
+    msg = "From: %s\r\nTo: %s\r\n%s" % (
             fromaddr,
             toaddr,
-            subject,
-            message
+            subject_body
            )
 
-    server = smtplib.SMTP("SMTPSERVER")
-    server.set_debuglevel(0)
-    server.sendmail(fromaddr, toaddrs, msg)
+    server = smtplib.SMTP(server)
+    server.set_debuglevel(VERBOSE)
+    error = server.sendmail(fromaddr, toaddrs, msg)
     server.quit()
+
+    return error
 
 
 def main(options, args):
@@ -115,27 +139,37 @@ def main(options, args):
     logfile = Logging(options.logfile)
     history = logfile.readlines()
 
-    messages = get_messages(config.get("POP", "server"), config.get("POP",
-        "user"), config.get("POP", "password"))
+    if options.test:
+        for filename in args:
+            info("Sending %s" % filename)
+            error = send_mail(config.get("SMTP", "server"),
+                config.get("SMTP", "user"), config.get("SMTP", "password"),
+                config.get("TESTMODE", "fromaddr"), config.get("TESTMODE",
+                "toaddr"), filename)
+            debug("Returned %s" % error)
+    else:
+        messages = get_messages(config.get("POP", "server"),
+            config.get("POP", "user"), config.get("POP", "password"))
 
-    for message in messages:
-        regex = (r"""^Subject:\s*(\d+?)([a-zA-Z]+)""")
-        match = re.search(regex, message,  re.MULTILINE|re.DOTALL)
+        for message in messages:
+            regex = (r"""^Subject:\s*(\d+?)([a-zA-Z]+)""")
+            match = re.search(regex, message,  re.MULTILINE|re.DOTALL)
 
-        if match:
-            pedido = match.group(1)
-            parte = match.group(2)
+            if match:
+                pedido = match.group(1)
+                parte = match.group(2)
 
-            match = re.search(r"""[\r\n]{2}(.*)""", message, re.DOTALL)
-            body = match.group(1)
-            
-            for line in body.splitlines():
-                moreinfo(pedido, parte, line)
+                match = re.search(r"""[\r\n]{2}(.*)""", message, re.DOTALL)
+                body = match.group(1)
+
+                for line in body.splitlines():
+                    moreinfo(pedido, parte, line)
 
 
 if __name__ == "__main__":
     # == Reading the options of the execution ==
     options, args = get_options()
+    VERBOSE = options.verbose - options.quiet
 
     error = Verbose(options.verbose - options.quiet + 1, "E: ")
     info = Verbose(options.verbose - options.quiet + 0)
