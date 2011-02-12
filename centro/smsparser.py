@@ -92,6 +92,20 @@ class Logging(object):
             file.write("%d: %s\r\n" % (time.time(), message))
 
 
+def send_mail(server, user, password, fromaddr, toaddr, mailfile):
+    msg = "From: %s\r\nTo: %s\r\nSubject: %s\r\n\r\n%s" % (
+            fromaddr,
+            toaddr,
+            subject,
+            message
+           )
+
+    server = smtplib.SMTP("SMTPSERVER")
+    server.set_debuglevel(0)
+    server.sendmail(fromaddr, toaddrs, msg)
+    server.quit()
+
+
 def main(options, args):
 
     # Read the config values from the config files
