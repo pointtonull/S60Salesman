@@ -67,7 +67,7 @@ def get_messages(server, user, password, delete=True):
     messages = []
 
     for numero in range(1, cantidad + 1):
-        messages.append("\r\n".join(POP3.retr(numero)[1]))
+        messages.append("\n".join(POP3.retr(numero)[1]))
 
     if delete:
         for numero in xrange(1, cantidad + 1):
@@ -93,7 +93,7 @@ class Logging(object):
 
     def write(self, message):
         with open(self.filename, "a") as file:
-            file.write("%d: %s\r\n" % (time.time(), message))
+            file.write("%d: %s\n" % (time.time(), message))
 
 
 def send_mail(server, user, password, fromaddr, toaddr, mailfile):
@@ -114,9 +114,9 @@ def send_mail(server, user, password, fromaddr, toaddr, mailfile):
         "
     """
 
-    subject_body = "\r\n".join(open(mailfile).readlines())
+    subject_body = "\n".join(open(mailfile).readlines())
 
-    msg = "From: %s\r\nTo: %s\r\n%s" % (
+    msg = "From: %s\nTo: %s\n%s" % (
             fromaddr,
             toaddr,
             subject_body
@@ -124,7 +124,11 @@ def send_mail(server, user, password, fromaddr, toaddr, mailfile):
 
     server = smtplib.SMTP(server)
     server.set_debuglevel(VERBOSE)
-    error = server.sendmail(fromaddr, toaddrs, msg)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login(user, password) 
+    error = server.sendmail(fromaddr, toaddr, msg)
     server.quit()
 
     return error
@@ -135,11 +139,14 @@ def main(options, args):
     # Read the config values from the config files
     config = get_config(options.conffile)
 
-    # Read the history log
-    logfile = Logging(options.logfile)
-    history = logfile.readlines()
+#    # Read the history log
+#    logfile = Logging(options.logfile)
+#    history = logfile.readlines()
 
     if options.test:
+        info("Entering to test mode")
+        debug("Args: %s" % args)
+
         for filename in args:
             info("Sending %s" % filename)
             error = send_mail(config.get("SMTP", "server"),
@@ -147,6 +154,9 @@ def main(options, args):
                 config.get("TESTMODE", "fromaddr"), config.get("TESTMODE",
                 "toaddr"), filename)
             debug("Returned %s" % error)
+            debug("Sleeping...")
+            time.sleep(config.getint("TESTMODE", "delay"))
+
     else:
         messages = get_messages(config.get("POP", "server"),
             config.get("POP", "user"), config.get("POP", "password"))
@@ -159,7 +169,7 @@ def main(options, args):
                 pedido = match.group(1)
                 parte = match.group(2)
 
-                match = re.search(r"""[\r\n]{2}(.*)""", message, re.DOTALL)
+                match = re.search(r"""[\n]{2}(.*)""", message, re.DOTALL)
                 body = match.group(1)
 
                 for line in body.splitlines():
