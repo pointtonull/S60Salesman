@@ -1,7 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/env python2.7
 # -*- coding: UTF-8 -*-
 
+import platform
+print(platform.python_version())
+
 from ConfigParser import SafeConfigParser
+from collections import OrderedDict
 from decoradores import Verbose
 from optparse import OptionParser, OptionValueError
 from subprocess import Popen, PIPE
@@ -46,7 +50,7 @@ def get_options():
 
 def get_config(conf_file=None):
     'Read config files'
-    config = SafeConfigParser()
+    config = SafeConfigParser(None, OrderedDict)
     read_from = conf_file or CONF_FILES
     files = config.read(read_from)
     debug("Readed config files at: %s" % files)
@@ -114,7 +118,7 @@ def send_mail(server, user, password, fromaddr, toaddr, mailfile):
         "
     """
 
-    subject_body = "\n".join(open(mailfile).readlines())
+    subject_body = open(mailfile).read()
 
     msg = "From: %s\nTo: %s\n%s" % (
             fromaddr,
