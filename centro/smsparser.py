@@ -6,7 +6,7 @@ print(platform.python_version())
 
 from ConfigParser import SafeConfigParser
 from collections import OrderedDict
-from decoradores import Verbose
+from decoradores import Verbose, Retry
 from optparse import OptionParser, OptionValueError
 from subprocess import Popen, PIPE
 import os
@@ -17,9 +17,8 @@ import sys
 import time
 
 APP_NAME = "smsparser"
-CONF_NAME = "%s.conf" % APP_NAME
-CONF_FILES = [os.path.expanduser("~/.%s" % CONF_NAME),
-    os.path.expanduser("~/%s" % CONF_NAME)]
+CONF_FILES = [os.path.expanduser("~/.%s" % APP_NAME),
+    os.path.expanduser("~/%s.ini" % APP_NAME)]
 LOG_FILE = os.path.expanduser("~/.%s.log" % APP_NAME)
 VERBOSE = 1 # modified on __main__
 
@@ -57,7 +56,7 @@ def get_config(conf_file=None):
 
     return config
 
-
+@Retry(5, pause=10)
 def get_messages(server, user, password, delete=True):
     """apop dele getwelcome host list noop pass_ port quit retr rpop
     rset set_debuglevel stat timestamp top uidl user welcome """
@@ -100,6 +99,7 @@ class Logging(object):
             file.write("%d: %s\n" % (time.time(), message))
 
 
+@Retry(5, pause=10)
 def send_mail(server, user, password, fromaddr, toaddr, mailfile):
     """
         Sends a mail fetching Subject and Body from a text file with the
@@ -137,6 +137,8 @@ def send_mail(server, user, password, fromaddr, toaddr, mailfile):
 
     return error
 
+def get_headers(message):
+    return headers
 
 def main(options, args):
 
@@ -166,18 +168,8 @@ def main(options, args):
             config.get("POP", "user"), config.get("POP", "password"))
 
         for message in messages:
-            regex = (r"""^Subject:\s*(\d+?)([a-zA-Z]+)""")
-            match = re.search(regex, message,  re.MULTILINE|re.DOTALL)
+            debug(unicode(message, "latin-1", "ignore"))
 
-            if match:
-                pedido = match.group(1)
-                parte = match.group(2)
-
-                match = re.search(r"""[\n]{2}(.*)""", message, re.DOTALL)
-                body = match.group(1)
-
-                for line in body.splitlines():
-                    moreinfo(pedido, parte, line)
 
 
 if __name__ == "__main__":
@@ -185,7 +177,8 @@ if __name__ == "__main__":
     options, args = get_options()
     VERBOSE = options.verbose - options.quiet
 
-    error = Verbose(options.verbose - options.quiet + 1, "E: ")
+    error = Verbose(options.verbose - options.quiet + 2, "E: ")
+    moreinfo = Verbose(options.verbose - options.quiet + 1)
     info = Verbose(options.verbose - options.quiet + 0)
     warning = Verbose(options.verbose - options.quiet - 1, "W: ")
     debug = Verbose(options.verbose - options.quiet - 2, "D: ")
