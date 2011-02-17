@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 from ConfigParser import SafeConfigParser
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 from decoradores import Verbose, Retry
 from email.parser import Parser
 from optparse import OptionParser, OptionValueError
@@ -59,25 +59,24 @@ def get_messages(server, user, password, delete=True):
     """apop dele getwelcome host list noop pass_ port quit retr rpop
     rset set_debuglevel stat timestamp top uidl user welcome """
 
-    POP3 = poplib.POP3(server)
-    POP3.user(user)
-    POP3.pass_(password)
+    pop3 = poplib.POP3(server)
+    pop3.user(user)
+    pop3.pass_(password)
 
-    cantidad = len(POP3.list()[1])
+    quantity = len(pop3.list()[1])
 
     messages = []
-    for number in range(1, cantidad + 1):
-        headers = Parser().parsestr("\n".join(POP3.retr(number)[1]))
-        messages.append(headers)
+    for number in range(1, quantity + 1):
+        message = Parser().parsestr("\n".join(pop3.retr(number)[1]))
+        messages.append(message)
 
     if delete:
-        for number in xrange(1, cantidad + 1):
-            POP3.dele(number)
+        for number in xrange(1, quantity + 1):
+            pop3.dele(number)
 
     #TODO: save the readed messages just now!
 
-    POP3.quit()
-    debug(messages)
+    pop3.quit()
     return messages
 
 
@@ -127,7 +126,7 @@ def send_mail(server, user, password, fromaddr, toaddr, mailfile):
            )
 
     server = smtplib.SMTP(server)
-    server.set_debuglevel(VERBOSE)
+    server.set_debuglevel(VERBOSE - 1)
     server.ehlo()
     server.starttls()
     server.ehlo()
@@ -180,6 +179,15 @@ def main(options, args):
 
             for action in actions:
                 debug(u"  Action: %s" % action)
+
+                safe_globals = {}
+                safe_globals["__builtins__"] = globals()["__builtins__"]
+                safe_locals = {}
+                for key, value in config.items(action, True):
+                    moreinfo("Executing %s = %s" % (key, value))
+                    safe_locals[key] = eval(value, safe_globals, safe_locals)
+                    debug("safe_locals: %s" % safe_locals)
+                    
 
 
 
