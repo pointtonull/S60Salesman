@@ -14,7 +14,7 @@ import smtplib
 import sys
 import time
 
-APP_NAME = "smsparser"
+APP_NAME = "mailparser"
 CONF_FILES = [os.path.expanduser("~/.%s" % APP_NAME),
     os.path.expanduser("~/%s.ini" % APP_NAME)]
 LOG_FILE = os.path.expanduser("~/.%s.log" % APP_NAME)
