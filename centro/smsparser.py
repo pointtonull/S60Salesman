@@ -1,12 +1,10 @@
 #!/usr/bin/env python2.7
 # -*- coding: UTF-8 -*-
 
-import platform
-print(platform.python_version())
-
 from ConfigParser import SafeConfigParser
 from collections import OrderedDict
 from decoradores import Verbose, Retry
+from email.parser import Parser
 from optparse import OptionParser, OptionValueError
 from subprocess import Popen, PIPE
 import os
@@ -68,13 +66,15 @@ def get_messages(server, user, password, delete=True):
     cantidad = len(POP3.list()[1])
 
     messages = []
-
-    for numero in range(1, cantidad + 1):
-        messages.append("\n".join(POP3.retr(numero)[1]))
+    for number in range(1, cantidad + 1):
+        headers = Parser().parsestr("\n".join(POP3.retr(number)[1]))
+        messages.append(headers)
 
     if delete:
-        for numero in xrange(1, cantidad + 1):
-            POP3.dele(numero)
+        for number in xrange(1, cantidad + 1):
+            POP3.dele(number)
+
+    #TODO: save the readed messages just now!
 
     POP3.quit()
     debug(messages)
@@ -164,11 +164,22 @@ def main(options, args):
             time.sleep(config.getint("TESTMODE", "delay"))
 
     else:
-        messages = get_messages(config.get("POP", "server"),
-            config.get("POP", "user"), config.get("POP", "password"))
+        sections = config.sections()
+        actions = [section
+            for section in sections
+                if section.startswith("ACTION")]
+        debug("Actions: %s" % actions)
+
+        messages = get_messages(
+            config.get("POP", "server"),
+            config.get("POP", "user"),
+            config.get("POP", "password"))
 
         for message in messages:
-            debug(unicode(message, "latin-1", "ignore"))
+            debug(u"Message: %s" % unicode(str(message), "latin-1", "ignore"))
+
+            for action in actions:
+                debug(u"  Action: %s" % action)
 
 
 
