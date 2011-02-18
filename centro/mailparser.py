@@ -5,6 +5,8 @@ from ConfigParser import SafeConfigParser
 from collections import OrderedDict, defaultdict
 from decoradores import Verbose, Retry
 from email.parser import Parser
+from email.message import Message
+from email.mime.text import MIMEText
 from optparse import OptionParser, OptionValueError
 from subprocess import Popen, PIPE
 import os
@@ -55,7 +57,7 @@ def get_config(conf_file=None):
     return config
 
 @Retry(5, pause=10)
-def get_messages(server, user, password, delete=True):
+def get_messages(server, user, password, msg_class=None, delete=True):
     """apop dele getwelcome host list noop pass_ port quit retr rpop
     rset set_debuglevel stat timestamp top uidl user welcome """
 
@@ -67,77 +69,96 @@ def get_messages(server, user, password, delete=True):
 
     messages = []
     for number in range(1, quantity + 1):
-        message = Parser().parsestr("\n".join(pop3.retr(number)[1]))
+        message = Parser(msg_class).parsestr("\n".join(pop3.retr(number)[1]))
         messages.append(message)
 
     if delete:
         for number in xrange(1, quantity + 1):
             pop3.dele(number)
 
-    #TODO: save the readed messages just now!
+    #TODO: save to log the readed messages just now!
 
     pop3.quit()
     return messages
 
 
-class Logging(object):
-    def __init__(self, filename):
-        self.filename = filename
-        self.touch()
-
-    def touch(self):
-        file = open(self.filename, "a")
-        file.write("")
-        file.close()
-
-    def readlines(self):
-        return open(self.filename).readlines()
-
-    def write(self, message):
-        with open(self.filename, "a") as file:
-            file.write("%d: %s\n" % (time.time(), message))
-
-
-@Retry(5, pause=10)
-def send_mail(server, user, password, fromaddr, toaddr, mailfile):
+def send_mail_from_file(server, user, password, fromaddr, toaddr, mailfile):
     """
         Sends a mail fetching Subject and Body from a text file with the
         form:
-
-        "
-        Subject: The subject
-
-
-        Start of the body.
-        Body Body Body.
-
-        Spam Spam Spam
-        Body Body.
-        The end.
-        "
     """
+    subject_body = open(mailfile).readlines()
+    subject = subject_body[0]
+    body = "\n".join(subject_body[3:])
+    error = send_mail(server, user, password, fromaddr, toaddr, subject, body)
+    return error
+    
 
-    subject_body = open(mailfile).read()
+@Retry(5, pause=10)
+def send_mail(server, user, password, fromaddr, toaddr, subject, body):
 
-    msg = "From: %s\nTo: %s\n%s" % (
-            fromaddr,
-            toaddr,
-            subject_body
-           )
+    msg = MIMEText(body)
+    msg["From"] = fromaddr
+    msg["To"] = toaddr
+    msg["Subject"] = subject
 
     server = smtplib.SMTP(server)
-    server.set_debuglevel(VERBOSE - 1)
+    server.set_debuglevel(min(0, VERBOSE - 2))
     server.ehlo()
     server.starttls()
     server.ehlo()
     server.login(user, password) 
-    error = server.sendmail(fromaddr, toaddr, msg)
+    error = server.sendmail(fromaddr, toaddr, msg.as_string())
     server.quit()
 
     return error
 
-def get_headers(message):
-    return headers
+
+def process_message(message, actions):
+    info(u"Message: %s" % unicode(message["Subject"], "latin-1", "ignore"))
+
+    for name, action in actions.iteritems():
+        info(" Action: %s" % name)
+        process_action(message, action)
+
+
+def config_mail_parser(config):
+
+    class Configured_message(Message):
+
+        smtppassword = config.get("SMTP", "password")
+        smtpserver = config.get("SMTP", "server")
+        smtpuser = config.get("SMTP", "user")
+
+        def __init__(self, *args, **kwargs):
+            Message.__init__(self, *args, **kwargs)
+
+        @Retry(5, 5)
+        def reply(self, subject, body):
+            send_mail(self.smtpserver, self.smtpuser, self.smtppassword,
+                self["To"], self["From"], subject, body)
+
+    return Configured_message
+
+
+def process_action(message, action):
+    safe_globals = {}
+    safe_globals["__builtins__"] = globals()["__builtins__"]
+    safe_globals["re"] = re
+
+    safe_locals = {}
+    safe_locals["message"] = message
+
+    for name, expression in action:
+        moreinfo("Executing %s = %s" % (name, expression))
+        safe_locals[name] = eval(expression, safe_globals, safe_locals)
+        debug("safe_locals: %s" % safe_locals)
+
+        if name.startswith("assert"):
+            if not safe_locals[name]:
+                info("Ignored because assert is false.")
+                return
+
 
 def main(options, args):
 
@@ -145,8 +166,7 @@ def main(options, args):
     config = get_config(options.conffile)
 
 #    # Read the history log
-#    logfile = Logging(options.logfile)
-#    history = logfile.readlines()
+#    logging = Logging(options.logfile)
 
     if options.test:
         info("Entering to test mode")
@@ -154,7 +174,7 @@ def main(options, args):
 
         for filename in args:
             info("Sending %s" % filename)
-            error = send_mail(config.get("SMTP", "server"),
+            error = send_mail_from_file(config.get("SMTP", "server"),
                 config.get("SMTP", "user"), config.get("SMTP", "password"),
                 config.get("TESTMODE", "fromaddr"), config.get("TESTMODE",
                 "toaddr"), filename)
@@ -164,31 +184,24 @@ def main(options, args):
 
     else:
         sections = config.sections()
-        actions = [section
-            for section in sections
-                if section.startswith("ACTION")]
-        debug("Actions: %s" % actions)
+        actions = OrderedDict()
+        for section in sections:
+            if section.startswith("ACTION"):
+                actions[section] = config.items(section, True)
+
+        debug("Actions: %s" % actions.keys())
+
+        message_parser = config_mail_parser(config)
 
         messages = get_messages(
             config.get("POP", "server"),
             config.get("POP", "user"),
-            config.get("POP", "password"))
+            config.get("POP", "password"),
+            msg_class=message_parser)
 
         for message in messages:
-            debug(u"Message: %s" % unicode(str(message), "latin-1", "ignore"))
-
-            for action in actions:
-                debug(u"  Action: %s" % action)
-
-                safe_globals = {}
-                safe_globals["__builtins__"] = globals()["__builtins__"]
-                safe_locals = {}
-                for key, value in config.items(action, True):
-                    moreinfo("Executing %s = %s" % (key, value))
-                    safe_locals[key] = eval(value, safe_globals, safe_locals)
-                    debug("safe_locals: %s" % safe_locals)
+            process_message(message, actions)
                     
-
 
 
 if __name__ == "__main__":
@@ -196,12 +209,13 @@ if __name__ == "__main__":
     options, args = get_options()
     VERBOSE = options.verbose - options.quiet
 
-    error = Verbose(options.verbose - options.quiet + 2, "E: ")
-    moreinfo = Verbose(options.verbose - options.quiet + 1)
-    info = Verbose(options.verbose - options.quiet + 0)
-    warning = Verbose(options.verbose - options.quiet - 1, "W: ")
     debug = Verbose(options.verbose - options.quiet - 2, "D: ")
+    moreinfo = Verbose(options.verbose - options.quiet - 1)
+    info = Verbose(options.verbose - options.quiet - 0)
+    warning = Verbose(options.verbose - options.quiet + 1, "W: ")
+    error = Verbose(options.verbose - options.quiet + 2, "E: ")
 
+    info("Verbose level: %s" %VERBOSE)
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))
