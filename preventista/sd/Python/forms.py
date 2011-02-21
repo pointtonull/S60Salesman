@@ -22,11 +22,7 @@ def forming():
     form.execute()
 
 
-def main():
-
+if __name__ == "__main__":
     forming()
     app_lock = e32.Ao_lock()
     app_lock.wait()
-
-if __name__ == "__main__":
-    exit(main())
