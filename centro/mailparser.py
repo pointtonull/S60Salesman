@@ -92,7 +92,7 @@ def send_mail_from_file(server, user, password, fromaddr, toaddr, mailfile):
     body = "\n".join(subject_body[3:])
     error = send_mail(server, user, password, fromaddr, toaddr, subject, body)
     return error
-    
+
 
 @Retry(5, pause=10)
 def send_mail(server, user, password, fromaddr, toaddr, subject, body):
@@ -215,7 +215,7 @@ if __name__ == "__main__":
     warning = Verbose(options.verbose - options.quiet + 1, "W: ")
     error = Verbose(options.verbose - options.quiet + 2, "E: ")
 
-    info("Verbose level: %s" %VERBOSE)
+    debug("Verbose level: %s" %VERBOSE)
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))
