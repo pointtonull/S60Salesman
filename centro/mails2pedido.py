@@ -8,8 +8,6 @@ import re
 import string
 
 APP_NAME = "mails2pedidos"
-CONF_FILES = [os.path.expanduser("~/.%s" % APP_NAME),
-    os.path.expanduser("~/%s.ini" % APP_NAME)]
 LOG_FILE = os.path.expanduser("~/.%s.log" % APP_NAME)
 
 VERBOSE = 1 # modified on __main__
@@ -68,39 +66,56 @@ def get_serie(terminal):
     return serie
 
 
-def get_serie_content(serie):
+def get_serie_content(inboxdir, serie):
     content = []
     for filename in serie:
-        content.append(open(filename).read())
+        filepath = os.path.join(inboxdir, filename)
+        content.append(open(filepath).read())
     return content
-
-
-def process_serie(serie):
-    serie_content = get_serie_content(serie)
-    serie_name = re.match(MAIL_REGEX, serie[0]).group(1)
 
 
 def main(options, args):
     inboxdir = args[0]
-    outbox = args[1]
+    assert os.path.isdir(inboxdir)
+
+    outboxdir = args[1]
+    assert os.path.isdir(outboxdir)
 
     mails = reglob(inboxdir, MAIL_REGEX)
     moreinfo("Mails encontrados: %s" % mails)
 
-    terminals = [file for file in mails if re.match(TERMINAL_REGEX, file)] 
+    terminals = [file for file in mails if re.match(TERMINAL_REGEX, file)]
     moreinfo("Mails terminales: %s" % terminals)
 
     for terminal in terminals:
         moreinfo("procesando serie de %s" % terminal)
         serie = get_serie(terminal)
-        process_serie(serie)
 
-        if any((mail in mails for mail in serie)):
+        if all((mail in mails for mail in serie)):
             info("Serie completa: %s" % terminal)
-            content = get_serie_content(serie)
+
+            content = get_serie_content(inboxdir, serie)
+            debug("Serie content: %s" % content)
+
+            serie_name = re.match(MAIL_REGEX, serie[0]).group(1)
+            debug("Serie name: %s" % serie_name)
+
+            output_path = os.path.join(outboxdir, serie_name)
+            debug("Output path: %s" % output_path)
+
+            with open(output_path, "w") as file:
+                file.writelines(content)    
+
+            # Sa asume que se ha escrito con exito, se borra la serie
+            debug("Eliminando ficheros procesados")
+            for mail in mails:
+                filepath = os.path.join(inboxdir, mail)
+                os.remove(filepath)
+                debug("  remove(%s)" % filepath)
 
         else:
-            warning("Serie incompleta: %s" % terminal)
+            warning("Serie incompleta, faltan: %s" % (" ".join(list(set(serie) -
+                set(mails)))))
 
 
 
