@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <note priority="medium" time="1298247464">
+        mailparser
+        <note priority="high" time="1298247487">
+            Implementar logging
+        </note>
+    </note>
+</todo>
