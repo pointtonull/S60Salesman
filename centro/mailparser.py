@@ -3,12 +3,14 @@
 
 from ConfigParser import SafeConfigParser
 from collections import OrderedDict, defaultdict
-from decoradores import Verbose, Retry
-from email.parser import Parser
+from decoradores import Retry, get_depth
 from email.message import Message
 from email.mime.text import MIMEText
+from email.parser import Parser
 from optparse import OptionParser, OptionValueError
 from subprocess import Popen, PIPE
+import logging
+import logging.handlers
 import os
 import poplib
 import re
@@ -20,8 +22,7 @@ APP_NAME = "mailparser"
 CONF_FILES = [os.path.expanduser("~/.%s" % APP_NAME),
     os.path.expanduser("~/%s.ini" % APP_NAME)]
 LOG_FILE = os.path.expanduser("~/.%s.log" % APP_NAME)
-VERBOSE = 1 # modified on __main__
-
+VERBOSE = 20
 
 def get_options():
     # Instance the parser and define the usage message
@@ -70,13 +71,13 @@ def get_messages(server, user, password, msg_class=None, delete=True):
     messages = []
     for number in range(1, quantity + 1):
         message = Parser(msg_class).parsestr("\n".join(pop3.retr(number)[1]))
+        debug(message)
         messages.append(message)
 
     if delete:
         for number in xrange(1, quantity + 1):
             pop3.dele(number)
 
-    #TODO: save to log the readed messages just now!
 
     pop3.quit()
     return messages
@@ -150,7 +151,12 @@ def process_action(message, action):
     safe_locals["message"] = message
 
     for name, expression in action:
-        moreinfo("Executing %s = %s" % (name, expression))
+        message = "Executing %s = %s" % (name, expression)
+        if name.startswith("action"):
+            info(message)
+        else:            
+            info(message)
+
         safe_locals[name] = eval(expression, safe_globals, safe_locals)
         debug("safe_locals: %s" % safe_locals)
 
@@ -207,15 +213,24 @@ def main(options, args):
 if __name__ == "__main__":
     # == Reading the options of the execution ==
     options, args = get_options()
-    VERBOSE = options.verbose - options.quiet
 
-    debug = Verbose(options.verbose - options.quiet - 2, "D: ")
-    moreinfo = Verbose(options.verbose - options.quiet - 1)
-    info = Verbose(options.verbose - options.quiet - 0)
-    warning = Verbose(options.verbose - options.quiet + 1, "W: ")
-    error = Verbose(options.verbose - options.quiet + 2, "E: ")
+    format = "%(asctime)s - %(message)s"
+    logging.basicConfig(format=format, filename=LOG_FILE, level=0)
+    logger = logging.getLogger()
+    logger.handlers[0].setLevel(VERBOSE)
 
-    debug("Verbose level: %s" %VERBOSE)
+    VERBOSE = (options.quiet - options.verbose) * 10 + 30
+    stderr = logging.StreamHandler()
+    stderr.setLevel(VERBOSE)
+    logger.addHandler(stderr)
+
+    debug = logger.debug
+    moreinfo = logger.info
+    info = logger.warning # Default
+    warning = logger.error
+    error = logger.critical
+
+    debug("Verbose level: %s" % VERBOSE)
     debug("""Options: '%s', args: '%s'""" % (options, args))
 
     exit(main(options, args))

@@ -20,6 +20,35 @@ from threading import Thread
 
 VERBOSE = 0
 
+def get_depth():
+    def exist_frame(n):
+        try:
+            if sys._getframe(n):
+                return True
+        except ValueError:
+            return False
+
+    now = 0
+    maxn = 1
+    minn = 0
+
+    while exist_frame(maxn):
+        minn = maxn
+        maxn *= 2
+
+    middle = (minn + maxn) / 2
+  
+    while minn < middle:
+        if exist_frame(middle):
+            minn = middle
+        else:
+            maxn = middle
+
+        middle = (minn + maxn) / 2
+  
+    return max(minn - 2, 0) #4 == len(main, get_depth)
+
+
 class Verbose:
     def __init__(self, verbosity, prefix="", ident=True):
         self.verbosity = False if verbosity < 0 else True
@@ -51,7 +80,6 @@ class Verbose:
                 minn = maxn
                 maxn *= 2
 
-            # minn =< depth < maxn
             middle = (minn + maxn) / 2
           
             while minn < middle:
@@ -81,7 +109,12 @@ class Sheep(Thread):
 
     def run(self):
         while not self.jobs.empty():
-            self.results.put(self.worker(*self.jobs.get()))
+            job = self.jobs.get()
+            result = self.worker(*job)
+            try:
+                self.results.put(result)
+            except:
+                pass
             self.jobs.task_done()
 
 
