@@ -46,7 +46,7 @@ def get_depth():
 
         middle = (minn + maxn) / 2
   
-    return max(minn - 2, 0) #4 == len(main, get_depth)
+    return max(minn - 1, 0) #4 == len(main, get_depth)
 
 
 class Verbose:

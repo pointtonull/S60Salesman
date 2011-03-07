@@ -80,6 +80,8 @@ def get_messages(server, user, password, msg_class=None, delete=True):
 
 
     pop3.quit()
+
+    debug("Readed %d messages" % len(messages))
     return messages
 
 
@@ -119,7 +121,7 @@ def process_message(message, actions):
     info(u"Message: %s" % unicode(message["Subject"], "latin-1", "ignore"))
 
     for name, action in actions.iteritems():
-        info(" Action: %s" % name)
+        info("  Action: %s" % name)
         process_action(message, action)
 
 
@@ -155,9 +157,11 @@ def process_action(message, action):
         if name.startswith("action"):
             info(message)
         else:            
-            info(message)
+            moreinfo(message)
 
-        safe_locals[name] = eval(expression, safe_globals, safe_locals)
+        result = eval(expression, safe_globals, safe_locals)
+        safe_locals[name] = result
+        moreinfo("%s = %s" % (name, result))
         debug("safe_locals: %s" % safe_locals)
 
         if name.startswith("assert"):
@@ -209,6 +213,12 @@ def main(options, args):
             process_message(message, actions)
                     
 
+def ident(func, identation="  "):
+    def decorated(message, *args, **kwargs):
+        newmessage = "%s%s" % (identation * (get_depth() - 1), message)
+        return func(newmessage, *args, **kwargs)
+    return decorated
+
 
 if __name__ == "__main__":
     # == Reading the options of the execution ==
@@ -224,11 +234,11 @@ if __name__ == "__main__":
     stderr.setLevel(VERBOSE)
     logger.addHandler(stderr)
 
-    debug = logger.debug
-    moreinfo = logger.info
-    info = logger.warning # Default
-    warning = logger.error
-    error = logger.critical
+    debug = ident(logger.debug)
+    moreinfo = ident(logger.info)
+    info = ident(logger.warning) # Default
+    warning = ident(logger.error)
+    error = ident(logger.critical)
 
     debug("Verbose level: %s" % VERBOSE)
     debug("""Options: '%s', args: '%s'""" % (options, args))
