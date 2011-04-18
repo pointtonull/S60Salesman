@@ -57,6 +57,7 @@ def get_config(conf_file=None):
 
     return config
 
+
 @Retry(5, pause=10)
 def get_messages(server, user, password, msg_class=None, delete=True):
     """apop dele getwelcome host list noop pass_ port quit retr rpop
@@ -77,7 +78,6 @@ def get_messages(server, user, password, msg_class=None, delete=True):
     if delete:
         for number in xrange(1, quantity + 1):
             pop3.dele(number)
-
 
     pop3.quit()
 
