@@ -8,39 +8,37 @@ preventista.csv
     COD_MOVIL
     ULTIMO_NRO_PEDIDO
 
-
 clientes.csv
 ============
 
     COD_CLI
-    COD_ZONA
-    NOMBRE_CLIENTE
-    DIRECCION_CLIENTE
-    NOMBRE_ZONA
-
+    NRO_ZON
+    APNBR_CLI
+    DOM_PART_CLI
+    CARACT_ZON
 
 listas_frecuentes.csv
 =====================
 
     COD_CLI
-    COD_ZONA
+    NRO_ZON
     COD_PRODUCTO
+    ID_PRODUCTO
     NOMBRE_PRODUCTO
     MEDIDA_PRODUCTO
+    COEF_MEDIDA_PRODUCTO
     PRECIO_PRODUCTO
     CANTIDAD_DEFECTO
-    COEF_PRODUCTO (0, 1)
-
 
 productos.csv
 =============
 
     COD_PRODUCTO
-    ID_PRODUCTO (6 DÍGITOS)
+    ID_PRODUCTO
     NOMBRE_PRODUCTO
     MEDIDA_PRODUCTO
+    COEF_MEDIDA_PRODUCTO
     PRECIO_PRODUCTO
-
 
 ================
 DESDE MÓVIL A PC
@@ -51,21 +49,19 @@ pedidos_cabeceras.csv
 
     NRO_PEDIDO (AUTOM)
     COD_CLI
-    COD_ZONA
+    NRO_ZON
     COD_MOVIL (PTO_VTA)
     COMENTARIO
     FECHA_PEDIDO (AAAA-MM-DD)
     FECHA_ENTREGA (AAAA-MM-DD)
-
 
 pedidos_detalles.csv
 ===================
 
     NRO_PEDIDO
     COD_PRODUCTO
-    CANTIDAD_PRODUCTO
+    CANTIDAD_PEDIDO
     PRECIO_PRODUCTO
-
 
 ===========
 DATOS EN PC
@@ -80,7 +76,6 @@ CLIENTES
     DOM_PART_CLI
     EST_CLI
 
-
 DET_PEDIDOS
 ===========
 
@@ -90,7 +85,6 @@ DET_PEDIDOS
     CANTIDAD_PEDIDO
     PRECIO_PRODUCTO
     ESTADO_DET_PEDIDO
-
 
 ENC_PEDIDOS
 ===========
@@ -106,7 +100,6 @@ ENC_PEDIDOS
     OBS_ENC_PEDIDO
     ESTADO_ENC_PEDIDO
 
-
 HORARIOS_ENTREGA
 ================
 
@@ -116,7 +109,6 @@ HORARIOS_ENTREGA
     OBS_HORARIO
     ESTADO_HORARIO
 
-
 MOVILES
 =======
 
@@ -125,7 +117,6 @@ MOVILES
     TEXTO_MD5
     CODIGO_MD5
     ESTADO_MOVIL
-
 
 PRODUCTOS
 =========
