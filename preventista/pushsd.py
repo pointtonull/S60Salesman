@@ -6,7 +6,7 @@ import os
 import sys
 
 REMOTE = "/media/tarjeta"
-LOCAL = os.path.abspath("sd")
+LOCAL = os.path.abspath("MMC")
 
 
 def vcall(*args, **kwargs):

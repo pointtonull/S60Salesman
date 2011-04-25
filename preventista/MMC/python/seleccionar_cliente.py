@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from lib. import DSV
 import appuifw
 import e32
+from auto_dsv import import_dsv
 
 def quit():
     app_lock.signal()
@@ -11,59 +11,51 @@ def quit():
 
 
 def forming():
-    appuifw.app.title = u'Formulario'
-
-    models = [
-        u'630',
-        u'90',
-        u'610',
-        u'95',
-        u'73',
-        u'6630',
-        u'E90',
-        u'7610',
-        u'N95',
-        u'N73',
-        ]
+    appuifw.app.title = u'Selección de cliente'
+    clientes = import_dsv(r"c:\\python\data\input\clientes.csv")
+    zonas_clientes = [cliente["CARACT_ZON"] for cliente in clientes]
+    nombres_clientes = [cliente["APNBR_CLI"] for cliente in clientes]
 
     data = [
-        (u'Mobile','text', u'Nokia'),
-        (u'Model','combo', (models, 1)),
-        (u'Amount','number', 5),
-        (u'Date', 'date'),
-        (u'Time', 'time')
+        (u'Zona','combo', (zonas_clientes, 0)),
+        (u'Cliente','combo', (nombres_clientes, 0)),
     ]
 
-    flags = appuifw.FFormEditModeOnly
+#        (u'Cliente','number', 5),
+#        (u'Mobile','text', u'Nokia'),
+#        (u'Date', 'date'),
+#        (u"Date", 'date', time.time()),
+#        (u'Time', 'time')
+
+    flags = appuifw.FFormEditModeOnly | appuifw.FFormDoubleSpaced
     form = appuifw.Form(data, flags)
-    form.execute()
-
-    names = [
-        u"Michael",
-        u"Michael",
-        u"Devon",
-        u"Bonnie",
-        u"April",
-        u"Michael",
-        u"Devon",
-        u"Bonnie",
-        u"April",
-        u"RC3",
-        u"RC3",
-        u"Devon",
-        u"Bonnie",
-        u"April",
-        u"RC3",
+    appuifw.app.menu = [
+        (u"Zonas", 
+            (u"Zona 1", (
+                (u"Cliente 1", forming),
+                (u"Cliente 2", forming),
+                (u"Cliente 3", forming),
+            )),
+            (u"Zona 2", (
+                (u"Cliente 4", forming),
+                (u"Cliente 5", forming),
+                (u"Cliente 6", forming),
+            )),
+        ),
+        (u"Clientes", (
+            (u"Cliente 1", forming),
+            (u"Cliente 2", forming),
+            (u"Cliente 3", forming),
+            (u"Cliente 4", forming),
+            (u"Cliente 5", forming),
+            (u"Cliente 6", forming),
+        ))
         ]
-    index = appuifw.selection_list(names, 1)
-    if index == 2:
-        print "I love you!"
-    else:
-        print "You're great!"
 
-
+    form.execute()
 
 if __name__ == "__main__":
     forming()
-    app_lock = e32.Ao_lock()
-    app_lock.wait()
+
+#    app_lock = e32.Ao_lock()
+#    app_lock.wait()

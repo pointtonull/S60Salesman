@@ -24,6 +24,7 @@ CONF_FILES = [os.path.expanduser("~/.%s" % APP_NAME),
 LOG_FILE = os.path.expanduser("~/.%s.log" % APP_NAME)
 VERBOSE = 20
 
+
 def get_options():
     # Instance the parser and define the usage message
     optparser = OptionParser(version="%prog .2")
@@ -145,6 +146,7 @@ def config_mail_parser(config):
 
 
 def process_action(message, action):
+
     safe_globals = {}
     safe_globals["__builtins__"] = globals()["__builtins__"]
     safe_globals["re"] = re

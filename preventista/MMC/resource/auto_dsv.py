@@ -2,7 +2,6 @@
 #-*- coding: UTF-8 -*-
 
 from DSV import DSV
-print(dir(DSV))
 
 def import_dsv(filename):
     data = open(filename).read()
@@ -24,7 +23,11 @@ def import_dsv(filename):
     for row in data:
         mapped_row = {}
         for column in xrange(columns):
-            mapped_row[header[column]] = row[column]
+            mapped_row[header[column]] = unicode(row[column], "UTF8", "replace")
         dsv.append(mapped_row)
 
     return dsv
+
+
+if __name__ == "__main__":
+    print(import_dsv("c:\\python\data\input\clientes.csv"))
