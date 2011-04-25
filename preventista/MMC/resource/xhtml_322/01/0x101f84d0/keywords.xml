@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_109">Connection manager</text>
+    <target FeatureID="-1" href="CMON_HLP_CMON_MAIN_VIEW.html">View connections</target>
+    <target FeatureID="true_109" href="CMON_HLP_CMON_WLAN_VIEW.html">WLAN networks</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">WLAN networks</text>
+    <target FeatureID="true_109" href="CMON_HLP_CMON_WLAN_VIEW.html">WLAN networks</target>
+    <target FeatureID="true_109" href="CMON_HLP_HIERARCHY_VIEW.html">Manage connections</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">connection manager</text>
+    <target FeatureID="true_109" href="CMON_HLP_HIERARCHY_VIEW.html">Manage connections</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">data connections</text>
+    <target FeatureID="true_109" href="CMON_HLP_HIERARCHY_VIEW.html">Manage connections</target>
+  </keywords>
+</keywords>

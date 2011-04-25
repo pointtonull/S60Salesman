@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Landmarks" compressed="true">
+  <topicref FeatureID="-1" href="LM_HLP_RECEIVED_LM.html" navtitle="Receive a landmark"></topicref>
+  <topicref FeatureID="-1" href="LM_HLP_RECEIVED_PACKAGE.html" navtitle="Receive landmarks"></topicref>
+</topics>

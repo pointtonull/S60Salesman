@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="USB" compressed="true">
+  <topicref FeatureID="true_13" href="USB_HLP_MAIN.html" navtitle="Select USB mode"></topicref>
+  <topicref FeatureID="true_1566" href="USB_HLP_PRINT_SETTINGS.html" navtitle="Printer settings"></topicref>
+</topics>

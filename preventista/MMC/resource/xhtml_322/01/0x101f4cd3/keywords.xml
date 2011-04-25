@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_1090">cell broadcast topics</text>
+    <target FeatureID="true_1090" href="CBS_HLP_MAIN.html">Cell broadcast topics</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1090">messages,cell broadcast</text>
+    <target FeatureID="true_1090" href="CBS_HLP_MAIN.html">Cell broadcast topics</target>
+    <target FeatureID="true_1090" href="CBS_HLP_TOPIC_VIEW.html">Cell broadcast messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1090">cell broadcast messages</text>
+    <target FeatureID="true_1090" href="CBS_HLP_MSG.html">View CBS messages</target>
+    <target FeatureID="true_1090" href="CBS_HLP_TOPIC_VIEW.html">Cell broadcast messages</target>
+  </keywords>
+</keywords>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">clock</text>
+    <target FeatureID="-1" href="CLK_HLP_ALARM.html">Alarm clock</target>
+    <target FeatureID="-1" href="CLK_HLP_DUAL_CLK.html">World clock</target>
+    <target FeatureID="-1" href="CLK_HLP_REAL_TIME_CLOCK_AN.html">Local time</target>
+    <target FeatureID="-1" href="CLK_HLP_REAL_TIME_CLOCK_IN.html">Clock</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">alarm clock</text>
+    <target FeatureID="-1" href="CLK_HLP_ALARM.html">Alarm clock</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">city clocks</text>
+    <target FeatureID="-1" href="CLK_HLP_DUAL_CLK.html">World clock</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">local time and time zone</text>
+    <target FeatureID="-1" href="CLK_HLP_REAL_TIME_CLOCK_AN.html">Local time</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">date and time settings</text>
+    <target FeatureID="-1" href="CLK_HLP_SETTINGS.html">Date and time settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">time and date settings</text>
+    <target FeatureID="-1" href="CLK_HLP_SETTINGS.html">Date and time settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">clock settings</text>
+    <target FeatureID="-1" href="CLK_HLP_SETTINGS.html">Date and time settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">world clock</text>
+    <target FeatureID="-1" href="HLP_CLK_CITIES.html">Set locations</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Clock</text>
+    <target FeatureID="-1" href="HLP_CLK_CITIES.html">Set locations</target>
+  </keywords>
+</keywords>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">Device manager</text>
+    <target FeatureID="-1" href="DM_HLP_MAIN_VIEW.html">Device software</target>
+    <target FeatureID="-1" href="FOTA_HLP_SETTINGS.html">Software update settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">configuration settings</text>
+    <target FeatureID="-1" href="DM_HLP_MAIN_VIEW.html">Device software</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">device manager</text>
+    <target FeatureID="-1" href="DM_HLP_SERVERS_VIEW.html">Remote configuration</target>
+    <target FeatureID="-1" href="DM_HLP_SETTINGS.html">Server profile settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">remote configuration</text>
+    <target FeatureID="-1" href="DM_HLP_SERVERS_VIEW.html">Remote configuration</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">server profile settings</text>
+    <target FeatureID="-1" href="DM_HLP_SETTINGS.html">Server profile settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">software update settings</text>
+    <target FeatureID="-1" href="FOTA_HLP_SETTINGS.html">Software update settings</target>
+  </keywords>
+</keywords>

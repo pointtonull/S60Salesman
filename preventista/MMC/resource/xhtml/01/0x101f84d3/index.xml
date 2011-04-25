@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Configurations" compressed="true"><topicref href="PROV_HLP_CONFCONT.html" navtitle="Configuration context"/><topicref href="PROV_HLP_PROVISIONVIEW.html" navtitle="Configuration messages"/></topics>

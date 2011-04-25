@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">landmarks</text>
+    <target FeatureID="-1" href="LM_HLP_RECEIVED_LM.html">Receive a landmark</target>
+    <target FeatureID="-1" href="LM_HLP_RECEIVED_PACKAGE.html">Receive landmarks</target>
+  </keywords>
+</keywords>

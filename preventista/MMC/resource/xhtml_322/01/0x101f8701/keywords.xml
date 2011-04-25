@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_166">latest news</text>
+    <target FeatureID="true_166" href="AI_HLP_CHANNELS.html">News channels</target>
+    <target FeatureID="true_166" href="AI_HLP_LATEST_NEWS.html">Latest news</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_166">news channels</text>
+    <target FeatureID="true_166" href="AI_HLP_CHANNELS.html">News channels</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_166">news ticker settings</text>
+    <target FeatureID="true_166" href="AI_HLP_SET_NEWST.html">News ticker settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_166">active standby</text>
+    <target FeatureID="true_166" href="AI_HLP_SET_NEWST.html">News ticker settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">active standby mode</text>
+    <target FeatureID="-1" href="SET_HLP_PERSONAL_SHORTCUTS.html">Active standby shortcuts</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">active standby shortcuts</text>
+    <target FeatureID="-1" href="SET_HLP_PERSONAL_SHORTCUTS.html">Active standby shortcuts</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">shortcuts in active standby mode</text>
+    <target FeatureID="-1" href="SET_HLP_PERSONAL_SHORTCUTS.html">Active standby shortcuts</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">themes</text>
+    <target FeatureID="-1" href="SET_HLP_PERSONAL_SHORTCUTS.html">Active standby shortcuts</target>
+  </keywords>
+</keywords>

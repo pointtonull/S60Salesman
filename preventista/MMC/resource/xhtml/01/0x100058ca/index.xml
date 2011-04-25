@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Recorder" compressed="true"><topicref href="VOREC_HLP_EMPTY_RECORDER.html" navtitle="Record sound clips"/><topicref href="VOREC_HLP_MAIN.html" navtitle="Using Voice recorder"/><topicref href="VOREC_HLP_SETTINGS.html" navtitle="Voice recorder settings"/></topics>

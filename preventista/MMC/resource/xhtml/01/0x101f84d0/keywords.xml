@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>Connection manager</text>
+<target href="CMON_HLP_CMON_MAIN_VIEW.html">View connections</target>
+<target href="CMON_HLP_CMON_WLAN_VIEW.html">WLAN networks</target>
+</keyword>
+<keyword>
+<text>data connections</text>
+<target href="CMON_HLP_HIERARCHY_VIEW.html">Manage connections</target>
+</keyword>
+<keyword>
+<text>connection manager</text>
+<target href="CMON_HLP_HIERARCHY_VIEW.html">Manage connections</target>
+</keyword>
+<keyword>
+<text>WLAN networks</text>
+<target href="CMON_HLP_CMON_WLAN_VIEW.html">WLAN networks</target>
+<target href="CMON_HLP_HIERARCHY_VIEW.html">Manage connections</target>
+</keyword>
+</keywords>
+

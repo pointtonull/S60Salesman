@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>personal certificates</text>
+<target href="CM_HLP_PERSONAL.html">Personal certificates</target>
+</keyword>
+<keyword>
+<text>device certificates</text>
+<target href="CM_HLP_DEVICE.html">Device certificates</target>
+</keyword>
+<keyword>
+<text>trusted site certificates</text>
+<target href="CM_HLP_TRUSTED_SITE.html">Trusted site certificates</target>
+</keyword>
+<keyword>
+<text>authority certificates</text>
+<target href="CM_HLP_AUTHORITY.html">Authority certificates</target>
+</keyword>
+<keyword>
+<text>security certificates</text>
+<target href="CM_HLP_AUTHORITY.html">Authority certificates</target>
+<target href="CM_HLP_MAIN.html">Certificate management</target>
+</keyword>
+<keyword>
+<text>trust settings</text>
+<target href="CM_HLP_TRUST_SETTINGS.html">Edit trust settings</target>
+</keyword>
+<keyword>
+<text>certificates</text>
+<target href="CM_HLP_AUTHORITY.html">Authority certificates</target>
+<target href="CM_HLP_DEVICE.html">Device certificates</target>
+<target href="CM_HLP_MAIN.html">Certificate management</target>
+<target href="CM_HLP_PERSONAL.html">Personal certificates</target>
+<target href="CM_HLP_TRUSTED_SITE.html">Trusted site certificates</target>
+<target href="CM_HLP_TRUST_SETTINGS.html">Edit trust settings</target>
+</keyword>
+</keywords>
+

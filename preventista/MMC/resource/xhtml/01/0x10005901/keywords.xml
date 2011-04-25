@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>schedules</text>
+<target href="CALE_HLP_NOTE_MEETING.html">Meeting entries</target>
+</keyword>
+<keyword>
+<text>anniversary</text>
+<target href="CALE_HLP_NOTE_VIEWER.html">Calendar entries</target>
+</keyword>
+<keyword>
+<text>reserving days</text>
+<target href="CALE_HLP_NOTE_DAY.html">Memo entries</target>
+</keyword>
+<keyword>
+<text>memo entries</text>
+<target href="CALE_HLP_NOTE_DAY.html">Memo entries</target>
+</keyword>
+<keyword>
+<text>memo</text>
+<target href="CALE_HLP_NOTE_VIEWER.html">Calendar entries</target>
+</keyword>
+<keyword>
+<text>calendar settings</text>
+<target href="CALE_HLP_SETTINGS.html">Calendar settings</target>
+</keyword>
+<keyword>
+<text>week view</text>
+<target href="CALE_HLP_WEEK_VIEW.html">Week view</target>
+</keyword>
+<keyword>
+<text>to-do entries</text>
+<target href="CALE_HLP_TODO_NOTE.html">To-do entries</target>
+</keyword>
+<keyword>
+<text>Calendar</text>
+<target href="CALE_HLP_DAY_VIEW.html">Day view</target>
+<target href="CALE_HLP_MONTH_VIEW.html">Month view</target>
+</keyword>
+<keyword>
+<text>anniversary entries</text>
+<target href="CALE_HLP_NOTE_ANNIVERSARY.html">Anniversary entries</target>
+</keyword>
+<keyword>
+<text>month view</text>
+<target href="CALE_HLP_MONTH_VIEW.html">Month view</target>
+</keyword>
+<keyword>
+<text>meeting entries</text>
+<target href="CALE_HLP_NOTE_MEETING.html">Meeting entries</target>
+</keyword>
+<keyword>
+<text>to-do entry</text>
+<target href="CALE_HLP_NOTE_VIEWER.html">Calendar entries</target>
+</keyword>
+<keyword>
+<text>day view</text>
+<target href="CALE_HLP_DAY_VIEW.html">Day view</target>
+</keyword>
+<keyword>
+<text>task entries</text>
+<target href="CALE_HLP_TODO_NOTE.html">To-do entries</target>
+</keyword>
+<keyword>
+<text>calendar entries</text>
+<target href="CALE_HLP_NOTE_ANNIVERSARY.html">Anniversary entries</target>
+<target href="CALE_HLP_NOTE_DAY.html">Memo entries</target>
+<target href="CALE_HLP_NOTE_MEETING.html">Meeting entries</target>
+<target href="CALE_HLP_TODO_NOTE.html">To-do entries</target>
+</keyword>
+<keyword>
+<text>to-do view</text>
+<target href="CALE_HLP_TODO_VIEW.html">To-do view</target>
+</keyword>
+<keyword>
+<text>scheduling a day</text>
+<target href="CALE_HLP_DAY_VIEW.html">Day view</target>
+</keyword>
+<keyword>
+<text>meeting</text>
+<target href="CALE_HLP_NOTE_VIEWER.html">Calendar entries</target>
+</keyword>
+<keyword>
+<text>calendar</text>
+<target href="CALE_HLP_TODO_VIEW.html">To-do view</target>
+<target href="CALE_HLP_WEEK_VIEW.html">Week view</target>
+</keyword>
+</keywords>
+

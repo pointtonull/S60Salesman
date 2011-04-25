@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>folders, searching</text>
+<target href="FMGR_HLP_SEARCH_RESULTS.html">File search</target>
+</keyword>
+<keyword>
+<text>file manager</text>
+<target href="FMGR_HLP_MAIN_VIEW.html">File manager</target>
+<target href="FMGR_HLP_MEM_STORE_VIEW.html">Manage files</target>
+<target href="FMGR_HLP_SEARCH_RESULTS.html">File search</target>
+</keyword>
+<keyword>
+<text>searching for files</text>
+<target href="FMGR_HLP_SEARCH_RESULTS.html">File search</target>
+</keyword>
+<keyword>
+<text>files, searching</text>
+<target href="FMGR_HLP_SEARCH_RESULTS.html">File search</target>
+</keyword>
+<keyword>
+<text>memory card</text>
+<target href="FMGR_HLP_MAIN_VIEW.html">File manager</target>
+<target href="FMGR_HLP_MEM_STORE_VIEW.html">Manage files</target>
+</keyword>
+</keywords>
+

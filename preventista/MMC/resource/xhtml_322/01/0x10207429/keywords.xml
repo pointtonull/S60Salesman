@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">XDM settings</text>
+    <target FeatureID="-1" href="XDM_HLP_EDIT_SET.html">XDM profile settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">XDM profiles</text>
+    <target FeatureID="-1" href="XDM_HLP_EDIT_SET.html">XDM profile settings</target>
+    <target FeatureID="-1" href="XDM_HLP_LIST_VIEW.html">XDM profiles</target>
+  </keywords>
+</keywords>

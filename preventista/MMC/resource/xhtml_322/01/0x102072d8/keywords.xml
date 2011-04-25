@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">sending messages</text>
+    <target FeatureID="-1" href="UNIFIED_HLP_EDITOR.html">Create messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">messages,sending</text>
+    <target FeatureID="-1" href="UNIFIED_HLP_EDITOR.html">Create messages</target>
+    <target FeatureID="-1" href="UNIFIED_HLP_SENDING_OPTIONS.html">Sending options</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">message editor</text>
+    <target FeatureID="-1" href="UNIFIED_HLP_EDITOR.html">Create messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sending options</text>
+    <target FeatureID="-1" href="UNIFIED_HLP_SENDING_OPTIONS.html">Sending options</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">media objects</text>
+    <target FeatureID="-1" href="UNIFIED_HLP_ED_OBJECTS.html">Received media objects</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">multimedia objects</text>
+    <target FeatureID="-1" href="UNIFIED_HLP_ED_OBJECTS.html">Received media objects</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">MMS presentations</text>
+    <target FeatureID="-1" href="MMS_HLP_MMS_TEMPLATE.html">Create MMS presentations</target>
+  </keywords>
+</keywords>

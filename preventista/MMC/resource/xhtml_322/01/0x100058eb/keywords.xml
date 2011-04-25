@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_49 true_1633">e-mail settings</text>
+    <target FeatureID="-1" href="MBXS_HLP_SETT_DOWNL_CTRL.html">E-mail retrieval settings</target>
+    <target FeatureID="-1" href="MBXS_HLP_SETT_DOWNL_RETR.html">E-mail retrieval amount</target>
+    <target FeatureID="-1" href="MBXS_HLP_SETT_MBX_IN.html">Incoming e-mail settings</target>
+    <target FeatureID="-1" href="MBXS_HLP_SETT_MBX_IN_OUT.html">Connection settings</target>
+    <target FeatureID="-1" href="MBXS_HLP_SETT_MBX_OUT.html">Outgoing e-mail sett.</target>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS_EMAIL.html">E-mail settings</target>
+    <target FeatureID="true_49" href="MCE_HLP_SETTINGS_SYNCMAIL.html">Sync e-mail settings</target>
+    <target FeatureID="-1" href="MCE_HLP_SETT_EMAILMAIN.html">Edit mailboxes</target>
+    <target FeatureID="-1" href="MCE_HLP_SETT_MAILBLIST.html">Mailboxes</target>
+    <target FeatureID="-1" href="MCE_HLP_SETT_MAILFOLDER_UPD.html">Mailbox folders</target>
+    <target FeatureID="true_1633" href="MCE_HLP_SETT_MAIL_ONLI.html">Automatic retrieval</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">e-mail,offline</text>
+    <target FeatureID="-1" href="MCE_HLP_MAILBOX_OFFLINE.html">Offline e-mail</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">offline e-mail</text>
+    <target FeatureID="-1" href="MCE_HLP_MAILBOX_OFFLINE.html">Offline e-mail</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">mailbox</text>
+    <target FeatureID="-1" href="MCE_HLP_MAILBOX_ONLINE.html">Online e-mail</target>
+    <target FeatureID="-1" href="MCE_HLP_SETT_MAILBLIST.html">Mailboxes</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">connecting to mailbox</text>
+    <target FeatureID="-1" href="MCE_HLP_MAILBOX_ONLINE.html">Online e-mail</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">e-mail online</text>
+    <target FeatureID="-1" href="MCE_HLP_MAILBOX_ONLINE.html">Online e-mail</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">online e-mail</text>
+    <target FeatureID="-1" href="MCE_HLP_MAILBOX_ONLINE.html">Online e-mail</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">synchronising e-mail</text>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNC.html">Sync mailbox</target>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNCI.html">Remote Inbox</target>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNCO.html">Remote Outbox</target>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNCS.html">Remote Sent</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync e-mail inbox</text>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNCI.html">Remote Inbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync e-mail outbox</text>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNCO.html">Remote Outbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync e-mail Sent</text>
+    <target FeatureID="true_44" href="MCE_HLP_MESS_SYNCS.html">Remote Sent</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_49 true_44">settings,e-mail</text>
+    <target FeatureID="true_49" href="MCE_HLP_SETTINGS_SYNCMAIL.html">Sync e-mail settings</target>
+    <target FeatureID="true_44" href="MCE_HLP_SETT_SMAILBOX.html">Sync mailbox settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">mailbox settings</text>
+    <target FeatureID="-1" href="MCE_HLP_SETT_EMAILMAIN.html">Edit mailboxes</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">mailbox folders</text>
+    <target FeatureID="-1" href="MCE_HLP_SETT_MAILFOLDER_UPD.html">Mailbox folders</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">user settings</text>
+    <target FeatureID="-1" href="MCE_HLP_SETT_MAIL_USER.html">User settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync mailbox</text>
+    <target FeatureID="true_44" href="MCE_HLP_SETT_SMAILBLIST.html">Sync mailboxes</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync e-mail settings</text>
+    <target FeatureID="true_44" href="MCE_HLP_SETT_SMAILBLIST.html">Sync mailboxes</target>
+    <target FeatureID="true_44" href="MCE_HLP_SETT_SMAILBOX.html">Sync mailbox settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync mailbox settings</text>
+    <target FeatureID="true_44" href="MCE_HLP_SETT_SMAILBOX.html">Sync mailbox settings</target>
+  </keywords>
+</keywords>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_12">blocked devices</text>
+    <target FeatureID="-1" href="BT_HLP_BLOCKED.html">Block connections</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_12">Bluetooth,blocking</text>
+    <target FeatureID="-1" href="BT_HLP_BLOCKED.html">Block connections</target>
+    <target FeatureID="-1" href="BT_HLP_MAIN.html">Bluetooth</target>
+    <target FeatureID="-1" href="BT_HLP_PAIRED.html">Pair with devices</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_12">Bluetooth settings</text>
+    <target FeatureID="-1" href="BT_HLP_MAIN.html">Bluetooth</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_12">paired devices</text>
+    <target FeatureID="-1" href="BT_HLP_PAIRED.html">Pair with devices</target>
+  </keywords>
+</keywords>

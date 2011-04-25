@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_24">security module</text>
+    <target FeatureID="-1" href="SECMOD_HLP_ACCESSCODE_VIEW.html">Security module PIN code</target>
+    <target FeatureID="-1" href="SECMOD_HLP_CODE_VIEW.html">Security module codes</target>
+    <target FeatureID="-1" href="SECMOD_HLP_CODE_VIEW.html">Security module codes</target>
+    <target FeatureID="-1" href="SECMOD_HLP_MAIN_VIEW.html">Security module</target>
+    <target FeatureID="-1" href="SEMOD_HLP_SIGNINGCODE_VIEW.html">Edit signing code</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_24">PIN code</text>
+    <target FeatureID="-1" href="SECMOD_HLP_ACCESSCODE_VIEW.html">Security module PIN code</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_24">PIN code for security module</text>
+    <target FeatureID="-1" href="SECMOD_HLP_CODE_VIEW.html">Security module codes</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_24">key store</text>
+    <target FeatureID="-1" href="SECMOD_HLP_MAIN_VIEW.html">Security module</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_24">signing code</text>
+    <target FeatureID="-1" href="SEMOD_HLP_SIGNINGCODE_VIEW.html">Edit signing code</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_24">digital signatures</text>
+    <target FeatureID="-1" href="SEMOD_HLP_SIGNINGCODE_VIEW.html">Edit signing code</target>
+  </keywords>
+</keywords>

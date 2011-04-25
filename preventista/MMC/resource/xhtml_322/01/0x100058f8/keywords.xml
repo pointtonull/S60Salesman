@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">customising profiles</text>
+    <target FeatureID="-1" href="MODE_HLP_PERSONALISE.html">Customise profiles</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">profiles,customising</text>
+    <target FeatureID="-1" href="MODE_HLP_PERSONALISE.html">Customise profiles</target>
+    <target FeatureID="-1" href="MODE_HLP_PROFILES_LIST.html">Profiles</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">changing profiles</text>
+    <target FeatureID="-1" href="MODE_HLP_PROFILES_LIST.html">Profiles</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">tones settings</text>
+    <target FeatureID="-1" href="SET_HLP_PERSONAL_TONES.html">Tones settings</target>
+  </keywords>
+</keywords>

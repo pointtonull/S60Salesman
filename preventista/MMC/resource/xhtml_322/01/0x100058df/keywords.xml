@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_242">messages,forwarding</text>
+    <target FeatureID="true_242" href="MMS_HLP_MMS_FWD_REQUEST.html">Forward multimedia messages</target>
+    <target FeatureID="true_242" href="MMS_HLP_MMS_FWD_REQUEST_SEND.html">Forward req. in Sent items</target>
+    <target FeatureID="-1" href="MMS_HLP_MMS_VIEWER.html">View multimedia messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">multimedia messages</text>
+    <target FeatureID="-1" href="MMS_HLP_MMS_VIEWER.html">View multimedia messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">MMS</text>
+    <target FeatureID="-1" href="MMS_HLP_MMS_VIEWER.html">View multimedia messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1132">notifications,multimedia</text>
+    <target FeatureID="true_1132" href="MMS_HLP_NOTIFICATION_VIEWER.html">Multimedia notifications</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">media objects</text>
+    <target FeatureID="-1" href="MMS_HLP_OBJECTS_VIEW_VIEWER.html">View media objects</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">multimedia objects</text>
+    <target FeatureID="-1" href="MMS_HLP_OBJECTS_VIEW_VIEWER.html">View media objects</target>
+  </keywords>
+</keywords>

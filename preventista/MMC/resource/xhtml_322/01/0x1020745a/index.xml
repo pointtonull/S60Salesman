@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="true_1565" title="Audio messaging" compressed="true">
+  <topicref FeatureID="-1" href="AUDIO_MSG_HLP_EDITOR.html" navtitle="Create audio messages"></topicref>
+  <topicref FeatureID="-1" href="AUDIO_MSG_HLP_VIEWER.html" navtitle="Listen to audio messages"></topicref>
+</topics>

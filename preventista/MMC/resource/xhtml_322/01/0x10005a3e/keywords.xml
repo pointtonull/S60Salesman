@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_1040">playing video clips</text>
+    <target FeatureID="-1" href="MP_HLP_FSCR.html">Full screen playback</target>
+    <target FeatureID="-1" href="MP_HLP_PLAYER_PLAYBACK.html">Play videos/streaming links</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">videos</text>
+    <target FeatureID="-1" href="MP_HLP_FSCR.html">Full screen playback</target>
+    <target FeatureID="-1" href="MP_HLP_PLAYER_PLAYBACK.html">Play videos/streaming links</target>
+    <target FeatureID="-1" href="MPL_HLP_DOWNLOAD_PLAYBACK_VIEW.html">Play downloaded videos</target>
+    <target FeatureID="-1" href="MP_HLP_VC.html">Video collection</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">RealPlayer</text>
+    <target FeatureID="-1" href="MP_HLP_FSCR.html">Full screen playback</target>
+    <target FeatureID="-1" href="MP_HLP_MAIN.html">RealPlayer main view</target>
+    <target FeatureID="-1" href="MP_HLP_PLAYER_PLAYBACK.html">Play videos/streaming links</target>
+    <target FeatureID="-1" href="MPL_HLP_DOWNLOAD_PLAYBACK_VIEW.html">Play downloaded videos</target>
+    <target FeatureID="-1" href="MP_HLP_STF.html">Streaming videos</target>
+    <target FeatureID="-1" href="MP_HLP_VC.html">Video collection</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">RealPlayer settings</text>
+    <target FeatureID="-1" href="MP_HLP_BW.html">Advanced settings</target>
+    <target FeatureID="-1" href="MP_HLP_SETTINGS.html">RealPlayer settings</target>
+    <target FeatureID="-1" href="MP_HLP_SETT_NETWORK.html">Network settings</target>
+    <target FeatureID="-1" href="MP_HLP_SETT_RTSP_PROXY.html">Proxy settings</target>
+    <target FeatureID="-1" href="MP_HLP_STREAM_SETT.html">Connection settings</target>
+    <target FeatureID="-1" href="MP_HLP_VIDEO_SETT.html">Video settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">bandwidth settings</text>
+    <target FeatureID="-1" href="MP_HLP_BW.html">Advanced settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">video clips</text>
+    <target FeatureID="true_1718" href="MP_HLP_RPF.html">Recently played</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">network settings</text>
+    <target FeatureID="-1" href="MP_HLP_SETT_NETWORK.html">Network settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">settings,network</text>
+    <target FeatureID="-1" href="MP_HLP_SETT_NETWORK.html">Network settings</target>
+    <target FeatureID="-1" href="MP_HLP_SETT_RTSP_PROXY.html">Proxy settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">connection settings</text>
+    <target FeatureID="-1" href="MP_HLP_SETT_NETWORK.html">Network settings</target>
+    <target FeatureID="-1" href="MP_HLP_STREAM_SETT.html">Connection settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">proxy settings</text>
+    <target FeatureID="-1" href="MP_HLP_SETT_RTSP_PROXY.html">Proxy settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">streaming</text>
+    <target FeatureID="-1" href="MP_HLP_STF.html">Streaming videos</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1040">video settings</text>
+    <target FeatureID="-1" href="MP_HLP_VIDEO_SETT.html">Video settings</target>
+  </keywords>
+</keywords>

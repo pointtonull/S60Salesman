@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Settings" compressed="true">
+  <topicref FeatureID="-1" href="XDM_HLP_EDIT_SET.html" navtitle="XDM profile settings"></topicref>
+  <topicref FeatureID="-1" href="XDM_HLP_LIST_VIEW.html" navtitle="XDM profiles"></topicref>
+</topics>

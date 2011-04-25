@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Japanese input" compressed="true"><topicref href="JAPINPUT_HLP_TRAD_ITU_T.html" navtitle="Traditional text input"/><topicref href="JAPINPUT_HLP_PRED_ITU_T.html" navtitle="Predictive text input"/><topicref href="JAPINPUT_HLP_PRED_QWERTY.html" navtitle="Predictive text input"/><topicref href="JAPINPUT_HLP_TRAD_QWERTY.html" navtitle="Traditional text input"/><topicref href="UDICT_HLP_USER_DICTIONARY.html" navtitle="Adding words"/></topics>

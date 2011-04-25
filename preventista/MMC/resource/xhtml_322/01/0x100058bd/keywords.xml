@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">text messages</text>
+    <target FeatureID="-1" href="SMS_HLP_VIEWER.html">Read text messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SMS viewer</text>
+    <target FeatureID="-1" href="SMS_HLP_VIEWER.html">Read text messages</target>
+  </keywords>
+</keywords>

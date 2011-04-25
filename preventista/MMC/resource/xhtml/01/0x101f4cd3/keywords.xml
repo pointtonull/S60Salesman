@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>cell broadcast topics</text>
+<target href="CBS_HLP_MAIN.html">Cell broadcast topics</target>
+</keyword>
+<keyword>
+<text>cell broadcast messages</text>
+<target href="CBS_HLP_MSG.html">View CBS messages</target>
+<target href="CBS_HLP_TOPIC_VIEW.html">Cell broadcast messages</target>
+</keyword>
+<keyword>
+<text>messages, cell broadcast</text>
+<target href="CBS_HLP_MAIN.html">Cell broadcast topics</target>
+<target href="CBS_HLP_TOPIC_VIEW.html">Cell broadcast messages</target>
+</keyword>
+</keywords>
+

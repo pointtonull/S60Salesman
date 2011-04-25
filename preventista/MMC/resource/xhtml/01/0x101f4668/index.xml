@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Converter" compressed="true"><topicref href="CNV_HLP_MAIN_STATE.html" navtitle="Convert units"/><topicref href="CNV_HLP_RATES.html" navtitle="Currency settings"/></topics>

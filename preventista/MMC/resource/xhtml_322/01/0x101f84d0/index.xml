@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Connection manager" compressed="true">
+  <topicref FeatureID="-1" href="CMON_HLP_CMON_MAIN_VIEW.html" navtitle="View connections"></topicref>
+  <topicref FeatureID="true_109" href="CMON_HLP_CMON_WLAN_VIEW.html" navtitle="WLAN networks"></topicref>
+  <topicref FeatureID="true_109" href="CMON_HLP_HIERARCHY_VIEW.html" navtitle="Manage connections"></topicref>
+</topics>

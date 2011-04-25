@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="true_1518" title="Vietnamese input" compressed="true">
+  <topicref FeatureID="false_409" href="VIETINPUT_HLP_TRAD_ITU_T.html" navtitle="Traditional input"></topicref>
+  <topicref FeatureID="false_409" href="VIETINPUT_HLP_PRED_ITU_T.html" navtitle="Predictive text input"></topicref>
+  <topicref FeatureID="true_409" href="VIETINPUT_HLP_TELEX_QWERTY.html" navtitle="Telex input"></topicref>
+</topics>

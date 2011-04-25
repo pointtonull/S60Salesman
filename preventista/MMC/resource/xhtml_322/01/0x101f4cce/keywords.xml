@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">fixed dialling</text>
+    <target FeatureID="-1" href="FDN_HLP_FDN_NUMBER_VIEW.html">Fixed dialling contacts</target>
+    <target FeatureID="-1" href="FDN_HLP_FDN_NUM_EDIT_VIEW.html">Edit contacts</target>
+    <target FeatureID="-1" href="FDN_HLP_FDN_VIEW.html">Restrict calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">restricting calls</text>
+    <target FeatureID="-1" href="FDN_HLP_FDN_VIEW.html">Restrict calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">calls,restricting</text>
+    <target FeatureID="-1" href="FDN_HLP_FDN_VIEW.html">Restrict calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contacts</text>
+    <target FeatureID="-1" href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">thumbnail images</text>
+    <target FeatureID="-1" href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">names and numbers</text>
+    <target FeatureID="-1" href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">phonebook</text>
+    <target FeatureID="-1" href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+    <target FeatureID="-1" href="PHOB_HLP_NAME_LIST.html">Contacts directory</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contact cards</text>
+    <target FeatureID="-1" href="PHOB_HLP_CONTACT_INFO_VIEW.html">Contact cards</target>
+    <target FeatureID="-1" href="PHOB_HLP_EDIT_ENTRY.html">Edit contact cards</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">phonebook entries</text>
+    <target FeatureID="-1" href="PHOB_HLP_CONTACT_INFO_VIEW.html">Contact cards</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contact groups</text>
+    <target FeatureID="-1" href="PHOB_HLP_GROUP_LIST.html">Contact groups</target>
+    <target FeatureID="-1" href="PHOB_HLP_GROUP_MEMBER_LIST.html">Group members</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SIM number</text>
+    <target FeatureID="-1" href="PHOB_HLP_MY_NUMBERS.html">My numbers</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contacts directory</text>
+    <target FeatureID="-1" href="PHOB_HLP_NAME_LIST.html">Contacts directory</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contact information</text>
+    <target FeatureID="-1" href="PHOB_HLP_NAME_LIST.html">Contacts directory</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">name order in Contacts</text>
+    <target FeatureID="-1" href="PHOB_HLP_SETTINGS.html">Contacts settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contacts memory</text>
+    <target FeatureID="-1" href="PHOB_HLP_SETTINGS.html">Contacts settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">default memory</text>
+    <target FeatureID="-1" href="PHOB_HLP_SETTINGS.html">Contacts settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SIM card</text>
+    <target FeatureID="-1" href="PHOB_HLP_SIM_INFO_VIEW.html">SIM contact cards</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SIM contacts</text>
+    <target FeatureID="-1" href="PHOB_HLP_SIM_INFO_VIEW.html">SIM contact cards</target>
+    <target FeatureID="-1" href="PHOB_HLP_SIM_LIST.html">SIM contacts directory</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">service numbers</text>
+    <target FeatureID="-1" href="SDN_HLP_APP.html">Service numbers</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SIM service numbers</text>
+    <target FeatureID="-1" href="SDN_HLP_APP.html">Service numbers</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">service numbers on SIM</text>
+    <target FeatureID="-1" href="SDN_HLP_APP.html">Service numbers</target>
+  </keywords>
+</keywords>

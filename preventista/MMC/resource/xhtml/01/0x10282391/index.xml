@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Video sharing" compressed="true"><topicref href="MSH_HLP_CLIP.html" navtitle="Share saved videos"/><topicref href="MSH_HLP_IMAGE.html" navtitle="Share images"/><topicref href="MSH_HLP_LIVE.html" navtitle="Share live videos"/><topicref href="MSH_HLP_RECEIVE.html" navtitle="View shared videos"/><topicref href="MSH_HLP_SETTINGS.html" navtitle="Video sharing settings"/></topics>

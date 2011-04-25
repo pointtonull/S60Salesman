@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Notes" compressed="true">
+  <topicref FeatureID="-1" href="NMAKE_HLP_MEMO_EDITOR.html" navtitle="Write notes"></topicref>
+  <topicref FeatureID="-1" href="NMAKE_HLP_MEMO_EDITOR_APPS.html" navtitle="Write notes in applications"></topicref>
+  <topicref FeatureID="-1" href="NMAKE_HLP_MEMO_LIST.html" navtitle="Notes list"></topicref>
+  <topicref FeatureID="-1" href="NMAKE_HLP_MEMO_VIEWER.html" navtitle="View received notes"></topicref>
+  <topicref FeatureID="-1" href="NMAKE_HLP_MEMO_VIEWER_EDIT.html" navtitle="Edit notes in applications"></topicref>
+  <topicref FeatureID="-1" href="NMAKE_HLP_TEMPLATE_EDITOR.html" navtitle="Write message templates"></topicref>
+</topics>

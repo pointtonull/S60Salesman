@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Licences" compressed="true"><topicref href="DRM_HLP_GROUP_KEYS.html" navtitle="Group licences"/><topicref href="DRM_HLP_INVALID_KEYS.html" navtitle="Invalid licences"/><topicref href="DRM_HLP_KEYS_NOT_IN_USE.html" navtitle="Licences not in use"/><topicref href="DRM_HLP_MAIN_VIEW.html" navtitle="Licences"/><topicref href="DRM_HLP_VALID_KEYS.html" navtitle="Valid licences"/><topicref href="DRM_HLP_REGISTRATION.html" navtitle="Device registration"/><topicref href="DRM_HLP_REGISTRATION_METERING.html" navtitle="Device registration"/></topics>

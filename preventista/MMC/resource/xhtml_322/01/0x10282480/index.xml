@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Mail for Exchange" compressed="true">
+  <topicref FeatureID="-1" href="EAS_HLP_CAL_SETTINGS.html" navtitle="Sync settings Calendar"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_CONN_SETTINGS.html" navtitle="Sync connection settings"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_CONTACTS_SETTINGS.html" navtitle="Contacts settings"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_CONTENT_SETTINGS.html" navtitle="Sync content settings"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_CRED_SETTINGS.html" navtitle="Authority settings"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_EMAIL_SETTINGS.html" navtitle="E-mail settings"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_MAIN.html" navtitle="Mail for Exchange"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_PROFILE.html" navtitle="Synchronisation settings"></topicref>
+  <topicref FeatureID="-1" href="EAS_HLP_SYNC_SCHED_SETTINGS.html" navtitle="Schedule settings"></topicref>
+</topics>

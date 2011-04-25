@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>Call mailbox</text>
+<target href="SMSVO_HLP_CS_AND_VIDEO.html">Call and video mailbox</target>
+</keyword>
+<keyword>
+<text>call mailbox</text>
+<target href="SMSVO_HLP_MAIN_VIEW.html">Call mailbox</target>
+</keyword>
+<keyword>
+<text>answering machine</text>
+<target href="SMSVO_HLP_MAIN_VIEW.html">Call mailbox</target>
+<target href="SMSVO_HLP_CS_AND_VIDEO.html">Call and video mailbox</target>
+</keyword>
+<keyword>
+<text>video mailbox</text>
+<target href="SMSVO_HLP_CS_AND_VIDEO.html">Call and video mailbox</target>
+</keyword>
+</keywords>
+

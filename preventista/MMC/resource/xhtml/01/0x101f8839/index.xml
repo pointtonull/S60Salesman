@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Music Player" compressed="true"><topicref href="MUS_HLP_ADDBM.html" navtitle="Add music bookmarks"/><topicref href="MUS_HLP_BROWSER_BM.html" navtitle="Music bookmarks"/><topicref href="MUS_HLP_BROWSER_PLUGIN.html" navtitle="Download music"/><topicref href="MUS_HLP_EDITBM.html" navtitle="Edit music bookmarks"/><topicref href="MUS_HLP_PROGRESSIVE_DL_VIEW.html" navtitle="Playback while downloading"/></topics>

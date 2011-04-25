@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="MMS Viewer" compressed="true">
+  <topicref FeatureID="true_242" href="MMS_HLP_MMS_FWD_REQUEST.html" navtitle="Forward multimedia messages"></topicref>
+  <topicref FeatureID="true_242" href="MMS_HLP_MMS_FWD_REQUEST_SEND.html" navtitle="Forward req. in Sent items"></topicref>
+  <topicref FeatureID="-1" href="MMS_HLP_MMS_VIEWER.html" navtitle="View multimedia messages"></topicref>
+  <topicref FeatureID="true_1132" href="MMS_HLP_NOTIFICATION_VIEWER.html" navtitle="Multimedia notifications"></topicref>
+  <topicref FeatureID="-1" href="MMS_HLP_OBJECTS_VIEW_VIEWER.html" navtitle="View media objects"></topicref>
+  <topicref FeatureID="-1" href="MMS_HLP_PRESENTAT_VIEW_VIEWER.html" navtitle="Received presentations"></topicref>
+</topics>

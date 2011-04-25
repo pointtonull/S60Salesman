@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>voice recorder settings</text>
+<target href="VOREC_HLP_SETTINGS.html">Voice recorder settings</target>
+</keyword>
+<keyword>
+<text>recording sound clips</text>
+<target href="VOREC_HLP_MAIN.html">Using Voice recorder</target>
+</keyword>
+<keyword>
+<text>recorder</text>
+<target href="VOREC_HLP_EMPTY_RECORDER.html">Record sound clips</target>
+</keyword>
+<keyword>
+<text>voice recorder</text>
+<target href="VOREC_HLP_MAIN.html">Using Voice recorder</target>
+</keyword>
+<keyword>
+<text>recording speech/sound</text>
+<target href="VOREC_HLP_EMPTY_RECORDER.html">Record sound clips</target>
+</keyword>
+</keywords>
+

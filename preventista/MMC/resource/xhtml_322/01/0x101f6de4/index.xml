@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Sync" compressed="true">
+  <topicref FeatureID="-1" href="DS_HLP_MAIN_VIEW.html" navtitle="Data synchronisation"></topicref>
+  <topicref FeatureID="-1" href="DS_HLP_SETTINGS.html" navtitle="Edit sync profiles"></topicref>
+  <topicref FeatureID="-1" href="DS_HLP_SETTINGS_CAL.html" navtitle="Calendar sync settings"></topicref>
+  <topicref FeatureID="-1" href="DS_HLP_SETTINGS_CNT.html" navtitle="Contacts sync settings"></topicref>
+  <topicref FeatureID="-1" href="DS_HLP_SETTINGS_NOTES.html" navtitle="Notes sync settings"></topicref>
+  <topicref FeatureID="-1" href="DS_HLP_SETTINGS_SMS.html" navtitle="SMS sync settings"></topicref>
+  <topicref FeatureID="true_44" href="DS_HLP_SETTINGS_SYNCML.html" navtitle="E-mail sync settings"></topicref>
+</topics>

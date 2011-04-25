@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>position info</text>
+<target href="HLP_BLID_POSITION.html">Position view</target>
+</keyword>
+<keyword>
+<text>GPS data settings</text>
+<target href="BLID_HLP_SETTINGS.html">GPS data settings</target>
+</keyword>
+<keyword>
+<text>trip info</text>
+<target href="HLP_BLID_TRIPMETER.html">Trip distance view</target>
+</keyword>
+<keyword>
+<text>navigating to destination</text>
+<target href="HLP_BLID_NAVIGATION.html">Navigation view</target>
+</keyword>
+<keyword>
+<text>GPS data</text>
+<target href="BLID_HLP_WAYPOINTS.html">Saved locations</target>
+<target href="HLP_BLID_MAIN.html">Travelling aid</target>
+<target href="HLP_BLID_NAVIGATION.html">Navigation view</target>
+<target href="HLP_BLID_POSITION.html">Position view</target>
+<target href="HLP_BLID_TRIPMETER.html">Trip distance view</target>
+</keyword>
+<keyword>
+<text>navigator settings</text>
+<target href="BLID_HLP_SETTINGS.html">GPS data settings</target>
+</keyword>
+<keyword>
+<text>travelling info</text>
+<target href="HLP_BLID_TRIPMETER.html">Trip distance view</target>
+</keyword>
+<keyword>
+<text>locations, saving</text>
+<target href="BLID_HLP_WAYPOINTS.html">Saved locations</target>
+</keyword>
+</keywords>
+

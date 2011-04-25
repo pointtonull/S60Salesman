@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Mail for Exchange" compressed="true">
+  <topicref FeatureID="-1" href="EAS_MAIL_HLP_ATTACHMENTS_VIEWER.html" navtitle="Receive attachments"></topicref>
+  <topicref FeatureID="-1" href="EAS_MAIL_HLP_MAIL_VIEWER.html" navtitle="View messages"></topicref>
+</topics>

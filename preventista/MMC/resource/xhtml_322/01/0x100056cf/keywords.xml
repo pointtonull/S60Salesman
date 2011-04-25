@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">power saver settings</text>
+    <target FeatureID="-1" href="SCREENSAVER_HLP_ANIM_SETTINGS.html">Animation settings</target>
+    <target FeatureID="-1" href="SCREENSAVER_HLP_SS_SETTINGS.html">Slide show settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">animated power saver</text>
+    <target FeatureID="-1" href="SCREENSAVER_HLP_ANIM_SETTINGS.html">Animation settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">slide set power saver</text>
+    <target FeatureID="-1" href="SCREENSAVER_HLP_SS_SETTINGS.html">Slide show settings</target>
+  </keywords>
+</keywords>

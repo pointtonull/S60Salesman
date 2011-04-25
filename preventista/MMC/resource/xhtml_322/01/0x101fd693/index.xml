@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="true_79" title="Flash player" compressed="true">
+  <topicref FeatureID="-1" href="FLITE_HLP_FOLDER_VIEW.html" navtitle="Flash Player folders"></topicref>
+  <topicref FeatureID="true_1" href="FLITE_HLP_MEMORY_CARD.html" navtitle="Flash files on mem. card"></topicref>
+  <topicref FeatureID="-1" href="FLITE_HLP_PHONE_MEMORY.html" navtitle="Flash files"></topicref>
+  <topicref FeatureID="-1" href="FLITE_HLP_STOPPED.html" navtitle="End Flash playback"></topicref>
+  <topicref FeatureID="-1" href="FLITE_HLP_VIEWER_PAUSED.html" navtitle="Pause Flash playback"></topicref>
+  <topicref FeatureID="-1" href="FLITE_HLP_VIEWER_PLAY.html" navtitle="Play Flash files"></topicref>
+</topics>

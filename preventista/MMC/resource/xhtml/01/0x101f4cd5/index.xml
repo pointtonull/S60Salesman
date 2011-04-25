@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Log" compressed="true"><topicref href="GPRS_HLP_MAIN.html" navtitle="Packet data connections"/><topicref href="LOGS_HLP_COUNTER.html" navtitle="Call and data registers"/><topicref href="LOGS_HLP_DETAIL.html" navtitle="Log event details"/><topicref href="LOGS_HLP_MAIN.html" navtitle="Log information"/><topicref href="LOGS_HLP_SETTING.html" navtitle="Log settings"/><topicref href="STM_HLP_DIALLED.html" navtitle="Dialled numbers"/><topicref href="STM_HLP_MAIN.html" navtitle="Recent calls"/><topicref href="STM_HLP_MISSED.html" navtitle="Missed calls"/><topicref href="STM_HLP_RECEIVED.html" navtitle="Received calls"/><topicref href="TIMERS_HLP_MAIN.html" navtitle="Call duration"/></topics>

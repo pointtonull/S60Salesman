@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>select frequency presets</text>
+<target href="EQ_HLP_LIST_VIEW.html">Frequency presets</target>
+</keyword>
+<keyword>
+<text>frequency bands</text>
+<target href="EQ_HLP_LIST_VIEW.html">Frequency presets</target>
+</keyword>
+<keyword>
+<text>equaliser</text>
+<target href="EQ_HLP_LIST_VIEW.html">Frequency presets</target>
+</keyword>
+<keyword>
+<text>edit frequency presets</text>
+<target href="EQ_HLP_EDITING_VIEW.html">Edit frequency presets</target>
+</keyword>
+</keywords>
+

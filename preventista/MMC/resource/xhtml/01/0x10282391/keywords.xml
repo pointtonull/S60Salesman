@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>video sharing settings</text>
+<target href="MSH_HLP_SETTINGS.html">Video sharing settings</target>
+</keyword>
+<keyword>
+<text>sharing images</text>
+<target href="MSH_HLP_IMAGE.html">Share images</target>
+</keyword>
+<keyword>
+<text>sharing videos, settings</text>
+<target href="MSH_HLP_SETTINGS.html">Video sharing settings</target>
+</keyword>
+<keyword>
+<text>shared videos, viewing</text>
+<target href="MSH_HLP_RECEIVE.html">View shared videos</target>
+</keyword>
+<keyword>
+<text>image sharing</text>
+<target href="MSH_HLP_IMAGE.html">Share images</target>
+</keyword>
+<keyword>
+<text>sharing live videos</text>
+<target href="MSH_HLP_LIVE.html">Share live videos</target>
+</keyword>
+<keyword>
+<text>sharing saved videos</text>
+<target href="MSH_HLP_CLIP.html">Share saved videos</target>
+</keyword>
+<keyword>
+<text>video sharing</text>
+<target href="MSH_HLP_CLIP.html">Share saved videos</target>
+<target href="MSH_HLP_LIVE.html">Share live videos</target>
+<target href="MSH_HLP_RECEIVE.html">View shared videos</target>
+</keyword>
+</keywords>
+

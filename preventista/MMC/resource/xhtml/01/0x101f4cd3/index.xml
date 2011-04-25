@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Messaging" compressed="true"><topicref href="CBS_HLP_MAIN.html" navtitle="Cell broadcast topics"/><topicref href="CBS_HLP_MSG.html" navtitle="View CBS messages"/><topicref href="CBS_HLP_TOPIC_VIEW.html" navtitle="Cell broadcast messages"/></topics>

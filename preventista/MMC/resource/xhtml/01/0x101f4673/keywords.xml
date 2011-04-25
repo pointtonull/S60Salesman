@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>invitations</text>
+<target href="IMNG_HLP_INVITE.html">IM invitations</target>
+</keyword>
+<keyword>
+<text>IM</text>
+<target href="IMNG_HLP_COMMUNITY_VIEW.html">Instant messaging</target>
+<target href="IMNG_HLP_COMMUNITY_VIEW_EMPTY.html">Start to use IM</target>
+<target href="IMNG_HLP_CONVERSATIONS.html">IM conversations</target>
+</keyword>
+<keyword>
+<text>IM group settings</text>
+<target href="IMNG_HLP_CREATECHAT.html">IM group settings</target>
+</keyword>
+<keyword>
+<text>editing rights</text>
+<target href="IMNG_HLP_GROUP_EDIT.html">Group editing rights</target>
+</keyword>
+<keyword>
+<text>IM server settings</text>
+<target href="IMNG_HLP_DEFSERVER.html">IM server settings</target>
+</keyword>
+<keyword>
+<text>IM contacts</text>
+<target href="IMNG_HLP_BLOCKED_VIEW.html">Blocked contacts</target>
+<target href="IMNG_HLP_CONTACTDETAILS.html">IM contact details</target>
+<target href="IMNG_HLP_CONT_OWN_DATA.html">My data</target>
+</keyword>
+<keyword>
+<text>server settings</text>
+<target href="IMNG_HLP_DEFSERVER.html">IM server settings</target>
+</keyword>
+<keyword>
+<text>IM settings</text>
+<target href="IMNG_HLP_APPSETT.html">IM application settings</target>
+<target href="IMNG_HLP_SETTINGS.html">IM settings</target>
+</keyword>
+<keyword>
+<text>conversations</text>
+<target href="IMNG_HLP_CONVERSATIONS.html">IM conversations</target>
+</keyword>
+<keyword>
+<text>IM groups, searching</text>
+<target href="IMNG_HLP_SEARCHCHAT.html">Search IM users</target>
+</keyword>
+<keyword>
+<text>IM group members</text>
+<target href="IMNG_HLP_ACCLIST.html">IM group members</target>
+<target href="IMNG_HLP_GROUP_BAN.html">Ban IM users from groups</target>
+</keyword>
+<keyword>
+<text>banned list</text>
+<target href="IMNG_HLP_GROUP_BAN.html">Ban IM users from groups</target>
+</keyword>
+<keyword>
+<text>IM groups, joining</text>
+<target href="IMNG_HLP_IMCHAT.html">Group conversations</target>
+</keyword>
+<keyword>
+<text>IM users, searching</text>
+<target href="IMNG_HLP_SEARCHCHAT.html">Search IM users</target>
+</keyword>
+<keyword>
+<text>instant messaging</text>
+<target href="IMNG_HLP_ACCLIST.html">IM group members</target>
+<target href="IMNG_HLP_APPSETT.html">IM application settings</target>
+<target href="IMNG_HLP_COMMUNITY_VIEW.html">Instant messaging</target>
+<target href="IMNG_HLP_COMMUNITY_VIEW_EMPTY.html">Start to use IM</target>
+<target href="IMNG_HLP_CONVERSATIONS.html">IM conversations</target>
+<target href="IMNG_HLP_CREATECHAT.html">IM group settings</target>
+<target href="IMNG_HLP_GROUP_BAN.html">Ban IM users from groups</target>
+<target href="IMNG_HLP_GROUP_EDIT.html">Group editing rights</target>
+<target href="IMNG_HLP_IMCHAT.html">Group conversations</target>
+<target href="IMNG_HLP_SAVED_LIST.html">Saved conversations</target>
+<target href="IMNG_HLP_SAVED_VIEW.html">View saved conversations</target>
+<target href="IMNG_HLP_SEARCHCHAT.html">Search IM users</target>
+</keyword>
+<keyword>
+<text>IM servers</text>
+<target href="IMNG_HLP_SERVLISTSETT_IM.html">IM servers</target>
+</keyword>
+<keyword>
+<text>blocked IM contacts</text>
+<target href="IMNG_HLP_BLOCKED_VIEW.html">Blocked contacts</target>
+</keyword>
+</keywords>
+

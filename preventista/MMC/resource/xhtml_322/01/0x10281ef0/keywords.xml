@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_36">presence settings, editing</text>
+    <target FeatureID="-1" href="PRE_HLP_EDIT_SET.html">Edit presence settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_36">presence settings</text>
+    <target FeatureID="-1" href="PRE_HLP_LIST_VIEW.html">Presence settings</target>
+  </keywords>
+</keywords>

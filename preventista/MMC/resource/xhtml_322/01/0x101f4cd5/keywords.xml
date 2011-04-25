@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">packet data connections</text>
+    <target FeatureID="-1" href="GPRS_HLP_MAIN.html">Packet data connections</target>
+    <target FeatureID="-1" href="LOGS_HLP_COUNTER.html">Call and data registers</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">duration of calls</text>
+    <target FeatureID="-1" href="LOGS_HLP_COUNTER.html">Call and data registers</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">recent calls</text>
+    <target FeatureID="-1" href="LOGS_HLP_COUNTER.html">Call and data registers</target>
+    <target FeatureID="-1" href="STM_HLP_MAIN.html">Recent calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">log event details</text>
+    <target FeatureID="-1" href="LOGS_HLP_DETAIL.html">Log event details</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">general log</text>
+    <target FeatureID="-1" href="LOGS_HLP_MAIN.html">Log information</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">log</text>
+    <target FeatureID="-1" href="LOGS_HLP_MAIN.html">Log information</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Log settings</text>
+    <target FeatureID="-1" href="LOGS_HLP_SETTING.html">log settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">dialled numbers</text>
+    <target FeatureID="-1" href="STM_HLP_DIALLED.html">Dialled numbers</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">call register</text>
+    <target FeatureID="-1" href="STM_HLP_MAIN.html">Recent calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">calls,missed</text>
+    <target FeatureID="-1" href="STM_HLP_MISSED.html">Missed calls</target>
+    <target FeatureID="-1" href="STM_HLP_RECEIVED.html">Received calls</target>
+    <target FeatureID="-1" href="STM_HLP_RECEIVED.html">Received calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">missed calls</text>
+    <target FeatureID="-1" href="STM_HLP_MISSED.html">Missed calls</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">call duration</text>
+    <target FeatureID="-1" href="TIMERS_HLP_MAIN.html">Call duration</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">length of calls</text>
+    <target FeatureID="-1" href="TIMERS_HLP_MAIN.html">Call duration</target>
+  </keywords>
+</keywords>

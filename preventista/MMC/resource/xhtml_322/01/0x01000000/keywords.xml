@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">selecting items</text>
+    <target FeatureID="-1" href="Context1.html">Select items</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1718">deleting items</text>
+    <target FeatureID="true_1718" href="Context12.html">Delete items</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="false_207">volume,changing</text>
+    <target FeatureID="false_207" href="Context13.html">Adjust volume</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">dictionary,using</text>
+    <target FeatureID="-1" href="Context14.html">Predictive text</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">copying text</text>
+    <target FeatureID="-1" href="Context3.html">Text editing options</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">cutting text</text>
+    <target FeatureID="-1" href="Context3.html">Text editing options</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">pasting text</text>
+    <target FeatureID="-1" href="Context3.html">Text editing options</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">moving items</text>
+    <target FeatureID="-1" href="Context6.html">Move items to folders</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">scroll key,navigating</text>
+    <target FeatureID="-1" href="Context8.html">Navigate with scroll key</target>
+  </keywords>
+</keywords>

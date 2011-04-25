@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">image folders</text>
+    <target FeatureID="-1" href="MG_HLP_ALBUM_IM.html">Images in folders</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Gallery</text>
+    <target FeatureID="-1" href="MG_HLP_ALBUM_IM.html">Images in folders</target>
+    <target FeatureID="-1" href="MG_HLP_ALBUM_VI.html">Your video folders</target>
+    <target FeatureID="-1" href="MG_HLP_IMAGES.html">Images folder</target>
+    <target FeatureID="-1" href="MG_HLP_LINKS.html">Web links to media files</target>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+    <target FeatureID="-1" href="MG_HLP_PRESENTATIONS.html">Presentations folder</target>
+    <target FeatureID="-1" href="MG_HLP_SOUNDS.html">Sound clips folder</target>
+    <target FeatureID="-1" href="MG_HLP_VIDEOS.html">Video clips folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">video folders</text>
+    <target FeatureID="-1" href="MG_HLP_ALBUM_VI.html">Your video folders</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">media files</text>
+    <target FeatureID="-1" href="MG_HLP_IMAGES.html">Images folder</target>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+    <target FeatureID="-1" href="MG_HLP_VIDEOS.html">Video clips folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">images</text>
+    <target FeatureID="-1" href="MG_HLP_IMAGES.html">Images folder</target>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">photos</text>
+    <target FeatureID="-1" href="MG_HLP_IMAGES.html">Images folder</target>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">streaming links</text>
+    <target FeatureID="-1" href="MG_HLP_LINKS.html">Web links to media files</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">videos</text>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+    <target FeatureID="-1" href="MG_HLP_VIDEOS.html">Video clips folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">music</text>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sounds</text>
+    <target FeatureID="-1" href="MG_HLP_MAIN.html">View media files</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">selecting several files</text>
+    <target FeatureID="-1" href="MG_HLP_MULTISEL_QUERY.html">Select many items</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">music files</text>
+    <target FeatureID="-1" href="MG_HLP_MUSIC.html">Music tracks folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">tracks</text>
+    <target FeatureID="-1" href="MG_HLP_MUSIC.html">Music tracks folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">presentations folder</text>
+    <target FeatureID="-1" href="MG_HLP_PRESENTATIONS.html">Presentations folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sound clips</text>
+    <target FeatureID="-1" href="MG_HLP_SOUNDS.html">Sound clips folder</target>
+  </keywords>
+</keywords>

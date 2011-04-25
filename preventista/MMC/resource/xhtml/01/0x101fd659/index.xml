@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Music Player" compressed="true"><topicref href="EQ_HLP_EDITING_VIEW.html" navtitle="Edit frequency presets"/><topicref href="EQ_HLP_LIST_VIEW.html" navtitle="Frequency presets"/></topics>

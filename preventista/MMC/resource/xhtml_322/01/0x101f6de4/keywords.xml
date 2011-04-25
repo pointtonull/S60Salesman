@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">synchronisation</text>
+    <target FeatureID="-1" href="DS_HLP_MAIN_VIEW.html">Data synchronisation</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">synchronisation profiles</text>
+    <target FeatureID="-1" href="DS_HLP_MAIN_VIEW.html">Data synchronisation</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">profiles,synchronisation</text>
+    <target FeatureID="-1" href="DS_HLP_MAIN_VIEW.html">Data synchronisation</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sync profile settings</text>
+    <target FeatureID="-1" href="DS_HLP_SETTINGS.html">Edit sync profiles</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_44">sync settings</text>
+    <target FeatureID="-1" href="DS_HLP_SETTINGS_CAL.html">Calendar sync settings</target>
+    <target FeatureID="-1" href="DS_HLP_SETTINGS_CNT.html">Contacts sync settings</target>
+    <target FeatureID="-1" href="DS_HLP_SETTINGS_NOTES.html">Notes sync settings</target>
+    <target FeatureID="-1" href="DS_HLP_SETTINGS_SMS.html">SMS sync settings</target>
+    <target FeatureID="true_44" href="DS_HLP_SETTINGS_SYNCML.html">E-mail sync settings</target>
+  </keywords>
+</keywords>

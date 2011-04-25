@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="true_1538" title="Push to talk" compressed="true">
+  <topicref FeatureID="-1" href="POC_HLP_ADD_EXIST_CHANNEL.html" navtitle="Add PTT channels"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_ADD_EXIST_PRE_ARR.html" navtitle="Create network groups"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_AMEM.html" navtitle="PTT call members"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_CALL_BUBBLE.html" navtitle="PTT calls"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_CONTACTS.html" navtitle="PTT contacts"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_CONTACTS_GROUPS.html" navtitle="Groups on network server"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_CONTACTS_LOCAL_GROUPS.html" navtitle="PTT groups in device"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_CR_INBOX.html" navtitle="Callback requests"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_DND.html" navtitle="Do not disturb"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_DRAFT_GROUPS.html" navtitle="Draft groups"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_EDIT_CHANNEL.html" navtitle="Edit channels"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_EDIT_PRE_ARR.html" navtitle="Edit network groups"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_EMPTY_SESSIONS.html" navtitle="Push to talk"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_GROUP_EMPTY.html" navtitle="No members in group"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_GROUP_MAIN_INFO.html" navtitle="PTT group view"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_GROUP_MEMBER.html" navtitle="PTT group members"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOCAL_GROUP_EMPTY_MEM.html" navtitle="Empty contact groups"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOCAL_GROUP_MEMBER.html" navtitle="Contact group members"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOGIN.html" navtitle="Using Push to talk"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOG_INITIATED.html" navtitle="Dialled PTT calls"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOG_MAIN.html" navtitle="PTT log"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOG_MISSED.html" navtitle="Missed PTT calls"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_LOG_RECEIVED.html" navtitle="Received PTT calls"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_NO_XDM_SUPPORT.html" navtitle="No XDM settings"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_SETT_ACCEPT.html" navtitle="PTT accepted list"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_SETT_BLOCK.html" navtitle="Blocked PTT contacts"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_SETT_CONN.html" navtitle="PTT connection profiles"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_SETT_CONN_MAIN.html" navtitle="PTT connection settings"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_SETT_MAIN.html" navtitle="PTT settings"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_SETT_USER.html" navtitle="PTT user settings"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_USER_DETAILS.html" navtitle="PTT call member details"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_VIEW_CHANNEL_OWN.html" navtitle="PTT channels"></topicref>
+  <topicref FeatureID="-1" href="POC_HLP_VIEW_PRE_ARR.html" navtitle="Network groups"></topicref>
+</topics>

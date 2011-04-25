@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_72">voice comm. settings</text>
+    <target FeatureID="-1" href="HLP_VC_SET.html">Voice command settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_72">voice commands</text>
+    <target FeatureID="-1" href="VCINFO_HLP_MAINVIEW.html">For contacts</target>
+    <target FeatureID="true_72" href="HLP_VC_SIND_FOLDER.html">For profiles</target>
+    <target FeatureID="true_72" href="HLP_VC_SIND_MAIN.html">Using voice commands</target>
+  </keywords>
+</keywords>

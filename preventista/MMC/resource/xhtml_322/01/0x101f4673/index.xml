@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="true_33" title="Instant messaging" compressed="true">
+  <topicref FeatureID="-1" href="IMNG_HLP_ACCLIST.html" navtitle="IM group members"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_APPSETT.html" navtitle="IM application settings"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_BLOCKED_VIEW.html" navtitle="Blocked contacts"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_COMMUNITY_VIEW.html" navtitle="Instant messaging"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_COMMUNITY_VIEW_EMPTY.html" navtitle="Start to use IM"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_CONTACTDETAILS.html" navtitle="IM contact details"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_CONT_OWN_DATA.html" navtitle="My data"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_CONVERSATIONS.html" navtitle="IM conversations"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_CREATECHAT.html" navtitle="IM group settings"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_DEFSERVER.html" navtitle="IM server settings"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_GROUP_BAN.html" navtitle="Ban IM users from groups"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_GROUP_EDIT.html" navtitle="Group editing rights"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_IMCHAT.html" navtitle="Group conversations"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_INVITE.html" navtitle="IM invitations"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_SAVED_LIST.html" navtitle="Saved conversations"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_SAVED_VIEW.html" navtitle="View saved conversations"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_SEARCHCHAT.html" navtitle="Search IM users"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_SERVLISTSETT_IM.html" navtitle="IM servers"></topicref>
+  <topicref FeatureID="-1" href="IMNG_HLP_SETTINGS.html" navtitle="IM settings"></topicref>
+</topics>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">authority certificates</text>
+    <target FeatureID="-1" href="CM_HLP_AUTHORITY.html">Authority certificates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">certificates</text>
+    <target FeatureID="-1" href="CM_HLP_AUTHORITY.html">Authority certificates</target>
+    <target FeatureID="-1" href="CM_HLP_DEVICE.html">Device certificates</target>
+    <target FeatureID="-1" href="CM_HLP_MAIN.html">Certificate management</target>
+    <target FeatureID="-1" href="CM_HLP_PERSONAL.html">Personal certificates</target>
+    <target FeatureID="-1" href="CM_HLP_TRUSTED_SITE.html">Trusted site certificates</target>
+    <target FeatureID="-1" href="CM_HLP_TRUST_SETTINGS.html">Edit trust settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">security certificates</text>
+    <target FeatureID="-1" href="CM_HLP_AUTHORITY.html">Authority certificates</target>
+    <target FeatureID="-1" href="CM_HLP_MAIN.html">Certificate management</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">device certificates</text>
+    <target FeatureID="-1" href="CM_HLP_DEVICE.html">Device certificates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">personal certificates</text>
+    <target FeatureID="-1" href="CM_HLP_PERSONAL.html">Personal certificates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">trusted site certificates</text>
+    <target FeatureID="-1" href="CM_HLP_TRUSTED_SITE.html">Trusted site certificates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">trust settings</text>
+    <target FeatureID="-1" href="CM_HLP_TRUST_SETTINGS.html">Edit trust settings</target>
+  </keywords>
+</keywords>

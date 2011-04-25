@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Settings" compressed="true"><topicref href="PRE_HLP_EDIT_SET.html" navtitle="Edit presence settings"/><topicref href="PRE_HLP_LIST_VIEW.html" navtitle="Presence settings"/></topics>

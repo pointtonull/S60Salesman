@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">music bookmarks</text>
+    <target FeatureID="-1" href="MUS_HLP_ADDBM.html">Add music bookmarks</target>
+    <target FeatureID="-1" href="MUS_HLP_BROWSER_BM.html">Music bookmarks</target>
+    <target FeatureID="-1" href="MUS_HLP_EDITBM.html">Edit music bookmarks</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">downloading music</text>
+    <target FeatureID="-1" href="MUS_HLP_BROWSER_BM.html">Music bookmarks</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">browsing music services</text>
+    <target FeatureID="-1" href="MUS_HLP_BROWSER_PLUGIN.html">Download music</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">music downloading</text>
+    <target FeatureID="-1" href="MUS_HLP_BROWSER_PLUGIN.html">Download music</target>
+    <target FeatureID="-1" href="MUS_HLP_PROGRESSIVE_DL_VIEW.html">Playback while downloading</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">play downloading music</text>
+    <target FeatureID="-1" href="MUS_HLP_PROGRESSIVE_DL_VIEW.html">Playback while downloading</target>
+  </keywords>
+</keywords>

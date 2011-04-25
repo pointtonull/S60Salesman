@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>service numbers</text>
+<target href="SDN_HLP_APP.html">Service numbers</target>
+</keyword>
+<keyword>
+<text>SIM card</text>
+<target href="PHOB_HLP_SIM_INFO_VIEW.html">SIM contact cards</target>
+</keyword>
+<keyword>
+<text>restricting calls</text>
+<target href="FDN_HLP_FDN_VIEW.html">Restrict calls</target>
+</keyword>
+<keyword>
+<text>fixed dialling</text>
+<target href="FDN_HLP_FDN_NUMBER_VIEW.html">Fixed dialling contacts</target>
+<target href="FDN_HLP_FDN_NUM_EDIT_VIEW.html">Edit contacts</target>
+<target href="FDN_HLP_FDN_VIEW.html">Restrict calls</target>
+</keyword>
+<keyword>
+<text>contacts directory</text>
+<target href="PHOB_HLP_NAME_LIST.html">Contacts directory</target>
+</keyword>
+<keyword>
+<text>phonebook</text>
+<target href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+<target href="PHOB_HLP_NAME_LIST.html">Contacts directory</target>
+</keyword>
+<keyword>
+<text>SIM service numbers</text>
+<target href="SDN_HLP_APP.html">Service numbers</target>
+</keyword>
+<keyword>
+<text>calls, restricting</text>
+<target href="FDN_HLP_FDN_VIEW.html">Restrict calls</target>
+</keyword>
+<keyword>
+<text>thumbnail images</text>
+<target href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+<target href="PHOB_HLP_EDIT_ENTRY.html">Edit contact cards</target>
+</keyword>
+<keyword>
+<text>default memory</text>
+<target href="PHOB_HLP_SETTINGS.html">Contacts settings</target>
+</keyword>
+<keyword>
+<text>contact cards</text>
+<target href="PHOB_HLP_CONTACT_INFO_VIEW.html">Contact cards</target>
+<target href="PHOB_HLP_EDIT_ENTRY.html">Edit contact cards</target>
+</keyword>
+<keyword>
+<text>contacts memory</text>
+<target href="PHOB_HLP_SETTINGS.html">Contacts settings</target>
+</keyword>
+<keyword>
+<text>contact information</text>
+<target href="PHOB_HLP_NAME_LIST.html">Contacts directory</target>
+</keyword>
+<keyword>
+<text>contacts</text>
+<target href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+</keyword>
+<keyword>
+<text>SIM number</text>
+<target href="PHOB_HLP_MY_NUMBERS.html">My numbers</target>
+</keyword>
+<keyword>
+<text>SIM contacts</text>
+<target href="PHOB_HLP_SIM_INFO_VIEW.html">SIM contact cards</target>
+<target href="PHOB_HLP_SIM_LIST.html">SIM contacts directory</target>
+</keyword>
+<keyword>
+<text>name order in Contacts</text>
+<target href="PHOB_HLP_SETTINGS.html">Contacts settings</target>
+</keyword>
+<keyword>
+<text>service numbers on SIM</text>
+<target href="SDN_HLP_APP.html">Service numbers</target>
+</keyword>
+<keyword>
+<text>names and numbers</text>
+<target href="PHOB_HLP_ADD_ENTRY.html">Save contact info</target>
+</keyword>
+<keyword>
+<text>contact groups</text>
+<target href="PHOB_HLP_GROUP_LIST.html">Contact groups</target>
+<target href="PHOB_HLP_GROUP_MEMBER_LIST.html">Group members</target>
+</keyword>
+<keyword>
+<text>phonebook entries</text>
+<target href="PHOB_HLP_CONTACT_INFO_VIEW.html">Contact cards</target>
+</keyword>
+</keywords>
+

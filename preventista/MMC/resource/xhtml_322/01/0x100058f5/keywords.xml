@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">call mailbox</text>
+    <target FeatureID="-1" href="SMSVO_HLP_MAIN_VIEW.html">Call mailbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">answering machine</text>
+    <target FeatureID="-1" href="SMSVO_HLP_MAIN_VIEW.html">Call mailbox</target>
+    <target FeatureID="-1" href="SMSVO_HLP_CS_AND_VIDEO.html">Call and video mailbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">video mailbox</text>
+    <target FeatureID="-1" href="SMSVO_HLP_CS_AND_VIDEO.html">Call and video mailbox</target>
+  </keywords>
+</keywords>

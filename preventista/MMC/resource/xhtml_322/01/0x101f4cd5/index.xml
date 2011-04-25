@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Logs" compressed="true">
+  <topicref FeatureID="-1" href="GPRS_HLP_MAIN.html" navtitle="Packet data connections"></topicref>
+  <topicref FeatureID="-1" href="LOGS_HLP_COUNTER.html" navtitle="Call and data registers"></topicref>
+  <topicref FeatureID="-1" href="LOGS_HLP_DETAIL.html" navtitle="Log event details"></topicref>
+  <topicref FeatureID="-1" href="LOGS_HLP_MAIN.html" navtitle="Log information"></topicref>
+  <topicref FeatureID="-1" href="LOGS_HLP_SETTING.html" navtitle="log settings"></topicref>
+  <topicref FeatureID="-1" href="STM_HLP_DIALLED.html" navtitle="Dialled numbers"></topicref>
+  <topicref FeatureID="-1" href="STM_HLP_MAIN.html" navtitle="Recent calls"></topicref>
+  <topicref FeatureID="-1" href="STM_HLP_MISSED.html" navtitle="Missed calls"></topicref>
+  <topicref FeatureID="-1" href="STM_HLP_RECEIVED.html" navtitle="Received calls"></topicref>
+  <topicref FeatureID="-1" href="TIMERS_HLP_MAIN.html" navtitle="Call duration"></topicref>
+</topics>

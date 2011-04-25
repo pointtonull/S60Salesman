@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">applications</text>
+    <target FeatureID="-1" href="APP_HLP_APP_SHELL.html">Applications menu</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">menu</text>
+    <target FeatureID="-1" href="APP_HLP_APP_SHELL.html">Applications menu</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Tools applications</text>
+    <target FeatureID="-1" href="APP_HLP_FOL_CONFIGUR.html">Tools folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">installations folder</text>
+    <target FeatureID="-1" href="APP_HLP_FOL_INSTALLED.html">Installations folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Media folder</text>
+    <target FeatureID="-1" href="APP_HLP_FOL_MEDIA.html">Media folder</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Organiser folder</text>
+    <target FeatureID="-1" href="APP_HLP_FOL_ORGANISER.html">Organiser folder</target>
+  </keywords>
+</keywords>

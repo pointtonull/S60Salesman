@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_79">Flash Player</text>
+    <target FeatureID="-1" href="FLITE_HLP_FOLDER_VIEW.html">Flash Player folders</target>
+    <target FeatureID="true_1" href="FLITE_HLP_MEMORY_CARD.html">Flash files on mem. card</target>
+    <target FeatureID="-1" href="FLITE_HLP_PHONE_MEMORY.html">Flash files</target>
+    <target FeatureID="-1" href="FLITE_HLP_STOPPED.html">End Flash playback</target>
+    <target FeatureID="-1" href="FLITE_HLP_VIEWER_PAUSED.html">Pause Flash playback</target>
+    <target FeatureID="-1" href="FLITE_HLP_VIEWER_PLAY.html">Play Flash files</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_79">Flash file playback</text>
+    <target FeatureID="-1" href="FLITE_HLP_STOPPED.html">End Flash playback</target>
+    <target FeatureID="-1" href="FLITE_HLP_VIEWER_PAUSED.html">Pause Flash playback</target>
+    <target FeatureID="-1" href="FLITE_HLP_VIEWER_PLAY.html">Play Flash files</target>
+  </keywords>
+</keywords>

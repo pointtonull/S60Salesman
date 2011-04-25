@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">access point</text>
+    <target FeatureID="-1" href="GLOS_HLP_AP.html">Access point</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_12">Bluetooth</text>
+    <target FeatureID="true_12" href="GLOS_HLP_BT.html">Bluetooth</target>
+    <target FeatureID="true_12" href="GLOS_HLP_BT_PAIR.html">Pairing devices</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">cookies</text>
+    <target FeatureID="-1" href="GLOS_HLP_COOKIES.html">Cookies</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">DTMF tones</text>
+    <target FeatureID="-1" href="GLOS_HLP_DTMF.html">DTMF tones</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">EAP</text>
+    <target FeatureID="true_109" href="GLOS_HLP_EAP.html">EAP</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">GPRS</text>
+    <target FeatureID="-1" href="GLOS_HLP_GPRS_EGPRS.html">GPRS (EGPRS)</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1702">GPS</text>
+    <target FeatureID="true_1702" href="GLOS_HLP_GPS.html">GPS</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">HTTP</text>
+    <target FeatureID="-1" href="GLOS_HLP_HTTP.html">HTTP (HTTPS)</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">IMAP4</text>
+    <target FeatureID="-1" href="GLOS_HLP_IMAP4.html">IMAP4</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_11">infrared</text>
+    <target FeatureID="true_11" href="GLOS_HLP_IR.html">Infrared</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">POP3</text>
+    <target FeatureID="-1" href="GLOS_HLP_POP3.html">POP3</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1581">remote drive</text>
+    <target FeatureID="true_1581" href="GLOS_HLP_REM_DRIVE.html">Remote drive</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_60">SIP</text>
+    <target FeatureID="true_60" href="GLOS_HLP_SIP.html">SIP</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SSID</text>
+    <target FeatureID="-1" href="GLOS_HLP_SSID.html">SSID</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">streaming</text>
+    <target FeatureID="-1" href="GLOS_HLP_STREAMING.html">Streaming</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">USSD command</text>
+    <target FeatureID="-1" href="GLOS_HLP_USSD.html">USSD command</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_298">VoIP</text>
+    <target FeatureID="true_298" href="GLOS_HLP_VOIP.html">VoIP</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_102">VPN</text>
+    <target FeatureID="true_102" href="GLOS_HLP_VPN.html">VPN</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">WEP</text>
+    <target FeatureID="true_109" href="GLOS_HLP_WEP.html">WEP</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">WLAN</text>
+    <target FeatureID="true_109" href="GLOS_HLP_WLAN.html">WLAN</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_109">WPA ,WPA2</text>
+    <target FeatureID="true_109" href="GLOS_HLP_WPA.html">WPA and WPA2</target>
+  </keywords>
+</keywords>

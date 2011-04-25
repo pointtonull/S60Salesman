@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
+			href="../../theme/xsl/index2html.xslt" type="text/xsl"
+			?>
+<topics title="Settings" compressed="true"><topicref href="SET_HLP_VPN_CONFIG_MAIN.html" navtitle="VPN management"/><topicref href="SET_HLP_VPN_LOG_VIEW.html" navtitle="VPN log"/><topicref href="SET_HLP_VPN_POLICY_SERVERS.html" navtitle="VPN policy servers"/><topicref href="SET_HLP_VPN_POLICY_SERVER_SET.html" navtitle="VPN server settings"/><topicref href="SET_HLP_VPN_POLICY_VIEW.html" navtitle="VPN policies"/></topics>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="OMA provisioning" compressed="true">
+  <topicref FeatureID="-1" href="PROV_HLP_CONFCONT.html" navtitle="Configuration context"></topicref>
+  <topicref FeatureID="-1" href="PROV_HLP_PROVISIONVIEW.html" navtitle="Configuration messages"></topicref>
+</topics>

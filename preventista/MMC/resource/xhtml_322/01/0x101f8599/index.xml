@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Gallery" compressed="true">
+  <topicref FeatureID="-1" href="MG_HLP_ALBUM_IM.html" navtitle="Images in folders"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_ALBUM_VI.html" navtitle="Your video folders"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_IMAGES.html" navtitle="Images folder"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_LINKS.html" navtitle="Web links to media files"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_MAIN.html" navtitle="View media files"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_MULTISEL_QUERY.html" navtitle="Select many items"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_MUSIC.html" navtitle="Music tracks folder"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_PRESENTATIONS.html" navtitle="Presentations folder"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_SOUNDS.html" navtitle="Sound clips folder"></topicref>
+  <topicref FeatureID="-1" href="MG_HLP_VIDEOS.html" navtitle="Video clips folder"></topicref>
+</topics>

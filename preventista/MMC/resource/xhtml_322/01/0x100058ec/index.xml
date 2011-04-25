@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
+<topics FeatureID="-1" title="Settings" compressed="true">
+  <topicref FeatureID="true_1515" href="SET_HLP_WLAN_EAP_FAST_SUITES.html" navtitle="Cipher suites for EAP-FAST"></topicref>
+  <topicref FeatureID="true_1515" href="SET_HLP_WLAN_EAP_FAST_SETT.html" navtitle="EAP-FAST settings"></topicref>
+  <topicref FeatureID="true_1515" href="SET_HLP_WLAN_EAP_FAST_TYPES.html" navtitle="EAP-FAST authent. methods"></topicref>
+  <topicref FeatureID="-1" href="ACL_HLP_MAIN.html" navtitle="Restrict connections"></topicref>
+  <topicref FeatureID="true_1608" href="DIV_HLP_BARRING_MAIN.html" navtitle="Bar calls"></topicref>
+  <topicref FeatureID="-1" href="DIV_HLP_CALL_FORW_DAT.html" navtitle="Divert data/video calls"></topicref>
+  <topicref FeatureID="true_1609" href="DIV_HLP_CALL_FORW_FAX.html" navtitle="Divert fax calls"></topicref>
+  <topicref FeatureID="true_1609" href="DIV_HLP_CALL_FORW_MAIN.html" navtitle="Call divert"></topicref>
+  <topicref FeatureID="true_1609" href="DIV_HLP_CALL_FORW_VOI.html" navtitle="Divert voice calls"></topicref>
+  <topicref FeatureID="true_298" href="DIV_HLP_CALL_FORW_VOIP.html" navtitle="Bar internet calls"></topicref>
+  <topicref FeatureID="-1" href="PROV_HLP_CONFCONT.html" navtitle="Configurations"></topicref>
+  <topicref FeatureID="-1" href="RD_HLP_REMOTE_DRIVES.html" navtitle="Remote drives"></topicref>
+  <topicref FeatureID="-1" href="RD_HLP_REMOTE_DRIVE_CONFIG.html" navtitle="Remote drive settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESSORIES_HEADPHONE.html" navtitle="Headphone settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESSORIES_HEADSET.html" navtitle="Headset settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESSORIES_LIST.html" navtitle="Enhancement settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESSORIES_LOOPSET.html" navtitle="Loopset settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESSORIES_MUSIC_ST.html" navtitle="Music stand settings"></topicref>
+  <topicref FeatureID="true_1032" href="SET_HLP_ACCESSORIES_TTY.html" navtitle="Text phone settings"></topicref>
+  <topicref FeatureID="true_1540" href="SET_HLP_ACCESSORIES_TVOUT.html" navtitle="TV-out settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESS_WIRED_CK.html" navtitle="Wired car kit settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_ACCESS_WIRELESS_CK.html" navtitle="Wireless car kit settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_APPLICATIONS_LIST.html" navtitle="Application settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_APP_DEST_ASSOC_VIEW.html" navtitle="Application connections"></topicref>
+  <topicref FeatureID="true_110" href="SET_HLP_AP_DATA_AS_IPV4.html" navtitle="Data call IPv4 settings"></topicref>
+  <topicref FeatureID="true_1088" href="SET_HLP_AP_DATA_AS_IPV6.html" navtitle="Data call IPv6 settings"></topicref>
+  <topicref FeatureID="true_110" href="SET_HLP_AP_SETTING_DATA.html" navtitle="Data call access point"></topicref>
+  <topicref FeatureID="true_110" href="SET_HLP_AP_SETTING_DATA_AS.html" navtitle="Adv. data call settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_AP_SETTING_GPRS.html" navtitle="Packet data access point"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_AP_SETTING_GPRS_AS.html" navtitle="Adv. packet data sett."></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_AP_SETTING_WLAN.html" navtitle="WLAN access point"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_AP_SETTING_WLAN_AS.html" navtitle="Adv. WLAN settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_AP_WLAN_AS_IPV4.html" navtitle="WLAN IPv4 settings"></topicref>
+  <topicref FeatureID="true_1088" href="SET_HLP_AP_WLAN_AS_IPV6.html" navtitle="WLAN IPv6 settings"></topicref>
+  <topicref FeatureID="true_1608" href="SET_HLP_BARRING_SETTINGS.html" navtitle="Bar phone calls"></topicref>
+  <topicref FeatureID="true_110" href="SET_HLP_CONNEC_DATA.html" navtitle="Data call settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_CONNEC_GPRS.html" navtitle="Packet data settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_CONN_DEST_VIEW.html" navtitle="Destinations view"></topicref>
+  <topicref FeatureID="true_1693" href="SET_HLP_DEFAULT_CONN.html" navtitle="Default connection"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_CONN_LIST.html" navtitle="Connection settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_CONN_METHODS_VIEW.html" navtitle="Access points view"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_GENERAL_LIST.html" navtitle="General settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_GENERAL_ORIG_SET.html" navtitle="Restore original settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_PERSONAL_DISPLAY.html" navtitle="Display settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_PERSONAL_IDLE.html" navtitle="Standby mode settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_PERSONAL_LANGUAGE.html" navtitle="Language settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_PERSONAL_LIST.html" navtitle="Personalisation settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_SECURITY_DEVICE_SIM.html" navtitle="Phone and SIM security"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_SECURITY_LIST.html" navtitle="Security settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_SETTINGS_MAIN_VIEW.html" navtitle="Edit settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_TELEPHONE_LIST.html" navtitle="Telephone settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_TELEP_CALL_SET.html" navtitle="Call settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_TELEP_NETWORK_SET.html" navtitle="Network settings"></topicref>
+  <topicref FeatureID="-1" href="SET_HLP_TRANSACTION_TRACKING.html" navtitle="Track media files"></topicref>
+  <topicref FeatureID="true_102" href="SET_HLP_VPN_AP_SETTINGS_VIEW.html" navtitle="Edit VPN access points"></topicref>
+  <topicref FeatureID="true_102" href="SET_HLP_VPN_DEST_ASSOC_VIEW.html" navtitle="VPN connections"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_8021X_MAIN.html" navtitle="802.1x security settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_ADV_SETTINGS.html" navtitle="WLAN advanced settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_AKA.html" navtitle="EAP-AKA settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_GTC.html" navtitle="EAP-GTC settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_LEAP.html" navtitle="EAP-LEAP settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_MSCHAPV2.html" navtitle="EAP-MSCHAPV2 settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_PEAP_SETT.html" navtitle="EAP-PEAP settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_PEAP_SUITES.html" navtitle="Cipher suites for EAP-PEAP"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_PEAP_TYPES.html" navtitle="EAP-PEAP authent. methods"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_PLAIN_MSCHAP.html" navtitle="Plain MSCHAPV2 settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_PLUGINS_IAP.html" navtitle="EAP settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_SIM.html" navtitle="EAP-SIM settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_TLS_SETT.html" navtitle="EAP-TLS settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_TLS_SUITES.html" navtitle="Cipher suites for EAP-TLS"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_TTLS_SETT.html" navtitle="EAP-TTLS settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_TTLS_SUITES.html" navtitle="Cipher suites for EAP-TTLS"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_EAP_TTLS_TYPES.html" navtitle="EAP-TTLS authent. methods"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_SETTINGS.html" navtitle="WLAN settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_WEP_KEY_SETT.html" navtitle="Edit WEP keys"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_WEP_MAIN.html" navtitle="WEP security settings"></topicref>
+  <topicref FeatureID="true_109" href="SET_HLP_WLAN_WPA_MAIN.html" navtitle="WPA security settings"></topicref>
+  <topicref FeatureID="-1" href="SIP_HLP_MAIN.html" navtitle="SIP profiles"></topicref>
+  <topicref FeatureID="-1" href="SIP_HLP_PROF_PARAMS.html" navtitle="SIP profile settings"></topicref>
+  <topicref FeatureID="-1" href="SIP_HLP_PROXY_PARAMS.html" navtitle="SIP proxy settings"></topicref>
+  <topicref FeatureID="-1" href="SIP_HLP_REGISTRAR_PARAM.html" navtitle="Registrar server settings"></topicref>
+</topics>

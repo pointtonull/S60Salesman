@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="true_1509">postcard</text>
+    <target FeatureID="-1" href="MMS_POSTCARD_HLP_ADDRESS_EDIT.html">Edit addresses</target>
+    <target FeatureID="-1" href="MMS_POSTCARD_HLP_MAIN_EDIT.html">Create postcards</target>
+    <target FeatureID="-1" href="POSTCARD_HLP_ADDRESS_VIEW.html">View addresses</target>
+    <target FeatureID="-1" href="POSTCARD_HLP_GREETING_EDIT.html">Write greetings</target>
+    <target FeatureID="-1" href="POSTCARD_HLP_GREETING_VIEW.html">View greetings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1509">sending postcards</text>
+    <target FeatureID="-1" href="MMS_POSTCARD_HLP_ADDRESS_EDIT.html">Edit addresses</target>
+    <target FeatureID="-1" href="MMS_POSTCARD_HLP_MAIN_EDIT.html">Create postcards</target>
+    <target FeatureID="-1" href="POSTCARD_HLP_GREETING_EDIT.html">Write greetings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1509">postcards</text>
+    <target FeatureID="-1" href="MMS_POSTCARD_HLP_MAIN_VIEW.html">View postcards</target>
+  </keywords>
+</keywords>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">Mail for Exchange</text>
+    <target FeatureID="-1" href="EAS_HLP_CAL_SETTINGS.html">Sync settings Calendar</target>
+    <target FeatureID="-1" href="EAS_HLP_CONTACTS_SETTINGS.html">Contacts settings</target>
+    <target FeatureID="-1" href="EAS_HLP_CONTENT_SETTINGS.html">Sync content settings</target>
+    <target FeatureID="-1" href="EAS_HLP_CRED_SETTINGS.html">Authority settings</target>
+    <target FeatureID="-1" href="EAS_HLP_EMAIL_SETTINGS.html">E-mail settings</target>
+    <target FeatureID="-1" href="EAS_HLP_MAIN.html">Mail for Exchange</target>
+    <target FeatureID="-1" href="EAS_HLP_PROFILE.html">Synchronisation settings</target>
+    <target FeatureID="-1" href="EAS_HLP_SYNC_SCHED_SETTINGS.html">Schedule settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">calendar sync settings</text>
+    <target FeatureID="-1" href="EAS_HLP_CAL_SETTINGS.html">Sync settings Calendar</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">Mail for Exchange settings</text>
+    <target FeatureID="-1" href="EAS_HLP_CONN_SETTINGS.html">Sync connection settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">contacts sync settings</text>
+    <target FeatureID="-1" href="EAS_HLP_CONTACTS_SETTINGS.html">Contacts settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sync content settings</text>
+    <target FeatureID="-1" href="EAS_HLP_CONTENT_SETTINGS.html">Sync content settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">authority settings</text>
+    <target FeatureID="-1" href="EAS_HLP_CRED_SETTINGS.html">Authority settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">e-mail sync settings</text>
+    <target FeatureID="-1" href="EAS_HLP_EMAIL_SETTINGS.html">E-mail settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">synchronisation,Microsoft Exchange</text>
+    <target FeatureID="-1" href="EAS_HLP_MAIN.html">Mail for Exchange</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sync settings,Mail for Exchange</text>
+    <target FeatureID="-1" href="EAS_HLP_PROFILE.html">Synchronisation settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sync schedule settings</text>
+    <target FeatureID="-1" href="EAS_HLP_SYNC_SCHED_SETTINGS.html">Schedule settings</target>
+  </keywords>
+</keywords>

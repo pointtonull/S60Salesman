@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+<keyword>
+<text>voice commands</text>
+<target href="VCINFO_HLP_MAINVIEW.html">For contacts</target>
+<target href="HLP_VC_SIND_FOLDER.html">For profiles</target>
+<target href="HLP_VC_SIND_MAIN.html">Using voice commands</target>
+</keyword>
+<keyword>
+<text>voice comm. settings</text>
+<target href="HLP_VC_SET.html">Voice command settings</target>
+</keyword>
+</keywords>
+

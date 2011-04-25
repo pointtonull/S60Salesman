@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywords>
+  <keywords>
+    <text FeatureID="-1">messages,sending</text>
+    <target FeatureID="-1" href="MCE_HLP_MESSAGING.html">Messaging centre</target>
+    <target FeatureID="-1" href="MCE_HLP_FOLDER.html">Organise messages</target>
+    <target FeatureID="-1" href="MCE_HLP_OUTBOX.html">Outbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">receiving messages</text>
+    <target FeatureID="-1" href="MCE_HLP_MESSAGING.html">Messaging centre</target>
+    <target FeatureID="-1" href="MCE_HLP_INBOX.html">Inbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SIM messages</text>
+    <target FeatureID="-1" href="MCE_HLP_SIM.html">View SIM messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">messages on SIM card</text>
+    <target FeatureID="-1" href="MCE_HLP_SIM.html">View SIM messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">settings,messaging</text>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS.html">Messaging settings</target>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS_SMS.html">Text message settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">messaging settings</text>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS.html">Messaging settings</target>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS_GEN.html">Other settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SMS settings</text>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS_SMS.html">Text message settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">text message settings</text>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS_SMS.html">Text message settings</target>
+    <target FeatureID="-1" href="SMS_HLP_SETTINGS_SCENTRES.html">Text msg. centre settings</target>
+    <target FeatureID="-1" href="SMS_HLP_SETTINGS_SCENTRES_EDIT.html">Edit text msg. centres</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">message centre settings</text>
+    <target FeatureID="-1" href="SMS_HLP_SETTINGS_SCENTRES.html">Text msg. centre settings</target>
+    <target FeatureID="-1" href="SMS_HLP_SETTINGS_SCENTRES_EDIT.html">Edit text msg. centres</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">SMS centre settings</text>
+    <target FeatureID="-1" href="SMS_HLP_SETTINGS_SCENTRES.html">Text msg. centre settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1092">text message e-mail</text>
+    <target FeatureID="true_1092" href="SMS_HLP_SETTINGS_SMS_EMAIL.html">Text msg. e-mail sett.</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1092">sms e-mail settings</text>
+    <target FeatureID="true_1092" href="SMS_HLP_SETTINGS_SMS_EMAIL.html">Text msg. e-mail sett.</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">MMS settings</text>
+    <target FeatureID="-1" href="MCE_HLP_SETTINGS_MMS.html">Multim. msg. settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1090">cell broadcast settings</text>
+    <target FeatureID="true_1090" href="MCE_HLP_SETTINGS_CB.html">Cell broadcast settings</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">inbox</text>
+    <target FeatureID="-1" href="MCE_HLP_INBOX.html">Inbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">my folders</text>
+    <target FeatureID="-1" href="MCE_HLP_DOCUMENTS.html">My folders</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">storing messages</text>
+    <target FeatureID="-1" href="MCE_HLP_DOCUMENTS.html">My folders</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">templates,messaging</text>
+    <target FeatureID="-1" href="MCE_HLP_TEMPLATES.html">Message templates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sending templates</text>
+    <target FeatureID="-1" href="MCE_HLP_TEMPLATES.html">Message templates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">message templates</text>
+    <target FeatureID="-1" href="MCE_HLP_TEMPLATES.html">Message templates</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">organising messages</text>
+    <target FeatureID="-1" href="MCE_HLP_FOLDER.html">Organise messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">saving draft messages</text>
+    <target FeatureID="-1" href="MCE_HLP_DRAFTS.html">Drafts</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">draft messages</text>
+    <target FeatureID="-1" href="MCE_HLP_DRAFTS.html">Drafts</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sent messages</text>
+    <target FeatureID="-1" href="MCE_HLP_SENT_ITEMS.html">Sent messages</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">outbox,viewing</text>
+    <target FeatureID="-1" href="MCE_HLP_OUTBOX.html">Outbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">sending messages</text>
+    <target FeatureID="-1" href="MCE_HLP_OUTBOX.html">Outbox</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="-1">delivery reports</text>
+    <target FeatureID="-1" href="MCE_HLP_DELIVERY_REPORTS.html">Delivery reports</target>
+  </keywords>
+  <keywords>
+    <text FeatureID="true_1132">MMS notifications</text>
+    <target FeatureID="true_1132" href="MCE_HLP_MMS_NOTIFICATIONS.html">Multimedia notifications</target>
+  </keywords>
+</keywords>
