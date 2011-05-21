@@ -4,12 +4,14 @@
 from subprocess import call, Popen, PIPE
 import os
 import sys
+from time import sleep
 
 REMOTE = "/media/tarjeta"
 LOCAL = os.path.abspath("MMC")
 
 
 def vcall(*args, **kwargs):
+    """Verbose call. Print the command, execute, return exit code"""
     print(", ".join(args))
     return call(*args, **kwargs)
 
@@ -24,8 +26,8 @@ def mount():
         disksdir = "/dev/disk/by-id"
         disks = os.listdir(disksdir)
         sd_cards = [disk for disk in disks
-            if ("usb-ChipsBnk_SD_MMCReader" in disk and
-                "part1" in disk)]
+            if (("Nokia_S60" in disk or "SD_MMCReader" in disk)
+                and "part1" in disk)]
 
         assert sd_cards
         error = vcall("sudo mount %s %s" % (os.path.join(disksdir, 
@@ -34,20 +36,29 @@ def mount():
 
 
 def umount():
-    error = vcall("sudo eject %s" % REMOTE, shell=True)
+    for attemp in range(3):
+        error = vcall("sudo umount %s" % REMOTE, shell=True)
+        if error:
+            print("Retrying")
+            sleep(1)
+        else:
+            break
     return error == 0
 
 
 def rsync(origen, destino):
     print("%s > %s" % (origen, destino))
-    vcall('sudo rsync -a "%s/" "%s"' % (origen, destino), shell=True)
+    vcall('sudo rsync -var --no-owner --no-g --modify-window=5 --delete'
+        ' "%s/" "%s"' % (origen, destino), shell=True)
 
 
 def main():
     assert mount()
-    for dirname in os.listdir(LOCAL):
+#    for dirname in os.listdir(LOCAL):
+    for dirname in (LOCAL,):
         localdirname = os.path.join(LOCAL, dirname)
-        remotedirname = os.path.join(REMOTE, dirname)
+#        remotedirname = os.path.join(REMOTE, dirname)
+        remotedirname = REMOTE
         if "-r" in sys.argv:
             rsync(remotedirname, localdirname)
         else:

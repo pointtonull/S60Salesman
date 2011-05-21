@@ -1,0 +1,11 @@
+format:QF
+client_id:s60Maps3.0
+voice_mode:Viking
+quota:710228377
+diskcache:cities\diskcache
+voicefiles:cities\diskcache\voices
+cachedats:cities
+languageID:83
+ttffiles:E:\cities
+build:v3.03 10wk10 b02 MW OpenGL LM MN
+client_version:1.3.18.0
