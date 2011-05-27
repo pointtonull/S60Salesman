@@ -1,12 +1,13 @@
+from formats import Number
+from key_codes import *
 import appuifw
 import e32
-from key_codes import *
- 
+
 
 class Converter(object):
     def __init__(self, items, handler=None):
         self.items = items
-        self.relation = [(item[0], float(item[1])) for item in items]
+        self.relation = [(item[0], Number(item[1])) for item in items]
         appuifw.app.exit_key_handler = self.quit
         self.app_lock = e32.Ao_lock()
 
@@ -20,7 +21,7 @@ class Converter(object):
     def handle_selection(self):
         label = self.items[self.listbox.current()][0]
         value = self.items[self.listbox.current()][1]
-        new_value = appuifw.query(label + ":", "float", float(value))
+        new_value = appuifw.query(label + ":", "float", Number(value))
         self.change(self.listbox.current(), new_value)
 
     def configure(self):
@@ -28,7 +29,7 @@ class Converter(object):
 
     def move(self, direction):
         change = {'right': 1, 'left': -1}.get(direction, 0)
-        old_value = float(self.items[self.listbox.current()][1])
+        old_value = Number(self.items[self.listbox.current()][1])
         if change > 0:
             new_value = int(old_value + change)
         else:
@@ -37,10 +38,10 @@ class Converter(object):
 
     def change(self, position, value):
         unit = self.relation[position][1]
-        items = [(item[0], u"%.2f" % (item[1] * value / unit))
+        items = [(item[0], u"%s" % Number(item[1] * value / unit))
             for item in self.relation]
         self.update(items)
- 
+
     def update(self, items, current=None):
         self.items = items
         if current is None:
@@ -57,10 +58,10 @@ class Converter(object):
 
 if __name__ == "__main__":
     items = [
-        (u"ARS", u"6.00"),
-        (u"EUR", u"1.00"),
-        (u"MEX", u"16.95"),
-        (u"USD", u"1.47"),
+        (u"ARS", u"6,00"),
+        (u"EUR", u"1,00"),
+        (u"MEX", u"16,95"),
+        (u"USD", u"1,47"),
     ]
     app = Converter(items)
     app.loop()
