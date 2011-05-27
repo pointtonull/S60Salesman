@@ -13,7 +13,12 @@ LOCAL = os.path.abspath("MMC")
 def vcall(*args, **kwargs):
     """Verbose call. Print the command, execute, return exit code"""
     print(", ".join(args))
-    return call(*args, **kwargs)
+    try:
+        error = call(*args, **kwargs)
+    except OSError, e:
+        print("Command failed: %s" % e)
+        error = None
+    return error
 
 
 def mount():
@@ -23,6 +28,7 @@ def mount():
     if any((REMOTE in line for line in mounteds)):
         return True
     else:
+        # FIXME: add media verification
         disksdir = "/dev/disk/by-id"
         disks = os.listdir(disksdir)
         sd_cards = [disk for disk in disks
@@ -37,7 +43,7 @@ def mount():
 
 def umount():
     for attemp in range(3):
-        error = vcall("sudo umount %s" % REMOTE, shell=True)
+        error = vcall('sudo umount "%s"' % REMOTE, shell=True)
         if error:
             print("Retrying")
             sleep(1)
@@ -54,10 +60,9 @@ def rsync(origen, destino):
 
 def main():
     assert mount()
-#    for dirname in os.listdir(LOCAL):
+    vcall('sudo cp "%s/debug.txt" "%s/debug.txt"' % (REMOTE, LOCAL), shell=True)
     for dirname in (LOCAL,):
         localdirname = os.path.join(LOCAL, dirname)
-#        remotedirname = os.path.join(REMOTE, dirname)
         remotedirname = REMOTE
         if "-r" in sys.argv:
             rsync(remotedirname, localdirname)
