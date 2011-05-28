@@ -1,7 +1,9 @@
-from debug import debug
 from appuifw import Listbox
+from formats import Number
+from debug import debug
+import appuifw
 
-class IListbox(Listbox):
+class IListbox: # Cannot inherit because of python version
     def __init__(self, items, default_editor=None):
         """
         Creates a Listbox instance.
@@ -20,54 +22,54 @@ class IListbox(Listbox):
                 (unicode, unicode, Icon): for a double line listbox with icons
 
             itemeditor is a callable that acepts this args:
-                listboxitem, data=None
+                listboxitem, itemdata=None
             and returns the new listboxitem values:
-                listboxitem: updates listboxitem only
                 listboxitem, itemdata: updates listboxitem and itemdata
 
             data is the auxiliar data that itemeditor could need.
 
-            change_handler is a callable that acepts this args:
-                listboxitem, Ilistbox_instance
-            could be used to update another listbox's items
+            change_handler is a callable that acepts this Ilistbox_instance as
+            argumner. Could call anothers listbox's items change_handlers.
+            Will be called when listboxitem or data are modified.
 
         default_editor, if one, will be used to edit the items withnot explicit
         editor, else a generic string editor will be used.
         """
-        
-        completed_items = []
-        for item in items:
-            new_item = [None, None, None, None]
-            for pos in xrange(len(item)):
-                new_item[pos] = item[pos]
-            completed_items.append(new_item)
-        self.items = completed_items
 
         if default_editor:
             self.default_editor = default_editor
         else:
-            self.default_editor = edit_str
+            self.default_editor = str_editor
+        
+        completed_items = []
+        for item in items:
+            new_item = [None, self.default_editor, None, None]
+            for pos in xrange(len(item)):
+                if item[pos] is not None:
+                    new_item[pos] = item[pos]
+            completed_items.append(new_item)
+        self.items = completed_items
 
+        self.listboxitems = []
         self.update_listboxitems()
-        appuifw.Listbox.__init__(self, self.listboxitems, self.handler)
+        self.listbox = Listbox.__init__(self, self.listboxitems, self.handler)
 
 
-    def update_listboxitems(self)
+    def update_listboxitems(self):
         """
         Updates the list of listbox items
 
         """
-        self.listboxitems = [item[0] for item in items]
+        self.listboxitems = [item[0] for item in self.items]
 
 
-    def redraw(self, current_pos=None)
+    def redraw(self, current_pos=None):
         """
         Updates listbox updating and applying the listbox items
         """
         if not current_pos:
-            current_pos = self.current()
-        self.update_listboxitems()
-        self.set_list(self.listboxitems, current_pos)
+            current_pos = self.listbox.current()
+        self.listbox.set_list(self.listboxitems, current_pos)
 
 
     def handler(self):
@@ -75,17 +77,30 @@ class IListbox(Listbox):
         Will be called when a item is selected. Calls itemeditor,
         change_handler (if any) and redraw.
         """
-        current_pos = self.current()
+        current_pos = self.listbox.current()
         current_item = self.items[current_pos]
 
         listboxitem, itemeditor, itemdata, change_handler = current_item
+        new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
+        current_item[0] = new_listboxitem
+        current_item[2] = new_itemdata
 
-        itemeditor(listboxitem, itemeditor, itemdata)
+        self.update_listboxitems()
+        
+        if change_handler:
+            if listboxitem != new_listboxitem or itemdata != new_itemdata:
+                debug("Ilistbox:change:change_handler::%s" %
+                    change_handler(self))
+            else:
+                debug("Ilistbox:change:no changes were made")
+        else:
+            debug("Ilistbox:no change_handler")
 
+        self.update_listboxitems()
         self.redraw(current_pos)
 
 
-def edit_str(listboxitem, data=None):
+def str_editor(listboxitem, itemdata=None):
     """
     Simple universal text editor.
     """
@@ -106,4 +121,28 @@ def edit_str(listboxitem, data=None):
         if element:
             listboxitem.append(element)
 
-    return tuple(listboxitem)
+    return tuple(listboxitem), itemdata
+
+
+def number_editor(listboxitem, itemdata=None):
+    """
+    Number editor
+    """
+    strings = [None]
+    icon = None
+    for element in listboxitem:
+        if type(element) is unicode:
+            strings.append(element)
+        else:
+            icon = element
+    value = strings.pop()
+    label = strings.pop()
+
+    new_value = u"%s" % appuifw.query(u"%s:" % label, "float", Number(value))
+
+    listboxitem = []
+    for element in (label, new_value, icon):
+        if element:
+            listboxitem.append(element)
+
+    return tuple(listboxitem), itemdata
