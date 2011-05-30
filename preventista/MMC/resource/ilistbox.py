@@ -1,4 +1,4 @@
-from appuifw import Listbox
+from appuifw import Listbox, selection_list
 from formats import Number
 from debug import debug
 import appuifw
@@ -79,7 +79,7 @@ class Ilistbox: # Cannot inherit because of python version
     def handler(self):
         """
         Will be called when a item is selected. Calls itemeditor,
-        change_handler (if any) and redraw.
+        change_handler (if any) and redraw if needed.
         """
         changed_pos = self.listbox.current()
         changed_item = self.items[changed_pos]
@@ -104,6 +104,7 @@ class Ilistbox: # Cannot inherit because of python version
 
         else:
             debug("Ilistbox:change:no changes were made")
+
 
 def str_editor(listboxitem, itemdata=None):
     """
@@ -143,12 +144,44 @@ def number_editor(listboxitem, itemdata=None):
     value = strings.pop()
     label = strings.pop()
 
-    new_value = u"%s" % Number(appuifw.query(u"%s:" % label, "float",
-        Number(value)))
+
+def list_editor(listboxitem, itemdata=None):
+    """
+    List editor, asumes:
+        itemdata = (choices, current_index, search_field)
+
+        choices: is a list of unicode strings
+        current_index: is the index of the last selected item
+        searchfield: could be 0 or 1
+    """
+    strings = [None]
+    icon = None
+    for element in listboxitem:
+        if type(element) is unicode:
+            strings.append(element)
+        else:
+            icon = element
+    value = strings.pop()
+    label = strings.pop()
+
+    choices, current_index, search_field = itemdata
+
+    new_index = selection_list(choices, search_field=search_field)
+    new_value = unicode(choices[new_index])
 
     listboxitem = []
     for element in (label, new_value, icon):
         if element:
             listboxitem.append(element)
 
+    itemdata = (choices, current_index, search_field)
+
     return tuple(listboxitem), itemdata
+
+#        Quey options
+#        (u'Mobile','text', u'Nokia')
+#        (u'Date', 'date')
+#        (u"Date", 'date', time.time())
+#        (u'Prueba','number', randrange(10))
+#        (u'Time', 'time')
+
