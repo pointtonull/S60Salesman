@@ -31,9 +31,22 @@ def update_sys_path():
 
 def main():
     update_sys_path()
-    from debug import debug
+    from debug import debug, FILEO 
     debug("Path: %s" % sys.path)
-    return 0
+    import traceback
+
+    from myapp import main as main_app
+    from appuifw import note
+    try:
+        result = main_app()
+    except:
+        debug("Captured traceback")
+        debug(traceback.print_exc(file=FILEO))
+        note("Error inesperado", "error")
+        result = 1
+
+    return result
+
 
 
 if __name__ == "__main__":

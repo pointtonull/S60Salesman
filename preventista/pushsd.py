@@ -61,6 +61,11 @@ def rsync(origen, destino):
 def main():
     assert mount()
     vcall('sudo cp "%s/debug.txt" "%s/debug.txt"' % (REMOTE, LOCAL), shell=True)
+    try:
+        print(open("%s/debug.txt" % LOCAL).read())
+    except:
+        print("No debug file found.")
+
     for dirname in (LOCAL,):
         localdirname = os.path.join(LOCAL, dirname)
         remotedirname = REMOTE
@@ -68,8 +73,8 @@ def main():
             rsync(remotedirname, localdirname)
         else:
             rsync(localdirname, remotedirname)
-    assert umount()
 
+    assert umount()
 
 if __name__ == "__main__":
     exit(main())

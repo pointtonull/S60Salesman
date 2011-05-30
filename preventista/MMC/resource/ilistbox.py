@@ -143,7 +143,17 @@ def number_editor(listboxitem, itemdata=None):
             icon = element
     value = strings.pop()
     label = strings.pop()
+    
+    new_value = appuifw.query(u"%s:" % label, "float", Number(value))
+    new_value = unicode(Number(new_value))
 
+    listboxitem = []
+    for element in (label, new_value, icon):
+        if element:
+            listboxitem.append(element)
+
+    return tuple(listboxitem), itemdata
+    
 
 def list_editor(listboxitem, itemdata=None):
     """

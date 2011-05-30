@@ -1,3 +1,2 @@
-['E:\\private\\2000b1a5', 'e:\\resource', 'e:\\resource', 'c:\\resource']
-3,14
-<class 'formats.Number'>
+Re-estarting debug: 1268505508
+   0 - Path: ['E:\\private\\2000b1a5', 'e:\\resource', 'c:\\resource']
