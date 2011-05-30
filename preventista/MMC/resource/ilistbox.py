@@ -3,7 +3,7 @@ from formats import Number
 from debug import debug
 import appuifw
 
-class IListbox: # Cannot inherit because of python version
+class Ilistbox: # Cannot inherit because of python version
     def __init__(self, items, default_editor=None):
         """
         Creates a Listbox instance.
@@ -28,14 +28,15 @@ class IListbox: # Cannot inherit because of python version
 
             data is the auxiliar data that itemeditor could need.
 
-            change_handler is a callable that acepts this Ilistbox_instance as
-            argumner. Could call anothers listbox's items change_handlers.
-            Will be called when listboxitem or data are modified.
+            change_handler is a callable that acepts this args:
+                own_item, changed_item, Ilistbox_instance
+            Will be called when some item change their listboxitem or data.
 
         default_editor, if one, will be used to edit the items withnot explicit
         editor, else a generic string editor will be used.
         """
 
+        debug("ilistbox:Ilistbox:__init__::start")
         if default_editor:
             self.default_editor = default_editor
         else:
@@ -49,10 +50,13 @@ class IListbox: # Cannot inherit because of python version
                     new_item[pos] = item[pos]
             completed_items.append(new_item)
         self.items = completed_items
+        debug("ilistbox:Ilistbox:__init__::self.items = %s" % self.items)
 
-        self.listboxitems = []
         self.update_listboxitems()
-        self.listbox = Listbox.__init__(self, self.listboxitems, self.handler)
+        debug("ilistbox:Ilistbox:__init__::self.listboxitems = %s" %
+            self.listboxitems)
+        self.listbox = Listbox(self.listboxitems, self.handler)
+        debug("ilistbox:Ilistbox:__init__::end")
 
 
     def update_listboxitems(self):
@@ -77,28 +81,29 @@ class IListbox: # Cannot inherit because of python version
         Will be called when a item is selected. Calls itemeditor,
         change_handler (if any) and redraw.
         """
-        current_pos = self.listbox.current()
-        current_item = self.items[current_pos]
+        changed_pos = self.listbox.current()
+        changed_item = self.items[changed_pos]
 
-        listboxitem, itemeditor, itemdata, change_handler = current_item
+        listboxitem, itemeditor, itemdata, change_handler = changed_item
         new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
-        current_item[0] = new_listboxitem
-        current_item[2] = new_itemdata
+        changed_item[0] = new_listboxitem
+        changed_item[2] = new_itemdata
 
-        self.update_listboxitems()
-        
-        if change_handler:
-            if listboxitem != new_listboxitem or itemdata != new_itemdata:
-                debug("Ilistbox:change:change_handler::%s" %
-                    change_handler(self))
-            else:
-                debug("Ilistbox:change:no changes were made")
+        if listboxitem != new_listboxitem or itemdata != new_itemdata:
+            for item in self.items:
+                change_handler = item[3]
+                if change_handler:
+                    result = change_handler(item, changed_item, self)
+                    debug("Ilistbox:item %s:change_handler::%s" %
+                        (item[0][0], result))
+                else:
+                    debug("Ilistbox:item %s has no change_handler" % item[0][0])
+
+            self.update_listboxitems()
+            self.redraw(changed_pos)
+
         else:
-            debug("Ilistbox:no change_handler")
-
-        self.update_listboxitems()
-        self.redraw(current_pos)
-
+            debug("Ilistbox:change:no changes were made")
 
 def str_editor(listboxitem, itemdata=None):
     """
@@ -138,7 +143,8 @@ def number_editor(listboxitem, itemdata=None):
     value = strings.pop()
     label = strings.pop()
 
-    new_value = u"%s" % appuifw.query(u"%s:" % label, "float", Number(value))
+    new_value = u"%s" % Number(appuifw.query(u"%s:" % label, "float",
+        Number(value)))
 
     listboxitem = []
     for element in (label, new_value, icon):
