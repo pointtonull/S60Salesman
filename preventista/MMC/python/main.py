@@ -32,7 +32,7 @@ def update_sys_path():
 def main():
     update_sys_path()
     from debug import debug
-    debug(sys.path)
+    debug("Path: %s" % sys.path)
     return 0
 
 
