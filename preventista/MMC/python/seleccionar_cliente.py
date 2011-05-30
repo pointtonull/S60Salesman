@@ -15,8 +15,6 @@
 #            data[2] = control_prueba_int
 #            self.data = data
 #        return False
-
-
 #    def loop(self):
 ##        appuifw.app.body = self.form
 #        self.app_lock.wait()
