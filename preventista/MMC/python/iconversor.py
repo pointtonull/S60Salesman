@@ -1,55 +1,47 @@
 from formats import Number
-from key_codes import *
+from ilistbox import Ilistbox, str_editor, number_editor
 import appuifw
 import e32
-from ilistbox import Ilistbox, str_editor, number_editor
 
 
 class Converter(object):
-    def __init__(self, items):
+    def __init__(self):
         items = [
-            ((u"ARS", u"06,00"), number_editor),
-            ((u"EUR", u"01,00"), number_editor),
-            ((u"MEX", u"16,95"), number_editor),
-            ((u"USD", u"01,47"), number_editor),
+            ((u"ARS", u"6,00"), number_editor, 6., update_divisa),
+            ((u"EUR", u"1,00"), number_editor, 1., update_divisa),
+            ((u"MEX", u"16,95"), number_editor, 16.95, update_divisa),
+            ((u"USD", u"1,47"), number_editor, 1.47, update_divisa),
         ]
+
         appuifw.app.exit_key_handler = self.quit
         self.app_lock = e32.Ao_lock()
 
-        self.listbox = Ilistbox(items, handler)
+        self.ilistbox = Ilistbox(items)
 
-        def configure(self):
-            appuifw.app.body = self.listbox
+    def configure(self):
+        appuifw.app.body = self.ilistbox.listbox
 
-        def loop(self):
-            self.configure()
-            self.app_lock.wait()
+    def loop(self):
+        self.configure()
+        self.app_lock.wait()
 
-        def quit(self):
-            self.app_lock.signal()
+    def quit(self):
+        self.app_lock.signal()
 
 
-class Oldway
-        self.listbox.bind(EKeyRightArrow, lambda:self.move('right'))
-        self.listbox.bind(EKeyLeftArrow, lambda:self.move('left'))
+def update_divisa(self, changed, ilistbox):
+    self_label, self_value = self[0]
+    self_divisa = self[2]
 
-    def handle_selection(self):
-        label = self.items[self.listbox.current()][0]
-        value = self.items[self.listbox.current()][1]
-        new_value = appuifw.query(label + ":", "float", Number(value))
-        self.change(self.listbox.current(), new_value)
+    changed_label, changed_value = changed[0]
+    changed_divisa = changed[2]
+    changed_value = Number(changed_value)
 
-    def change(self, position, value):
-        unit = self.relation[position][1]
-        items = [(item[0], u"%s" % Number(item[1] * value / unit))
-            for item in self.relation]
-        self.update(items)
+    new_value = (changed_value / changed_divisa) * self_divisa
+    new_value = unicode(Number(new_value))
 
-    def update(self, items, current=None):
-        self.items = items
-        if current is None:
-            current = self.listbox.current()
-        self.listbox.set_list(self.items, self.listbox.current())
+    self[0] = (self_label, new_value)
+    return True
 
 
 if __name__ == "__main__":
