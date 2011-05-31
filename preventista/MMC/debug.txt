@@ -1,23 +1,9 @@
-Re-estarting debug: 1268590530
-   0 - Path: ['E:\\private\\2000b1a5', 'e:\\resource', 'c:\\resource']
-   6 - ilistbox:Ilistbox:__init__::start
-   6 - ilistbox:Ilistbox:__init__::self.items = [[(u'Zona', u'<TODAS>'), <function list_editor at 0x1753048>, ([u'<TODAS>', u'OTRAS', u'SAN MART\xcdN, ENTRE BUENOS AIRES Y PELLEGRINI'], 0, 1), None], [(u'Cliente', u'ALESSIO'), <function list_editor at 0x1753048>, ([u'ALESSIO', u'CARLOS CABRERA', u'SANDRA ALINCASTRO', u'SANTIAGO RUSSO'], 0, 1), <bound method Select_client.update_clients_list of <dialogs.select_client.Select_client object at 0x1745070>>]]
-   6 - ilistbox:Ilistbox:__init__::self.listboxitems = [(u'Zona', u'<TODAS>'), (u'Cliente', u'ALESSIO')]
-   6 - ilistbox:Ilistbox:__init__::end
-  28 - Ilistbox:item Zona has no change_handler
-  28 - update_clients_list::changed_item[0]: (u'Zona', u'SAN MART\xcdN, ENTRE BUENOS AIRES Y PELLEGRINI')
-  28 - Zona ha sido cambiada, actualizando lista de clientes.
-  28 - Ilistbox:item Cliente:change_handler::None
-  51 - Ilistbox:change:no changes were made
-  56 - Ilistbox:item Zona has no change_handler
-  56 - update_clients_list::changed_item[0]: (u'Zona', u'OTRAS')
-  56 - Zona ha sido cambiada, actualizando lista de clientes.
-  56 - Ilistbox:item Cliente:change_handler::None
-  59 - Ilistbox:item Zona has no change_handler
-  59 - update_clients_list::changed_item[0]: (u'Cliente', u'CARLOS CABRERA')
-  59 - Zona no ha sido actualizada
-  59 - Ilistbox:item Cliente:change_handler::None
-1997 - ilistbox:Ilistbox:__init__::start
-1997 - ilistbox:Ilistbox:__init__::self.items = [[(u'Zona', u'<TODAS>'), <function list_editor at 0x1753048>, ([u'<TODAS>', u'OTRAS', u'SAN MART\xcdN, ENTRE BUENOS AIRES Y PELLEGRINI'], 0, 1), None], [(u'Cliente', u'ALESSIO'), <function list_editor at 0x1753048>, ([u'ALESSIO', u'CARLOS CABRERA', u'SANDRA ALINCASTRO', u'SANTIAGO RUSSO'], 0, 1), <bound method Select_client.update_clients_list of <dialogs.select_client.Select_client object at 0x1745b20>>]]
-1997 - ilistbox:Ilistbox:__init__::self.listboxitems = [(u'Zona', u'<TODAS>'), (u'Cliente', u'ALESSIO')]
-1997 - ilistbox:Ilistbox:__init__::end
+Captured traceback
+Traceback (most recent call last):
+  File "e:\data\python\preventista\preventista.py", line 62, in select_client
+    self.dialog = Select_client(callback)
+  File "e:\data\python\preventista\dialogs\select_client.py", line 46, in __init__
+    self.clientes = import_dsv(r"e:\python\data\input\clientes.csv")
+  File "e:\data\python\preventista\auto_dsv.py", line 7, in import_dsv
+    data = open(filename).read()
+IOError: [Errno 2] No such file or directory: 'e:\\python\\data\\input\\clientes.csv'
