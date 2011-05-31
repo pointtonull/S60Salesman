@@ -8,11 +8,13 @@ from time import sleep
 
 REMOTE = "/media/tarjeta"
 LOCAL = os.path.abspath("MMC")
+VERBOSE = 0
 
 
 def vcall(*args, **kwargs):
     """Verbose call. Print the command, execute, return exit code"""
-    print(", ".join(args))
+    if VERBOSE:
+        print(", ".join(args))
     try:
         error = call(*args, **kwargs)
     except OSError, e:

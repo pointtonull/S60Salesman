@@ -3,6 +3,8 @@
 
 from time import time
 import sys
+import traceback
+from appuifw import note
 
 DEBUG_FILE = r"e:\debug.txt"
 IMPORT_TIME = time()
@@ -17,13 +19,10 @@ if DEBUG > 0:
     file.write("Re-estarting debug: %d\n" % IMPORT_TIME)
     file.close()
 
-FILEO = open(DEBUG_FILE, "a")
-sys.stderr = FILEO 
-
 def debug(message):
     files = []
     if DEBUG > 1:
-        files.append(sys.stdout)
+        files.append(sys.stderr)
     if DEBUG > 0:
         files.append(open(DEBUG_FILE, "a"))
 
@@ -32,9 +31,15 @@ def debug(message):
         message = "%4d - %s\n" % (new_time, message)
         for file in files:
             file.write(message)
-            file.flush()
+            file.close()
 
     return DEBUG
 
+def tracetofile():
+    file = open(DEBUG_FILE, "w")
+    file.write("Captured traceback\n")
+    traceback.print_exc(file=file)
+    file.close()
+    note(u"Error inesperado", "error")
 
 __all__ = ["debug"]

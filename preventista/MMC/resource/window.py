@@ -160,7 +160,7 @@ class Dialog(Window):
         Many dialogs are allowed, each one with their own set of body+menu+exit
         handler.
     """
-    def __init__(self, cbk, title, body, menu = None, exit_handler = None):
+    def __init__(self, cbk, title, body, menu=None, exit_handler=None):
         """ Create a dialog. cbk is called when dialog is closing.
             Dialog contents, like title and body need
             to be specified. If menu or exit_handler are not specified,

@@ -177,6 +177,8 @@ def list_editor(listboxitem, itemdata=None):
     choices, current_index, search_field = itemdata
 
     new_index = selection_list(choices, search_field=search_field)
+    if new_index is None:
+        new_index = 0
     new_value = unicode(choices[new_index])
 
     listboxitem = []
