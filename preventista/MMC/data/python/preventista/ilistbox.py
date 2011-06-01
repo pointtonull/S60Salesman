@@ -1,5 +1,5 @@
 from appuifw import Listbox, selection_list
-from formats import Number
+from formats import Number, Date
 from debug import debug, tracetofile
 import appuifw
 
@@ -128,7 +128,7 @@ class Ilistbox: # Cannot inherit because of python version
             debug("Ilistbox:handler:no changes were made")
 
 
-def dummy_edit(listboxitem, itemdata=None):
+def dummy_editor(listboxitem, itemdata=None):
     """
     Just do nothing. Is the default editor.
     """
@@ -137,7 +137,7 @@ def dummy_edit(listboxitem, itemdata=None):
 
 def str_editor(listboxitem, itemdata=None):
     """
-    Simple universal text editor.
+    Simple universal string editor.
     """
     strings = [None]
     icon = None
@@ -158,6 +158,56 @@ def str_editor(listboxitem, itemdata=None):
 
     return tuple(listboxitem), itemdata
 
+
+def text_editor(listboxitem, itemdata=None):
+    """
+    Simple universal text editor.
+    """
+    # FIXME: Must use appuifw.Text for long texts.
+    strings = [None]
+    icon = None
+    for element in listboxitem:
+        if type(element) is unicode:
+            strings.append(element)
+        else:
+            icon = element
+    value = strings.pop()
+    label = strings.pop()
+
+    new_value = appuifw.query(u"%s:" % label, "text", value)
+
+    listboxitem = []
+    for element in (label, new_value, icon):
+        if element:
+            listboxitem.append(element)
+
+    return tuple(listboxitem), itemdata
+
+
+def date_editor(listboxitem, itemdata=None):
+    """
+    Date editor
+    """
+    strings = [None]
+    icon = None
+    for element in listboxitem:
+        if type(element) is unicode:
+            strings.append(element)
+        else:
+            icon = element
+    value = strings.pop()
+    label = strings.pop()
+    
+    new_value = appuifw.query(u"%s:" % label, "date", Date(value))
+    new_value = unicode(Date(new_value))
+
+    listboxitem = []
+    for element in (label, new_value, icon):
+        if element:
+            listboxitem.append(element)
+
+    return tuple(listboxitem), itemdata
+    
 
 def number_editor(listboxitem, itemdata=None):
     """

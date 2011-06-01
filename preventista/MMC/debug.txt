@@ -1,9 +1,50 @@
+  File "e:\data\python\preventista\dialogs.py", line 21, in __init__
+    Dialog.__init__(self, )
+TypeError: __init__() takes at least 4 arguments (1 given)
+Re-estarting debug: 1268703964
+   0 - Path: ['E:\\Private\\20022ee9\\lib.zip', 'e:\\data\\python\\preventista', 'c:\\resource\\python25\\python25.zip', 'c:\\resource\\python25']
+   2 - formats:Date:__new__::datetime: 2011-04-08
+   2 - formats:Date:__new__::datetime: 2011-04-09
+   2 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'BARRIO UNIVERSITARIO'), (u'Cliente', u'ALESSIO'), (u'  Ped. 1 para el 07/04/2011', u'  Comentario: Si entre burros te ves, rebuzna alguna vez. '), (u'  Ped. 6 para el 08/04/2011', u'  Comentario: A medida que avanza una discusi\xc3\xb3n, retrocede la verdad. '), (u'A\xf1adir pedido', u'')]
+   4 - (((u'Cliente', u'ALESSIO'), <function dummy_editor at 0x18d5430>), ((u'Comentario', u''), <function text_editor at 0x18894f0>))
+   4 - Ilistbox:update_listboxitems::listboxitems = [(u'Cliente', u'ALESSIO'), (u'Comentario', u'')]
 Captured traceback
 Traceback (most recent call last):
-  File "e:\data\python\preventista\preventista.py", line 62, in select_client
-    self.dialog = Select_client(callback)
-  File "e:\data\python\preventista\dialogs\select_client.py", line 46, in __init__
-    self.clientes = import_dsv(r"e:\python\data\input\clientes.csv")
-  File "e:\data\python\preventista\auto_dsv.py", line 7, in import_dsv
-    data = open(filename).read()
-IOError: [Errno 2] No such file or directory: 'e:\\python\\data\\input\\clientes.csv'
+  File "e:\data\python\preventista\preventista.py", line 73, in edit_pedido
+    self.dialog = Pedido_editor(callback, nombre_cliente, pedido)
+NameError: global name 'nombre_cliente' is not defined
+Captured traceback
+Traceback (most recent call last):
+  File "e:\data\python\preventista\ilistbox.py", line 98, in handler
+    new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
+  File "e:\data\python\preventista\preventista.py", line 76, in edit_pedido
+    tracetofile()
+  File "e:\data\python\preventista\preventista.py", line 73, in edit_pedido
+    self.dialog = Pedido_editor(callback, nombre_cliente, pedido)
+NameError: global name 'nombre_cliente' is not defined
+Re-estarting debug: 1268704091
+   0 - Path: ['E:\\Private\\20022ee9\\lib.zip', 'e:\\data\\python\\preventista', 'c:\\resource\\python25\\python25.zip', 'c:\\resource\\python25']
+Captured traceback
+Traceback (most recent call last):
+  File "e:\data\python\main.py", line 36, in main
+    from preventista import Preventista
+  File "c:\resource\python25\python25.zip\site.py", line 86, in platsec_import
+    return _original_import(name, globals, locals, fromlist, level)
+  File "e:\data\python\preventista\preventista.py", line 71
+     try:
+       ^
+ SyntaxError: invalid syntax
+Re-estarting debug: 1268704123
+   0 - Path: ['E:\\Private\\20022ee9\\lib.zip', 'e:\\data\\python\\preventista', 'c:\\resource\\python25\\python25.zip', 'c:\\resource\\python25']
+   2 - formats:Date:__new__::datetime: 2011-04-08
+   2 - formats:Date:__new__::datetime: 2011-04-09
+   2 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'BARRIO UNIVERSITARIO'), (u'Cliente', u'ALESSIO'), (u'  Ped. 1 para el 07/04/2011', u'  Comentario: Si entre burros te ves, rebuzna alguna vez. '), (u'  Ped. 6 para el 08/04/2011', u'  Comentario: A medida que avanza una discusi\xc3\xb3n, retrocede la verdad. '), (u'A\xf1adir pedido', u'')]
+   3 - (((u'Cliente', u'ALESSIO'), <function dummy_editor at 0x18d43f0>), ((u'Comentario', u''), <function text_editor at 0x18874b0>))
+   3 - Ilistbox:update_listboxitems::listboxitems = [(u'Cliente', u'ALESSIO'), (u'Comentario', u'')]
+Captured traceback
+Traceback (most recent call last):
+  File "e:\data\python\preventista\ilistbox.py", line 98, in handler
+    new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
+  File "e:\data\python\preventista\preventista.py", line 76, in edit_pedido
+    return listboxitem, itemdata
+NameError: global name 'itemdata' is not defined

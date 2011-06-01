@@ -7,7 +7,7 @@
 from appuifw import Listbox, note, popup_menu, Text, query
 from auto_dsv import Data_manager
 from debug import debug, tracetofile
-#from dialogs.select_client import Select_client
+from dialogs import Pedido_editor
 from ilistbox import Ilistbox, list_editor
 from uniq import uniq
 from window import Application, Dialog
@@ -58,7 +58,23 @@ class Preventista(Application):
 
 
     def edit_pedido(self, listboxitem, pedido):
+        def callback():
+            if not self.dialog.cancel:
+                note(u"Pedido guardado", "info")
+            self.refresh()
+            return True
+
+        if not pedido:
+            pedido = self.get_pedido_vacio()
+
+        nombre_cliente = self.cliente_activo[u"APNBR_CLI"]
+        try:
+            self.dialog = Pedido_editor(callback, nombre_cliente, pedido)
+            self.dialog.run()
+        except:
+            tracetofile()
         return listboxitem, pedido
+
 
 
     def update_ilistbox_items(self, own_item, changed_item, ilistbox):
@@ -105,8 +121,8 @@ class Preventista(Application):
 
         item_pedido_nuevo = (
                 (u"Añadir pedido", u""),
-                self.edit_pedido, (self.cliente_activo,
-                self.get_pedido_vacio()), self.update_ilistbox_items
+                self.edit_pedido, None,
+                self.update_ilistbox_items
         ) 
 
         items.append(item_pedido_nuevo)
@@ -190,21 +206,6 @@ class Preventista(Application):
                 if cliente[u"CARACT_ZON"] == zona or zona==u"<TODAS>"]))
 
         return nombres_clientes
-
-
-#    def select_client(self, listboxitem, itemdata):
-#        def callback():
-#            if not self.dialog.cancel:
-#                self.client = self.dialog.ilistbox.items[1][0][1]
-#                note(self.client, "conf")
-#            self.refresh()
-#            return True
-#        try:
-#            self.dialog = Select_client(callback)
-#            self.dialog.run()
-#        except:
-#            tracetofile()
-#        return listboxitem, itemdata
 
 
     def text_editor(self):

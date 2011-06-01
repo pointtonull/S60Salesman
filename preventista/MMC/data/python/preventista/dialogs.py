@@ -2,14 +2,23 @@
 #-*- coding: UTF-8 -*-
 
 from debug import debug
-from ilistbox import Ilistbox, list_editor
+from ilistbox import Ilistbox, list_editor, text_editor, date_editor
+from ilistbox import dummy_editor
 from uniq import uniq
 from window import Dialog
 import e32
 
 
-def Pedido_editor(dialog):
-    def __init__(self, pedido, callback):
+class Pedido_editor(Dialog):
+    def __init__(self, callback, nombre_cliente, pedido):
+        items = (
+            ((u"Cliente", nombre_cliente), dummy_editor),
+            ((U"Comentario", u""), text_editor), 
+        ) 
+        debug(items)
+        self.ilistbox = Ilistbox(items)
+        self.body = self.ilistbox.listbox
+        Dialog.__init__(self, callback, u"Editar pedido", self.body)
 
 
 class NameList(Dialog):
