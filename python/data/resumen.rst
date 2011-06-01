@@ -1,0 +1,138 @@
+================
+DESDE PC A MÓVIL
+================
+
+preventista.csv
+===============
+
+    COD_MOVIL
+    ULTIMO_NRO_PEDIDO
+
+clientes.csv
+============
+
+    COD_CLI
+    NRO_ZON
+    APNBR_CLI
+    DOM_PART_CLI
+    CARACT_ZON
+
+listas_frecuentes.csv
+=====================
+
+    COD_CLI
+    NRO_ZON
+    COD_PRODUCTO
+    ID_PRODUCTO
+    NOMBRE_PRODUCTO
+    MEDIDA_PRODUCTO
+    COEF_MEDIDA_PRODUCTO
+    PRECIO_PRODUCTO
+    CANTIDAD_DEFECTO
+
+productos.csv
+=============
+
+    COD_PRODUCTO
+    ID_PRODUCTO
+    NOMBRE_PRODUCTO
+    MEDIDA_PRODUCTO
+    COEF_MEDIDA_PRODUCTO
+    PRECIO_PRODUCTO
+
+================
+DESDE MÓVIL A PC
+================
+
+pedidos_cabeceras.csv
+=====================
+
+    NRO_PEDIDO (AUTOM)
+    COD_CLI
+    NRO_ZON
+    COD_MOVIL (PTO_VTA)
+    COMENTARIO
+    FECHA_PEDIDO (AAAA-MM-DD)
+    FECHA_ENTREGA (AAAA-MM-DD)
+
+pedidos_detalles.csv
+===================
+
+    NRO_PEDIDO
+    COD_PRODUCTO
+    CANTIDAD_PEDIDO
+    PRECIO_PRODUCTO
+
+===========
+DATOS EN PC
+===========
+
+CLIENTES
+========
+
+    COD_CLI
+    COD_HORARIO
+    APNBR_CLI
+    DOM_PART_CLI
+    EST_CLI
+
+DET_PEDIDOS
+===========
+
+    COD_PEDIDO
+    RENGLON_PEDIDO
+    COD_PRODUCTO
+    CANTIDAD_PEDIDO
+    PRECIO_PRODUCTO
+    ESTADO_DET_PEDIDO
+
+ENC_PEDIDOS
+===========
+
+    COD_PEDIDO
+    COD_MOVIL
+    NRO_PEDIDO
+    COD_CLI
+    COD_ZONA
+    FECHA_PEDIDO
+    FECHA_DESCARGA
+    FECHA_ENTREGA
+    OBS_ENC_PEDIDO
+    ESTADO_ENC_PEDIDO
+
+HORARIOS_ENTREGA
+================
+
+    COD_HORARIO
+    DESDE_HORARIO
+    HASTA_HORARIO
+    OBS_HORARIO
+    ESTADO_HORARIO
+
+MOVILES
+=======
+
+    COD_MOVIL
+    DESCRIPCION_MOVIL
+    TEXTO_MD5
+    CODIGO_MD5
+    ESTADO_MOVIL
+
+PRODUCTOS
+=========
+
+    COD_PRODUCTO
+    ID_PRODUCTO
+    NOMBRE_PRODUCTO
+    MEDIDA_PRODUCTO
+    COEF_MEDIDA_PRODUCTO
+    PRECIO_PRODUCTO
+    ESTADO_PRODUCTO
+
+ZONAS
+=====
+
+    NRO_ZON
+    NRO_ZON_PADRE
+    CARACT_ZON
+    EST_ZON
