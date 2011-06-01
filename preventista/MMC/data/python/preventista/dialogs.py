@@ -3,6 +3,7 @@
 
 from debug import debug
 from ilistbox import Ilistbox, list_editor, text_editor, date_editor
+from formats import Date
 from ilistbox import dummy_editor
 from uniq import uniq
 from window import Dialog
@@ -13,7 +14,9 @@ class Pedido_editor(Dialog):
     def __init__(self, callback, nombre_cliente, pedido):
         items = (
             ((u"Cliente", nombre_cliente), dummy_editor),
-            ((U"Comentario", u""), text_editor), 
+            ((u"Fecha entrega",
+                unicode(Date(pedido[u"FECHA_ENTREGA"]))), date_editor),
+            ((U"Comentario", pedido[u"COMENTARIO"]), text_editor), 
         ) 
         debug(items)
         self.ilistbox = Ilistbox(items)
