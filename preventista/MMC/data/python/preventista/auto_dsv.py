@@ -81,7 +81,7 @@ class Data_manager(object):
 
         for index, item in enumerate(headers):
             headers[index] = item.encode("latin-1", "replace")
-            
+        
         listoflists = []
         if not append:
             listoflists.append(headers)
@@ -91,15 +91,17 @@ class Data_manager(object):
                 listrow.append(dictrow[key].encode("latin-1", "replace"))
             listoflists.append(listrow)
 
-        asstring = DSV.exportDSV(listoflists, self._delimiter, self._qualifier,
-            self._quoteall) 
+        as_string = DSV.exportDSV(listoflists, self._delimiter, self._qualifier,
+            self._quoteall) + self._newline
 
-        if append:
-            file = open(filename, "a")
-        else:
+        as_lines = as_string.splitlines(True)
+        if not append:
+            as_lines[0] = as_lines[0].replace("'", "")
             file = open(filename, "w")
+        else:
+            file = open(filename, "a")
 
-        file.write(asstring + self._newline)
+        file.writelines(as_lines)
         file.close()
 
         return filename
@@ -111,4 +113,4 @@ if __name__ == "__main__":
     print(clientes)
 
     header = ["COD_CLI", "NRO_ZON", "APNBR_CLI"]
-    print(data.tofile("../output/prueba.csv", clientes, header, append=True))
+    print(data.tofile("../output/prueba.csv", clientes, header))
