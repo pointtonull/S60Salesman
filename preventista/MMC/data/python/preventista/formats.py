@@ -1,10 +1,46 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
+from time import localtime, strftime, strptime
+from calendar import timegm
+from debug import debug
+
+MINUTE = 60
+HOUR = 60 * MINUTE
+DAY = 24 * HOUR 
+WEEK = 7 * DAY
+
+class Date(float):
+    def __new__(cls, datetime):
+        if isinstance(datetime, basestring):
+            if u"-" in datetime:
+                date_float = timegm(strptime(datetime, "%Y-%m-%d"))
+            else:
+                date_float = timegm(strptime(datetime, "%d/%m/%Y"))
+        else:
+            date_float = datetime
+
+        debug("formats:Date:__new__::datetime: %s" % datetime)
+        newdate = float.__new__(cls, date_float)
+        return newdate
+
+    def __init__(self, datetime):
+        """
+            number:    the date number / date string
+        """
+
+    def __rep__(self):
+        return strftime("%d/%m/%Y", localtime(self))
+
+    def __str__(self):
+        return self.__rep__()
+
+
+
 class Number(float):
 
     def __new__(cls, number, thosep="", decsep=",", decqua=2):
-        if type(number) in (str, unicode):
+        if isinstance(number, basestring):
             number = number.replace(thosep, "")
             number = number.replace(decsep, ".")
         number = float.__new__(cls, number)

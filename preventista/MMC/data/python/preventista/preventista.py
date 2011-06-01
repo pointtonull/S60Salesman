@@ -3,55 +3,208 @@
 # Marcelo Barros de Almeida
 # marcelobarrosalmeida (at) gmail.com
 # License: GPL3
- 
+
 from appuifw import Listbox, note, popup_menu, Text, query
+from auto_dsv import Data_manager
 from debug import debug, tracetofile
+#from dialogs.select_client import Select_client
+from ilistbox import Ilistbox, list_editor
+from uniq import uniq
 from window import Application, Dialog
-from ilistbox import Ilistbox
-from dialogs.select_client import Select_client
- 
+from formats import Date, DAY
+from time import time
+
+INPUT_DIR = r"e:\data\input\%s"
+OUTPUT_DIR = r"e:\data\output\%s"
+MOVIL_DIR = r"e:\data\movil\%s"
 
 class Preventista(Application):
     def __init__(self):
-        self.txt = u""
-        self.names = []
-        items = [
-            (u"Seleccionar cliente", self.select_client)
-            ]
+        self.datamanager = Data_manager()
+        self.clientes = self.datamanager.fromfile(
+            INPUT_DIR % "clientes.csv")
+        self.listas_frecuentes = self.datamanager.fromfile(
+            INPUT_DIR % "listas_frecuentes.csv")
+        self.preventista = self.datamanager.fromfile(
+            INPUT_DIR % "preventista.csv")[0]
+        self.pedidos = self.datamanager.fromfile(
+            OUTPUT_DIR % "pedidos_cabeceras.csv")
+        self.pedidos_detalles = self.datamanager.fromfile(
+            OUTPUT_DIR % "pedidos_detalles.csv")
+        self.productos = self.datamanager.fromfile(
+            INPUT_DIR % "productos.csv")
+
+        try:
+            self.cliente_activo = self.datamanager.fromfile(
+                MOVIL_DIR % "cliente_activo.csv")[-1]
+        except:
+            self.cliente_activo = None
+
+        if self.cliente_activo not in self.clientes:
+            self.cliente_activo = self.clientes[0]
+
+        self.ilistbox = Ilistbox(self.get_ilistbox_items())
+
+        body = self.ilistbox.listbox
+
+        #FIXME: Crear un menú pertinente
         menu = [
             (u"Text editor", self.text_editor),
             (u"Number selection", self.number_sel),
             (u"Name list", self.name_list),
-            ]
+        ]
 
-        self.ilistbox = Ilistbox(items)
-        body = self.ilistbox.listbox
         Application.__init__(self, u"MyApp title", body, menu)
- 
-    def check_items(self):
-        idx = self.body.current()
-        try:
-            (
-                self.select_client,
-            )[idx]()
-        except:
-            tracetofile()
- 
-    def select_client(self, listboxitem, itemdata):
-        def callback():
-            if not self.dialog.cancel:
-                self.client = self.dialog.ilistbox.items[1][0][1]
-                note(self.client, "conf")
-            self.refresh()
-            return True
- 
-        try:
-            self.dialog = Select_client(callback)
-            self.dialog.run()
-        except:
-            tracetofile()
 
-        return listboxitem, itemdata
+
+    def edit_pedido(self, listboxitem, pedido):
+        return listboxitem, pedido
+
+
+    def update_ilistbox_items(self, own_item, changed_item, ilistbox):
+        if changed_item[0][0] in (u"Zona", u"Cliente"):
+            debug("preventista:update_ilistbox_items:: ilistbox.items = %s" %
+                ilistbox.items)
+            self.update_cliente_activo(
+                ilistbox.items[0][0][1],
+                ilistbox.items[1][0][1])
+            items = self.get_ilistbox_items()
+            ilistbox.set_items(items)
+
+
+    def get_ilistbox_items(self, own_item=None):
+        zona_cliente_activo = self.cliente_activo[u"CARACT_ZON"]
+        nombre_cliente_activo = self.cliente_activo[u"APNBR_CLI"]
+
+        zonas_clientes = self.get_zonas_clientes()
+        nombres_clientes = self.get_nombres_clientes(zona_cliente_activo)
+
+        items = [
+            (
+                (u"Zona", zona_cliente_activo),
+                list_editor, (zonas_clientes, 0, 1),
+            ),
+            (
+                (u"Cliente", nombre_cliente_activo),
+                list_editor, (nombres_clientes, 0, 1), self.update_clients_list,
+            ),
+        ]
+
+        for pedido in self.get_pedidos(self.cliente_activo):
+            item_pedido = (
+                (
+                    u"  Ped. %s para el %s" % (           
+                    pedido[u"NRO_PEDIDO"],
+                        unicode(Date(pedido[u"FECHA_ENTREGA"]))),
+                    u"  Comentario: %s " % pedido[u"COMENTARIO"]
+                ),
+                self.edit_pedido, pedido,
+                self.update_ilistbox_items
+            )
+            items.append(item_pedido)
+
+        item_pedido_nuevo = (
+                (u"Añadir pedido", u""),
+                self.edit_pedido, (self.cliente_activo,
+                self.get_pedido_vacio()), self.update_ilistbox_items
+        ) 
+
+        items.append(item_pedido_nuevo)
+        return items
+
+
+    def get_pedido_vacio(self):
+        pedido = {
+            u'NRO_PEDIDO' :
+                unicode(int(self.preventista[u"ULTIMO_NRO_PEDIDO"]) + 1),
+            u'COD_CLI' : self.cliente_activo[u"COD_CLI"],
+            u'NRO_ZON' : self.cliente_activo[u"NRO_ZON"],
+            u'COD_MOVIL' : self.preventista[u"COD_MOVIL"],
+            u'COMENTARIO' : u"",
+            u'FECHA_PEDIDO': unicode(Date(time())),
+            u'FECHA_ENTREGA' : unicode(Date(time() + DAY)),
+        }
+        return pedido
+
+
+    def update_cliente_activo(self, nombre_zona, nombre_cliente):
+        debug("Preventista:update_cliente_activo::zona = %s, cliente = %s" %
+            (nombre_zona, nombre_cliente))
+        nuevos_clientes = [cliente for cliente in self.clientes
+            if cliente[u"CARACT_ZON"] == nombre_zona
+                and cliente[u"APNBR_CLI"] == nombre_cliente]
+        debug(nuevos_clientes)
+        nuevo_cliente = nuevos_clientes[0]
+        self.cliente_activo = nuevo_cliente
+        self.datamanager.tofile(MOVIL_DIR % "cliente_activo.csv" ,
+            [nuevo_cliente])
+
+
+    def update_clients_list(self, item_clientes, item_modificado, ilistbox):
+        if item_modificado[0][0] == u"Zona":
+            nueva_zona = item_modificado[0][1]
+            nombre_cliente = item_clientes[0][1]
+            debug("Zona ha sido cambiada, actualizando lista de clientes.")
+            clientes = sorted(self.get_nombres_clientes(nueva_zona))
+            posicion = item_clientes[2][1]
+            if item_clientes[0][1] not in clientes:
+                item_clientes[0] = (item_clientes[0][0], clientes[0])
+                self.update_cliente_activo(item_modificado[0][1],
+                    item_clientes[0][1])
+                posicion = 0
+            item_clientes[2] = (clientes, posicion, 1)
+        else:
+            debug("Zona no ha sido actualizada")
+
+
+    def get_zonas_clientes(self):
+        zonas_clientes = sorted(uniq([cliente[u"CARACT_ZON"]
+            for cliente in self.clientes]))
+#        zonas_clientes.insert(0, u"<TODAS>")
+
+        return zonas_clientes
+
+
+    def get_pedidos(self, cliente=None):
+        if cliente:
+            pedidos_cliente = [pedido
+                for pedido in self.pedidos
+                    if pedido[u"COD_CLI"] == self.cliente_activo[u"COD_CLI"] and
+                        pedido[u"NRO_ZON"] == self.cliente_activo[u"NRO_ZON"]]
+            return pedidos_cliente
+        else:
+            return self.pedidos
+
+
+    def get_pedido_detalles(self, pedido):
+        pedido_detalles = [detalle
+            for detalle in self.pedidos_detalles
+                if detalle[u"NRO_PEDIDO" == pedido[u"NRO_PEDIDO"]]
+        ]
+        return pedido_detalles
+
+
+    def get_nombres_clientes(self, zona="<TODAS>"):
+        nombres_clientes = sorted(uniq([cliente[u"APNBR_CLI"]
+            for cliente in self.clientes
+                if cliente[u"CARACT_ZON"] == zona or zona==u"<TODAS>"]))
+
+        return nombres_clientes
+
+
+#    def select_client(self, listboxitem, itemdata):
+#        def callback():
+#            if not self.dialog.cancel:
+#                self.client = self.dialog.ilistbox.items[1][0][1]
+#                note(self.client, "conf")
+#            self.refresh()
+#            return True
+#        try:
+#            self.dialog = Select_client(callback)
+#            self.dialog.run()
+#        except:
+#            tracetofile()
+#        return listboxitem, itemdata
 
 
     def text_editor(self):
@@ -61,10 +214,9 @@ class Preventista(Application):
                 note(self.txt, "info")
             self.refresh()
             return True
- 
         self.dlg = Notepad(cbk, self.txt)
         self.dlg.run()
- 
+
     def number_sel(self):
         def cbk():
             if not self.dlg.cancel:
@@ -77,22 +229,22 @@ class Preventista(Application):
                 note(u"Valid number", "info")
             self.refresh()
             return True
- 
+
         self.dlg = NumSel(cbk)
         self.dlg.run()
- 
+
     def name_list(self):
         def cbk():
             if not self.dlg.cancel:
                 self.names = self.dlg.names
             self.refresh()
             return True
- 
+
         self.dlg = NameList(cbk, self.names)
-        self.dlg.run()        
- 
+        self.dlg.run()
+
     def close_app(self):
-        ny = popup_menu([u"No", u"Si"], u"Salir?")
-        if ny is not None:
-            if ny == 1:
+        answer = popup_menu([u"No", u"Si"], u"Salir?")
+        if answer is not None:
+            if answer == 1:
                 Application.close_app(self)

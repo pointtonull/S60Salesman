@@ -23,8 +23,8 @@ class Ilistbox: # Cannot inherit because of python version
 
             itemeditor is a callable that acepts this args:
                 listboxitem, itemdata
-            and returns the new listboxitem values:
-                listboxitem, itemdata: updates listboxitem and itemdata
+            updates listboxitem and itemdata and returns the new values:
+                listboxitem, itemdata
 
             data is the auxiliar data that itemeditor could need.
 
@@ -33,15 +33,20 @@ class Ilistbox: # Cannot inherit because of python version
             Will be called when some item change their listboxitem or data.
 
         default_editor, if one, will be used to edit the items withnot explicit
-        editor, else a generic string editor will be used.
+        editor, else a generic dummy editor will be used.
         """
 
-        debug("ilistbox:Ilistbox:__init__::start")
         if default_editor:
             self.default_editor = default_editor
         else:
-            self.default_editor = str_editor
+            self.default_editor = dummy_editor
         
+        self.set_items(items)
+        self.update_listboxitems()
+        self.listbox = Listbox(self.listboxitems, self.handler)
+
+
+    def set_items(self, items):
         completed_items = []
         for item in items:
             new_item = [None, self.default_editor, None, None]
@@ -50,14 +55,6 @@ class Ilistbox: # Cannot inherit because of python version
                     new_item[index] = element
             completed_items.append(new_item)
         self.items = completed_items
-        debug("ilistbox:Ilistbox:__init__::self.items = %s" % self.items)
-
-        self.update_listboxitems()
-        debug("ilistbox:Ilistbox:__init__::self.listboxitems = %s" %
-            self.listboxitems)
-        debug(self.listboxitems)
-        self.listbox = Listbox(self.listboxitems, self.handler)
-        debug("ilistbox:Ilistbox:__init__::end")
 
 
     def update_listboxitems(self):
@@ -75,6 +72,7 @@ class Ilistbox: # Cannot inherit because of python version
                     new_item.append(element)
                 listboxitems[index] = tuple(new_item)
         self.listboxitems = listboxitems
+        debug("Ilistbox:update_listboxitems::listboxitems = %s" % listboxitems)
 
 
     def redraw(self, current_pos=None):
@@ -94,16 +92,20 @@ class Ilistbox: # Cannot inherit because of python version
         changed_pos = self.listbox.current()
         changed_item = self.items[changed_pos]
 
+        # Editing item
         listboxitem, itemeditor, itemdata, change_handler = changed_item
         try:
             new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
         except:
-            debug(itemeditor)
             tracetofile()
         changed_item[0] = new_listboxitem
         changed_item[2] = new_itemdata
 
         if listboxitem != new_listboxitem or itemdata != new_itemdata:
+            debug("Ilistbox:handler::changed were made: new_listboxitem = %s" %
+                str(new_listboxitem))
+
+            # Calling all the change handlers
             for item in self.items:
                 change_handler = item[3]
                 if change_handler:
@@ -113,14 +115,24 @@ class Ilistbox: # Cannot inherit because of python version
                         tracetofile()
                     debug("Ilistbox:item %s:change_handler::%s" %
                         (item[0][0], result))
+                    debug("Ilistbox:item %s:post::chaged_item = %s" %
+                        (item[0][0], changed_item))
                 else:
                     debug("Ilistbox:item %s has no change_handler" % item[0][0])
 
+            # Updating view
             self.update_listboxitems()
             self.redraw(changed_pos)
 
         else:
-            debug("Ilistbox:change:no changes were made")
+            debug("Ilistbox:handler:no changes were made")
+
+
+def dummy_edit(listboxitem, itemdata=None):
+    """
+    Just do nothing. Is the default editor.
+    """
+    return listboxitem, itemdata
 
 
 def str_editor(listboxitem, itemdata=None):

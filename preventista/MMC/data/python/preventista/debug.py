@@ -11,7 +11,7 @@ IMPORT_TIME = time()
 DEBUG = 1
 # 0: no messages
 # 1: messages to file
-# 2: messages to file and stdout
+# 2: messages to file and stderr
 
 
 if DEBUG > 0:
@@ -24,9 +24,14 @@ def debug(message):
     if DEBUG > 1:
         files.append(sys.stderr)
     if DEBUG > 0:
-        files.append(open(DEBUG_FILE, "a"))
+        try:
+            files.append(open(DEBUG_FILE, "a"))
+        except IOError:
+            files.append(open(DEBUG_FILE, "w"))
 
     if files:
+        if isinstance(message, basestring):
+            message = message.encode("latin1", "replace")
         new_time = time() - IMPORT_TIME
         message = "%4d - %s\n" % (new_time, message)
         for file in files:
