@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="true_1656" title="Video sharing" compressed="true">
-  <topicref FeatureID="-1" href="MSH_HLP_CLIP.html" navtitle="Share saved videos"></topicref>
-  <topicref FeatureID="-1" href="MSH_HLP_IMAGE.html" navtitle="Share images"></topicref>
-  <topicref FeatureID="true_208" href="MSH_HLP_LIVE.html" navtitle="Share live videos"></topicref>
-  <topicref FeatureID="-1" href="MSH_HLP_RECEIVE.html" navtitle="View shared videos"></topicref>
-  <topicref FeatureID="-1" href="MSH_HLP_SETTINGS.html" navtitle="Video sharing settings"></topicref>
-</topics>

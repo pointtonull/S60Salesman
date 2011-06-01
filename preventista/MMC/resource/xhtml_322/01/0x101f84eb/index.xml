@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="File manager" compressed="true">
-  <topicref FeatureID="-1" href="FMGR_HLP_MAIN_VIEW.html" navtitle="File manager"></topicref>
-  <topicref FeatureID="-1" href="FMGR_HLP_MEM_STORE_VIEW.html" navtitle="Manage files"></topicref>
-  <topicref FeatureID="-1" href="FMGR_HLP_SEARCH_RESULTS.html" navtitle="File search"></topicref>
-</topics>

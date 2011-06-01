@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
-			href="../../theme/xsl/index2html.xslt" type="text/xsl"
-			?>
-<topics title="Clock" compressed="true"><topicref href="CLK_HLP_ALARM.html" navtitle="Alarm clock"/><topicref href="CLK_HLP_DUAL_CLK.html" navtitle="World clock"/><topicref href="CLK_HLP_REAL_TIME_CLOCK_AN.html" navtitle="Local time"/><topicref href="CLK_HLP_REAL_TIME_CLOCK_IN.html" navtitle="Clock"/><topicref href="CLK_HLP_SETTINGS.html" navtitle="Date and time settings"/><topicref href="HLP_CLK_CITIES.html" navtitle="Set locations"/></topics>

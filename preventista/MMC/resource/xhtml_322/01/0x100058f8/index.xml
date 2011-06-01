@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="Profiles" compressed="true">
-  <topicref FeatureID="-1" href="MODE_HLP_PERSONALISE.html" navtitle="Customise profiles"></topicref>
-  <topicref FeatureID="-1" href="MODE_HLP_PROFILES_LIST.html" navtitle="Profiles"></topicref>
-  <topicref FeatureID="-1" href="SET_HLP_PERSONAL_TONES.html" navtitle="Tones settings"></topicref>
-</topics>

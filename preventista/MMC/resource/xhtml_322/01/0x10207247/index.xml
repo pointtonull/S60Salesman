@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="true_1509" title="Postcards" compressed="true">
-  <topicref FeatureID="-1" href="MMS_POSTCARD_HLP_ADDRESS_EDIT.html" navtitle="Edit addresses"></topicref>
-  <topicref FeatureID="-1" href="MMS_POSTCARD_HLP_MAIN_EDIT.html" navtitle="Create postcards"></topicref>
-  <topicref FeatureID="-1" href="MMS_POSTCARD_HLP_MAIN_VIEW.html" navtitle="View postcards"></topicref>
-  <topicref FeatureID="-1" href="POSTCARD_HLP_ADDRESS_VIEW.html" navtitle="View addresses"></topicref>
-  <topicref FeatureID="-1" href="POSTCARD_HLP_GREETING_EDIT.html" navtitle="Write greetings"></topicref>
-  <topicref FeatureID="-1" href="POSTCARD_HLP_GREETING_VIEW.html" navtitle="View greetings"></topicref>
-</topics>

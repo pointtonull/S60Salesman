@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="true_72" title="Voice commands" compressed="true">
-  <topicref FeatureID="-1" href="HLP_VC_SET.html" navtitle="Voice command settings"></topicref>
-  <topicref FeatureID="-1" href="VCINFO_HLP_MAINVIEW.html" navtitle="For contacts"></topicref>
-  <topicref FeatureID="true_72" href="HLP_VC_SIND_FOLDER.html" navtitle="For profiles"></topicref>
-  <topicref FeatureID="true_72" href="HLP_VC_SIND_MAIN.html" navtitle="Using voice commands"></topicref>
-</topics>

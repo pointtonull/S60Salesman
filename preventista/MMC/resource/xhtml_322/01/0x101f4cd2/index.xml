@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="Menu" compressed="true">
-  <topicref FeatureID="-1" href="APP_HLP_APP_SHELL.html" navtitle="Applications menu"></topicref>
-  <topicref FeatureID="-1" href="APP_HLP_FOL_COMMUNICATIONS.html" navtitle="Connectivity folder"></topicref>
-  <topicref FeatureID="-1" href="APP_HLP_FOL_CONFIGUR.html" navtitle="Tools folder"></topicref>
-  <topicref FeatureID="-1" href="APP_HLP_FOL_INSTALLED.html" navtitle="Installations folder"></topicref>
-  <topicref FeatureID="-1" href="APP_HLP_FOL_MEDIA.html" navtitle="Media folder"></topicref>
-  <topicref FeatureID="-1" href="APP_HLP_FOL_ORGANISER.html" navtitle="Organiser folder"></topicref>
-</topics>

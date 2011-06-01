@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="Call mailbox" compressed="true">
-  <topicref FeatureID="-1" href="SMSVO_HLP_MAIN_VIEW.html" navtitle="Call mailbox"></topicref>
-  <topicref FeatureID="-1" href="SMSVO_HLP_CS_AND_VIDEO.html" navtitle="Call and video mailbox"></topicref>
-</topics>

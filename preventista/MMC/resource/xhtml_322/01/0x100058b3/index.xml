@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="Telephone" compressed="true">
-  <topicref FeatureID="-1" href="DATA_HLP_MAIN.html" navtitle="Fax and data calls"></topicref>
-  <topicref FeatureID="-1" href="INCAL_HLP_CALL_HANDLING.html" navtitle="Phone calls"></topicref>
-  <topicref FeatureID="true_89" href="INCAL_HLP_VIDEO_CALL.html" navtitle="Video calls"></topicref>
-</topics>

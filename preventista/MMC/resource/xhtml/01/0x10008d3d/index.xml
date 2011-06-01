@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
-			href="../../theme/xsl/index2html.xslt" type="text/xsl"
-			?>
-<topics title="Settings" compressed="true"><topicref href="CM_HLP_AUTHORITY.html" navtitle="Authority certificates"/><topicref href="CM_HLP_DEVICE.html" navtitle="Device certificates"/><topicref href="CM_HLP_MAIN.html" navtitle="Certificate management"/><topicref href="CM_HLP_PERSONAL.html" navtitle="Personal certificates"/><topicref href="CM_HLP_TRUSTED_SITE.html" navtitle="Trusted site"/><topicref href="CM_HLP_TRUST_SETTINGS.html" navtitle="Edit trust settings"/></topics>

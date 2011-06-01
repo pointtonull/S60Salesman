@@ -65,7 +65,8 @@ def rsync(origen, destino):
 
 def main():
     assert mount()
-    vcall('cp "%s/debug.txt" "%s/debug.txt"' % (REMOTE, LOCAL), shell=True)
+    vcall('tail -n 50 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
+        shell=True)
     try:
         print(open("%s/debug.txt" % LOCAL).read())
     except:

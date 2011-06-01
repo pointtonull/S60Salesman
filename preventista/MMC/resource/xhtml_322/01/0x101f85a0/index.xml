@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="true_1513" title="GPS data" compressed="true">
-  <topicref FeatureID="-1" href="BLID_HLP_SETTINGS.html" navtitle="GPS data settings"></topicref>
-  <topicref FeatureID="false_112" href="BLID_HLP_WAYPOINTS.html" navtitle="Saved locations"></topicref>
-  <topicref FeatureID="-1" href="HLP_BLID_MAIN.html" navtitle="Travelling aid"></topicref>
-  <topicref FeatureID="-1" href="HLP_BLID_NAVIGATION.html" navtitle="Navigation view"></topicref>
-  <topicref FeatureID="-1" href="HLP_BLID_POSITION.html" navtitle="Position view"></topicref>
-  <topicref FeatureID="-1" href="HLP_BLID_TRIPMETER.html" navtitle="Trip distance view"></topicref>
-</topics>

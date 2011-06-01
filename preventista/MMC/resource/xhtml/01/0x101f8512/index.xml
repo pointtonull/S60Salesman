@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet 
-			href="../../theme/xsl/index2html.xslt" type="text/xsl"
-			?>
-<topics title="Application manager" compressed="true"><topicref href="AM_HLP_APPLICATION.html" navtitle="Manage applications"/><topicref href="AM_HLP_GENERAL_SETTINGS.html" navtitle="Certificate settings"/><topicref href="AM_HLP_INSTALLED.html" navtitle="Installed applications"/><topicref href="AM_HLP_INSTALL_CAPAB.html" navtitle="Permission requests"/><topicref href="AM_HLP_INSTALL_UNTRUSTED.html" navtitle="Untrusted installation"/><topicref href="AM_HLP_NOT_INSTALLED.html" navtitle="Not installed applications"/><topicref href="AM_HLP_SETTINGS.html" navtitle="Java security settings"/></topics>

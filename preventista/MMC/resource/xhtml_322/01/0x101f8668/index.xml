@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="true_24" title="Wireless Identity Module" compressed="true">
-  <topicref FeatureID="-1" href="SECMOD_HLP_ACCESSCODE_VIEW.html" navtitle="Security module PIN code"></topicref>
-  <topicref FeatureID="-1" href="SECMOD_HLP_CODE_VIEW.html" navtitle="Security module codes"></topicref>
-  <topicref FeatureID="-1" href="SECMOD_HLP_MAIN_VIEW.html" navtitle="Security module"></topicref>
-  <topicref FeatureID="-1" href="SEMOD_HLP_SIGNINGCODE_VIEW.html" navtitle="Edit signing code"></topicref>
-</topics>

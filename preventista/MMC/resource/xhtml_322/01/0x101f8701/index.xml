@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="News ticker" compressed="true">
-  <topicref FeatureID="true_166" href="AI_HLP_CHANNELS.html" navtitle="News channels"></topicref>
-  <topicref FeatureID="true_166" href="AI_HLP_LATEST_NEWS.html" navtitle="Latest news"></topicref>
-  <topicref FeatureID="true_166" href="AI_HLP_SET_NEWST.html" navtitle="News ticker settings"></topicref>
-  <topicref FeatureID="-1" href="SET_HLP_PERSONAL_SHORTCUTS.html" navtitle="Active standby shortcuts"></topicref>
-</topics>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="-1" title="Certificate manager" compressed="true">
-  <topicref FeatureID="-1" href="CM_HLP_AUTHORITY.html" navtitle="Authority certificates"></topicref>
-  <topicref FeatureID="-1" href="CM_HLP_DEVICE.html" navtitle="Device certificates"></topicref>
-  <topicref FeatureID="-1" href="CM_HLP_MAIN.html" navtitle="Certificate management"></topicref>
-  <topicref FeatureID="-1" href="CM_HLP_PERSONAL.html" navtitle="Personal certificates"></topicref>
-  <topicref FeatureID="-1" href="CM_HLP_TRUSTED_SITE.html" navtitle="Trusted site certificates"></topicref>
-  <topicref FeatureID="-1" href="CM_HLP_TRUST_SETTINGS.html" navtitle="Edit trust settings"></topicref>
-</topics>

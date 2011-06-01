@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet  href="../../theme/xsl/index2html.xslt" type="text/xsl"?>
-<topics FeatureID="true_1090" title="Cell Broadcast" compressed="true">
-  <topicref FeatureID="true_1090" href="CBS_HLP_MAIN.html" navtitle="Cell broadcast topics"></topicref>
-  <topicref FeatureID="true_1090" href="CBS_HLP_MSG.html" navtitle="View CBS messages"></topicref>
-  <topicref FeatureID="true_1090" href="CBS_HLP_TOPIC_VIEW.html" navtitle="Cell broadcast messages"></topicref>
-</topics>
