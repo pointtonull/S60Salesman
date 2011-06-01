@@ -120,7 +120,7 @@ class Preventista(Application):
             items.append(item_pedido)
 
         item_pedido_nuevo = (
-                (u"Añadir pedido", u""),
+                (u"Añadir pedido", u"Crea un pedido nuevo"),
                 self.edit_pedido, None,
                 self.update_ilistbox_items
         ) 
