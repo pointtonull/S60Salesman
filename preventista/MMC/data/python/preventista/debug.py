@@ -15,7 +15,7 @@ DEBUG = 1
 
 
 if DEBUG > 0:
-    file = open(DEBUG_FILE, "w")
+    file = open(DEBUG_FILE, "a")
     file.write("Re-estarting debug: %d\n" % IMPORT_TIME)
     file.close()
 
@@ -36,10 +36,11 @@ def debug(message):
     return DEBUG
 
 def tracetofile():
-    file = open(DEBUG_FILE, "w")
+    file = open(DEBUG_FILE, "a")
     file.write("Captured traceback\n")
     traceback.print_exc(file=file)
     file.close()
     note(u"Error inesperado", "error")
+    raise
 
 __all__ = ["debug"]

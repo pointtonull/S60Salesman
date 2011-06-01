@@ -1,6 +1,6 @@
 from appuifw import Listbox, selection_list
 from formats import Number
-from debug import debug
+from debug import debug, tracetofile
 import appuifw
 
 class Ilistbox: # Cannot inherit because of python version
@@ -22,7 +22,7 @@ class Ilistbox: # Cannot inherit because of python version
                 (unicode, unicode, Icon): for a double line listbox with icons
 
             itemeditor is a callable that acepts this args:
-                listboxitem, itemdata=None
+                listboxitem, itemdata
             and returns the new listboxitem values:
                 listboxitem, itemdata: updates listboxitem and itemdata
 
@@ -45,9 +45,9 @@ class Ilistbox: # Cannot inherit because of python version
         completed_items = []
         for item in items:
             new_item = [None, self.default_editor, None, None]
-            for pos in xrange(len(item)):
-                if item[pos] is not None:
-                    new_item[pos] = item[pos]
+            for index, element in enumerate(item):
+                if element is not None:
+                    new_item[index] = element
             completed_items.append(new_item)
         self.items = completed_items
         debug("ilistbox:Ilistbox:__init__::self.items = %s" % self.items)
@@ -55,6 +55,7 @@ class Ilistbox: # Cannot inherit because of python version
         self.update_listboxitems()
         debug("ilistbox:Ilistbox:__init__::self.listboxitems = %s" %
             self.listboxitems)
+        debug(self.listboxitems)
         self.listbox = Listbox(self.listboxitems, self.handler)
         debug("ilistbox:Ilistbox:__init__::end")
 
@@ -64,7 +65,16 @@ class Ilistbox: # Cannot inherit because of python version
         Updates the list of listbox items
 
         """
-        self.listboxitems = [item[0] for item in self.items]
+        listboxitems = [item[0] for item in self.items]
+        for index, item in enumerate(listboxitems):
+            if isinstance(item, unicode):
+                listboxitems[index] = item
+            else:
+                new_item = []
+                for element in item:
+                    new_item.append(element)
+                listboxitems[index] = tuple(new_item)
+        self.listboxitems = listboxitems
 
 
     def redraw(self, current_pos=None):
@@ -85,7 +95,11 @@ class Ilistbox: # Cannot inherit because of python version
         changed_item = self.items[changed_pos]
 
         listboxitem, itemeditor, itemdata, change_handler = changed_item
-        new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
+        try:
+            new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
+        except:
+            debug(itemeditor)
+            tracetofile()
         changed_item[0] = new_listboxitem
         changed_item[2] = new_itemdata
 
@@ -93,7 +107,10 @@ class Ilistbox: # Cannot inherit because of python version
             for item in self.items:
                 change_handler = item[3]
                 if change_handler:
-                    result = change_handler(item, changed_item, self)
+                    try:
+                        result = change_handler(item, changed_item, self)
+                    except:
+                        tracetofile()
                     debug("Ilistbox:item %s:change_handler::%s" %
                         (item[0][0], result))
                 else:

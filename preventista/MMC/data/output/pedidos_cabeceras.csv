@@ -1,6 +1,6 @@
-NRO_PEDIDO;COD_CLI;NRO_ZON;COD_MOVIL;COMENTARIO;FECHA_PEDIDO;FECHA_ENTREGA
-1;11;7;1;'Si entre burros te ves, rebuzna alguna vez.';'2011-04-07';'2011-04-08'
-2;16;7;1;'Por probar, nada se pierde.';'2011-04-07';'2011-04-09'
-3;17;7;1;'De aquí a cien años, todos calvos.';'2011-04-07';'2011-04-08'
-4;9;1;1;'El que come y canta, tiene los enemigos en la garganta.';'2011-04-07';'2011-04-09'
-5;10;7;1;'El comer y rascar, todo es empezar.';'2011-04-07';'2011-04-09'
+'NRO_PEDIDO';'COD_CLI';'NRO_ZON';'COD_MOVIL';'COMENTARIO';'FECHA_PEDIDO';'FECHA_ENTREGA
+'1';'11';'7';'1';'Si entre burros te ves, rebuzna alguna vez.';'2011-04-07';'2011-04-08'
+'2';'16';'7';'1';'Por probar, nada se pierde.';'2011-04-07';'2011-04-09'
+'3';'17';'7';'1';'De aquí a cien años, todos calvos.';'2011-04-07';'2011-04-08'
+'4';'9';'1';'1';'El que come y canta, tiene los enemigos en la garganta.';'2011-04-07';'2011-04-09'
+'5';'10';'7';'1';'El comer y rascar, todo es empezar.';'2011-04-07';'2011-04-09'

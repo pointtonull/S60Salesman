@@ -7,22 +7,8 @@
 from appuifw import Listbox, note, popup_menu, Text, query
 from debug import debug, tracetofile
 from window import Application, Dialog
+from ilistbox import Ilistbox
 from dialogs.select_client import Select_client
- 
-class Notepad(Dialog):
-    def __init__(self, cbk, txt=u""):
-        menu = [
-            (u"Save", self.close_app),
-            (u"Discard", self.cancel_app)
-            ]
-        Dialog.__init__(self, cbk, u"Preventista", Text(txt), menu)
- 
-class NumSel(Dialog):
-    def __init__(self, cbk):
-        self.items = [ u"1", u"2", u"a", u"b" ]
-        Dialog.__init__(self, cbk, u"Select a number", Listbox(self.items,
-            self.close_app))
- 
  
 
 class Preventista(Application):
@@ -30,7 +16,7 @@ class Preventista(Application):
         self.txt = u""
         self.names = []
         items = [
-            u"Seleccionar cliente",
+            (u"Seleccionar cliente", self.select_client)
             ]
         menu = [
             (u"Text editor", self.text_editor),
@@ -38,7 +24,8 @@ class Preventista(Application):
             (u"Name list", self.name_list),
             ]
 
-        body = Listbox(items, self.check_items)
+        self.ilistbox = Ilistbox(items)
+        body = self.ilistbox.listbox
         Application.__init__(self, u"MyApp title", body, menu)
  
     def check_items(self):
@@ -50,7 +37,7 @@ class Preventista(Application):
         except:
             tracetofile()
  
-    def select_client(self):
+    def select_client(self, listboxitem, itemdata):
         def callback():
             if not self.dialog.cancel:
                 self.client = self.dialog.ilistbox.items[1][0][1]
@@ -63,6 +50,8 @@ class Preventista(Application):
             self.dialog.run()
         except:
             tracetofile()
+
+        return listboxitem, itemdata
 
 
     def text_editor(self):
@@ -107,11 +96,3 @@ class Preventista(Application):
         if ny is not None:
             if ny == 1:
                 Application.close_app(self)
- 
-
-def main():
-    app = Main_app()
-    app.run()
-
-if __name__ == "__main__":
-    main()

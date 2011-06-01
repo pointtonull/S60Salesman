@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: UTF-8 -*-
 
-from auto_dsv import import_dsv
+from auto_dsv import Data_manager
 from debug import debug
 from ilistbox import Ilistbox, list_editor
 from uniq import uniq, sorted
@@ -23,7 +23,6 @@ class NameList(Dialog):
                 name = query(u"New name:", "text", u"" )
                 if name is not None:
                     self.names.append(name)
-                    print(self.names)
             elif self.names:
                 del self.names[self.body.current()]
             self.refresh()
@@ -40,10 +39,26 @@ class NameList(Dialog):
         self.body.set_list(items, 0)
         Dialog.refresh(self)
 
+ 
+class Notepad(Dialog):
+    def __init__(self, cbk, txt=u""):
+        menu = [
+            (u"Save", self.close_app),
+            (u"Discard", self.cancel_app)
+            ]
+        Dialog.__init__(self, cbk, u"Preventista", Text(txt), menu)
+ 
+class NumSel(Dialog):
+    def __init__(self, cbk):
+        self.items = [ u"1", u"2", u"a", u"b" ]
+        Dialog.__init__(self, cbk, u"Select a number", Listbox(self.items,
+            self.close_app))
+
 
 class Select_client(Dialog):
     def __init__(self, callback):
-        self.clientes = import_dsv(r"e:\data\input\clientes.csv")
+        self.datamanager = Data_manager()
+        self.clientes = self.datamanager.fromfile(r"e:\data\input\clientes.csv")
         zonas_clientes = self.get_zonas_clientes()
         nombres_clientes = self.get_nombres_clientes()
 
