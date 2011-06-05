@@ -150,13 +150,14 @@ def str_editor(listboxitem, itemdata=None):
     label = strings.pop()
 
     new_value = appuifw.query(u"%s:" % label, "text", value)
+    if new_value is not None:
+        listboxitem = []
+        for element in (label, new_value, icon):
+            if element:
+                listboxitem.append(element)
+        listboxitem = tuple(listboxitem)
 
-    listboxitem = []
-    for element in (label, new_value, icon):
-        if element:
-            listboxitem.append(element)
-
-    return tuple(listboxitem), itemdata
+    return listboxitem, itemdata
 
 
 def text_editor(listboxitem, itemdata=None):
@@ -175,13 +176,14 @@ def text_editor(listboxitem, itemdata=None):
     label = strings.pop()
 
     new_value = appuifw.query(u"%s:" % label, "text", value)
+    if new_value is not None:
+        listboxitem = []
+        for element in (label, new_value, icon):
+            if element:
+                listboxitem.append(element)
+        listboxitem = tuple(listboxitem)
 
-    listboxitem = []
-    for element in (label, new_value, icon):
-        if element:
-            listboxitem.append(element)
-
-    return tuple(listboxitem), itemdata
+    return listboxitem, itemdata
 
 
 def date_editor(listboxitem, itemdata=None):
@@ -199,14 +201,15 @@ def date_editor(listboxitem, itemdata=None):
     label = strings.pop()
     
     new_value = appuifw.query(u"%s:" % label, "date", Date(value))
-    new_value = unicode(Date(new_value))
+    if new_value is not None:
+        new_value = unicode(Date(new_value))
+        listboxitem = []
+        for element in (label, new_value, icon):
+            if element:
+                listboxitem.append(element)
+        listboxitem = tuple(listboxitem)
 
-    listboxitem = []
-    for element in (label, new_value, icon):
-        if element:
-            listboxitem.append(element)
-
-    return tuple(listboxitem), itemdata
+    return listboxitem, itemdata
     
 
 def number_editor(listboxitem, itemdata=None):
@@ -224,14 +227,16 @@ def number_editor(listboxitem, itemdata=None):
     label = strings.pop()
     
     new_value = appuifw.query(u"%s:" % label, "float", Number(value))
-    new_value = unicode(Number(new_value))
+    if new_value is not None:
+        new_value = unicode(Number(new_value))
 
-    listboxitem = []
-    for element in (label, new_value, icon):
-        if element:
-            listboxitem.append(element)
+        listboxitem = []
+        for element in (label, new_value, icon):
+            if element:
+                listboxitem.append(element)
+        listboxitem = tuple(listboxitem)
 
-    return tuple(listboxitem), itemdata
+    return listboxitem, itemdata
     
 
 def list_editor(listboxitem, itemdata=None):
@@ -256,23 +261,15 @@ def list_editor(listboxitem, itemdata=None):
     choices, current_index, search_field = itemdata
 
     new_index = selection_list(choices, search_field=search_field)
-    if new_index is None:
-        new_index = 0
-    new_value = unicode(choices[new_index])
+    if new_index is not None:
+        new_value = unicode(choices[new_index])
 
-    listboxitem = []
-    for element in (label, new_value, icon):
-        if element:
-            listboxitem.append(element)
+        listboxitem = []
+        for element in (label, new_value, icon):
+            if element:
+                listboxitem.append(element)
 
-    itemdata = (choices, current_index, search_field)
+        itemdata = (choices, current_index, search_field)
+        listbox = tuple(listboxitem)
 
-    return tuple(listboxitem), itemdata
-
-#        Quey options
-#        (u'Mobile','text', u'Nokia')
-#        (u'Date', 'date')
-#        (u"Date", 'date', time.time())
-#        (u'Prueba','number', randrange(10))
-#        (u'Time', 'time')
-
+    return listboxitem, itemdata

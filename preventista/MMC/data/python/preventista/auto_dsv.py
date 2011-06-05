@@ -6,9 +6,10 @@ Smart interface for reading and writing dsv files.
 """
 
 from DSV import DSV
+from debug import debug
 
 class Data_manager(object):
-    def __init__(self, delimiter=None, qualifier=None, hasheader=None,
+    def __init__(self, delimiter=";", qualifier="'", hasheader=True,
             quoteall=True, newline=None):
         self._delimiter = delimiter
         self._qualifier = qualifier
@@ -49,13 +50,13 @@ class Data_manager(object):
             headers = range(1, columns + 1)
         
         for index, item in enumerate(headers):
-            headers[index] = unicode(item, "latin1", "replace")
+            headers[index] = unicode(item, "utf8", "replace")
 
         dsvlistofdicts = []
         for row in dsvlistoflists:
             mapped_row = {}
             for column in xrange(columns):
-                mapped_row[headers[column]] = unicode(row[column], "latin1",
+                mapped_row[headers[column]] = unicode(row[column], "utf8",
                     "replace")
             dsvlistofdicts.append(mapped_row)
 

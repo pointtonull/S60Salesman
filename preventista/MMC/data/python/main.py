@@ -27,6 +27,13 @@ def update_sys_path():
 
 
 def main():
+    def naturales(desde, hasta):
+        for n in xrange(desde, hasta):
+            yield n
+
+    for n in naturales(5, 50):
+        print n
+
     update_sys_path()
     from debug import debug, tracetofile
     debug("Path: %s" % sys.path)

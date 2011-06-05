@@ -2,8 +2,8 @@
 #-*- coding: UTF-8 -*-
 
 from debug import debug
-from ilistbox import Ilistbox, list_editor, text_editor, date_editor
 from formats import Date
+from ilistbox import Ilistbox, list_editor, text_editor, date_editor
 from ilistbox import dummy_editor
 from uniq import uniq
 from window import Dialog
@@ -11,18 +11,50 @@ import e32
 
 
 class Pedido_editor(Dialog):
-    def __init__(self, callback, nombre_cliente, pedido):
-        items = (
-            ((u"Cliente", nombre_cliente), dummy_editor),
-            ((u"Fecha entrega",
-                unicode(Date(pedido[u"FECHA_ENTREGA"]))), date_editor),
-            ((U"Comentario", pedido[u"COMENTARIO"]), text_editor), 
-        ) 
-        debug(items)
+    def __init__(self, callback, nombre_cliente, pedido, pedidos_detalles,
+            productos):
+        self.nombre_cliente = nombre_cliente
+        self.pedido = pedido
+        self.pedidos_detalles = pedidos_detalles
+        self.productos = productos
+        items = self.get_ilistbox_items()
         self.ilistbox = Ilistbox(items)
         self.body = self.ilistbox.listbox
         Dialog.__init__(self, callback, u"Editar pedido", self.body)
 
+
+    def get_ilistbox_items(self):
+        items = []
+        items.append(
+            ((u"Cliente", self.nombre_cliente),
+                dummy_editor)
+        )
+        fecha_entrega = unicode(Date(self.pedido[u"FECHA_ENTREGA"]))
+        items.append(
+            ((u"Fecha entrega", fecha_entrega),
+                date_editor)
+        )
+        nro_pedido = self.pedido[u"NRO_PEDIDO"]
+        for detalle in self.pedidos_detalles:
+            if detalle[u"NRO_PEDIDO"] == nro_pedido:
+                codigo = detalle[u"COD_PRODUCTO"]
+                producto = [producto for producto in self.productos
+                    if producto[u"COD_PRODUCTO"] == codigo][0]
+                nombre = producto[u"NOMBRE_PRODUCTO"]
+                medida = producto[u"MEDIDA_PRODUCTO"]
+                precio_original = producto[u"PRECIO_PRODUCTO"]
+                cantidad = detalle[u"CANTIDAD_PEDIDO"]
+                precio_pedido = detalle[u"PRECIO_PRODUCTO"]
+                items.append(
+            ((nombre, u"%s x %s x %s" % (cantidad, medida, precio_pedido)),
+                dummy_editor)
+                )
+        items.append(
+            ((u"Agregar articulo", u"Click para seleccionar un nuevo producto"),
+                dummy_editor)
+        )
+        items.append(((U"Comentario", self.pedido[u"COMENTARIO"]), text_editor))
+        return items
 
 class NameList(Dialog):
     def __init__(self, cbk, names=[]):

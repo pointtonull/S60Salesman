@@ -59,17 +59,21 @@ class Preventista(Application):
 
     def edit_pedido(self, listboxitem, pedido):
         def callback():
-            if not self.dialog.cancel:
+            if self.dialog.cancel:
+                note(u"Pedido cancelado", "conf")
+            else:
+                self.pedidos.append(pedido)
                 note(u"Pedido guardado", "info")
             self.refresh()
             return True
 
         if not pedido:
-            pedido = self.get_pedido_vacio()
+            pedido = self.get_nuevo_pedido()
 
         nombre_cliente = self.cliente_activo[u"APNBR_CLI"]
         try:
-            self.dialog = Pedido_editor(callback, nombre_cliente, pedido)
+            self.dialog = Pedido_editor(callback, nombre_cliente, pedido,
+                self.pedidos_detalles, self.productos)
             self.dialog.run()
         except:
             tracetofile()
@@ -129,7 +133,7 @@ class Preventista(Application):
         return items
 
 
-    def get_pedido_vacio(self):
+    def get_nuevo_pedido(self):
         pedido = {
             u'NRO_PEDIDO' :
                 unicode(int(self.preventista[u"ULTIMO_NRO_PEDIDO"]) + 1),
