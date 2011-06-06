@@ -22,27 +22,29 @@ def update_sys_path():
     sd_path = get_sd_path()
     assert sd_path
     sd_resource_path = SD_RESOURCE_PATH % sd_path
-    sys.path.insert(sys.path.index(main_resource_path), sd_resource_path)
-    return True
+    if sd_resource_path not in sys.path:
+        sys.path.insert(sys.path.index(main_resource_path), sd_resource_path)
+        return True
+    else:
+        return False
 
 
 def main():
-    def naturales(desde, hasta):
-        for n in xrange(desde, hasta):
-            yield n
-
-    for n in naturales(5, 50):
-        print n
 
     update_sys_path()
     from debug import debug, tracetofile
     debug("Path: %s" % sys.path)
 
-    from appuifw import note
+    from data import main as data_main
     try:
-        from preventista import Preventista
-        app = Preventista()
-        app.run()
+        
+        for i in xrange(10):
+            data_main()
+
+#        from preventista import Preventista
+#        app = Preventista()
+#        app.run()
+
     except:
         tracetofile()
 

@@ -2,10 +2,10 @@
 #-*- coding: UTF-8 -*-
 
 """
-Smart interface for reading and writing dsv files.
+Smart interface for reading and writing dsv files. Will recive and use
+generator for avoid memory exhaustion.
 """
 
-from DSV import DSV
 from debug import debug
 
 class Data_manager(object):
