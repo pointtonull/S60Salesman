@@ -5,40 +5,32 @@
 # License: GPL3
 
 from appuifw import Listbox, note, popup_menu, Text, query
-from auto_dsv import Data_manager
+from data import Data_manager
 from debug import debug, tracetofile
 from dialogs import Pedido_editor
+from formats import Date, DAY
 from ilistbox import Ilistbox, list_editor
+from time import time
 from uniq import uniq
 from window import Application, Dialog
-from formats import Date, DAY
-from time import time
+import os
 
-INPUT_DIR = r"e:\data\input\%s"
-OUTPUT_DIR = r"e:\data\output\%s"
-MOVIL_DIR = r"e:\data\movil\%s"
+SD_LETTER = "e"
+INPUT_DIR = ur"%s:\data\input" % SD_LETTER
+OUTPUT_DIR = ur"%s:\data\output" % SD_LETTER
+MOVIL_DIR = ur"%s:\data\movil" % SD_LETTER
+DBFILE = ur"%s\preventista.db" % MOVIL_DIR
 
 class Preventista(Application):
     def __init__(self):
-        self.datamanager = Data_manager()
-        self.clientes = self.datamanager.fromfile(
-            INPUT_DIR % "clientes.csv")
-        self.listas_frecuentes = self.datamanager.fromfile(
-            INPUT_DIR % "listas_frecuentes.csv")
-        self.preventista = self.datamanager.fromfile(
-            INPUT_DIR % "preventista.csv")[0]
-        self.pedidos = self.datamanager.fromfile(
-            OUTPUT_DIR % "pedidos_cabeceras.csv")
-        self.pedidos_detalles = self.datamanager.fromfile(
-            OUTPUT_DIR % "pedidos_detalles.csv")
-        self.productos = self.datamanager.fromfile(
-            INPUT_DIR % "productos.csv")
+        self.datamanager = Data_manager(DBFILE)
+        self.update_database()
 
-        try:
-            self.cliente_activo = self.datamanager.fromfile(
-                MOVIL_DIR % "cliente_activo.csv")[-1]
-        except:
-            self.cliente_activo = None
+#        try:
+#            self.cliente_activo = self.datamanager.fromfile(
+#                MOVIL_DIR % "cliente_activo.csv")[-1]
+#        except:
+#            self.cliente_activo = None
 
         if self.cliente_activo not in self.clientes:
             self.cliente_activo = self.clientes[0]
@@ -55,6 +47,16 @@ class Preventista(Application):
         ]
 
         Application.__init__(self, u"MyApp title", body, menu)
+
+
+    def update_database(self):
+        for filename in os.listdir(INPUT_DIR):
+            if filename.endswith(".csv"):
+                debug("Cargando los registros actualizados desde %s" % filename)
+                tablename = filename[:-4]
+                completefilename = INPUT_DIR + u"\\" + filename
+                self.datamanager.csv_import(open(completefilename), tablename)
+                os.remove(completefilename)
 
 
     def edit_pedido(self, listboxitem, pedido):

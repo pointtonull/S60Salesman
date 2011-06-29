@@ -1,16 +1,22 @@
+#!/usr/bin/env python
+#-*- coding: UTF-8 -*-
+
+from debug import debug
+from itertools import chain
 import csv
 import e32db
+import re
 
 
 """
 Dbms:
-    begin() Begins a transaction on the database. 
-    rollback() Rolls back the current transaction. 
-    commit() Commits the current transaction. 
+    begin() Begins a transaction on the database.
+    rollback() Rolls back the current transaction.
+    commit() Commits the current transaction.
 
     compact() Compacts the database, reclaiming unused space in the database
-        file. 
-    create(dbname) Creates a database with path dbname. 
+        file.
+    create(dbname) Creates a database with path dbname.
 """
 
 class Data_manager(object):
@@ -86,7 +92,12 @@ class Data_manager(object):
                 The number of rows inserted, updated or deleted
         """
 
-        result = self.db_object.execute(statement)
+        try:
+            result = self.db_object.execute(statement)
+        except SymbianError, error:
+            debug("Error %s on: %s "% (error, statement))
+            raise
+
         self._changes += 1
         return result
 
@@ -99,109 +110,191 @@ class Data_manager(object):
             table_name : the destination table
         """
 
-        reader = csv.reader(csv_file, delimiter=';', quoting=csv.QUOTE_ALL,
-            quotechar="'")
+        reader = csv_reader(csv_file)
+
         headers = reader.next()
-        fields = ", ".join(headers)
-        return
+        fields = u", ".join(headers)
+
+        prelist = []
+        for i in xrange(10):
+            try:
+                prelist.append(reader.next())
+            except StopIteration:
+                break
+
+        values_fmt = guest_type(prelist)
+
+        for row in chain(prelist, reader):
+            row = (scape(column) for column in row)
+            values = values_fmt % tuple(row)
+            values = values.decode("latin-1", "ignore")
+            statement = u"INSERT INTO %s" % table_name
+            statement += u" (%s)" % fields
+            statement += u" VALUES (%s)" % values
+            self.execute(statement)
+
+        return True
 
 
-    def csv_export(self, csv_file, table_name, fields):
+    def csv_export(self, csv_file, statement):
         """
         Export the values of the fields from table to the csv_file.
 
             csv_file   : file-like object
-            table_name : source of data
-            fields     : the columns names to be includeds
+            statement  : the select query to execute, if fields are explicit
+                         headers will be included in csv file
         """
-        return
+        query_regex = r"(?im)SELECT\s*([\w,\s]*?)\*?\s+FROM\s+?[\w,\s]+"
+        query = re.search(query_regex, statement)
+        assert query
+        headers = [header.strip() 
+            for header in query.group(1).upper().split(",")]
 
+        if headers:
+            csv_file.write("%s\n" % ";".join(headers))
+
+        for row in self.query_all(statement):
+            values = [u"'%s'" % value for value in row]
+            line = u";".join(values) + u"\n"
+            csv_file.write(line.encode("latin-1", "replace"))
+
+        csv_file.flush()
+
+
+
+def guest_type(rows):
+    '''
+    Some values rows --> formater string
+
+    [
+        ['224', '22', 'VIRGEN DE URJUPIÑA', '3.14159265', 'ACTIVO'],
+        ['172', '23', 'ZULMA', '1.732050', 'ACTIVO']
+    ]
+
+    produces;
+        u"""%s, %s, '%s', %s, '%s'"""
+    '''
+
+    types = (int, float, str)
+    finaltypes = [list(types) for x in range(len(rows[0]))]
+    for row in rows:
+        for pos, value in enumerate(row):
+            attempt = finaltypes[pos][0]
+            try:
+                attempt(value)
+            except:
+                del(finaltypes[pos][0])
+                if not finaltypes[pos]:
+                    debug("Error: guest_types: %s[%d]" % (row, pos))
+                    assert finaltypes[pos]
+                
+    fmts = []
+    type2fmt = {int: "%s", float: "%s", str: "'%s'"}
+    for column in finaltypes:
+        fmts.append(type2fmt[column[0]])
+
+    return ", ".join(fmts)
+
+
+def scape(string):
+    """
+    Try to scape special chars
+    """
+    specials = {
+        r"'" : r"''"
+    }
+ 
+    for key, value in specials.iteritems():
+        if key in string:
+            debug(string)
+            string = string.replace(key, value)
+            debug(string)
+    return string
+
+
+def csv_reader(iterator):
+    fields_re = r"(;|^)('?)(?P<value>.*?)\2(?=;|$)"
+    for line in iterator:
+        yield [field.group("value")
+            for field in re.finditer(fields_re, line)]
 
 
 def main():
-    from random import randrange
-
-    dbfile = u"e:\\prueba.db"
+    debug(u"Abriendo fichero de base de datos.")
+    dbfile = ur"e:\data\movil\preventista.db"
     data = Data_manager(dbfile)
-    sql_create = (u"""CREATE TABLE bookmarks (
-            id COUNTER,
-            url VARCHAR(40),
-            score UNSIGNED TINYINT
+
+    debug(u"Intentando crear tabla clientes.")
+    sql_create = (u"""CREATE TABLE clientes (
+            COD_CLI INTEGER,
+            NRO_ZON INTEGER,
+            APNBR_CLI VARCHAR,
+            DOM_PART_CLI VARCHAR,
+            EST_CLI VARCHAR,
+            CARACT_ZON VARCHAR
         )""")
 
     try:
         data.execute(sql_create)
     except SymbianError, error:
         if "KErrAlreadyExists" in error:
-            pass
+            debug(u"La tabla ya existe.")
         else:
             raise
 
-    protocols = ("http://", "https://", "ftp://", "ftps://")
-    prefixes = ("", "www.", "mirror.", "secure.")
-    names = ("wikipedia", "google", "twitter", "debian", "fsf", "saltalug",
-            "yahoo", "amazon", "terra", "ding", "facebook")
-    clases = ("", "org", ".com", ".net", ".gov", ".tur", ".tv")
-    locations = ("", ".us", ".ar", ".uy", ".cl", ".ch", ".la", ".uk",
-        ".es", ".bo", ".pe", ".co", ".ve")
+    debug(u"Eliminando todos los registros")
+    data.execute(u"DELETE FROM clientes")
 
-    print("Trying to insert tons of regs to the database.")
-    for protocol in protocols:
-        for prefix in prefixes:
-            for name in names:
-                for clase in clases:
-                    for location in locations:
-                        url = "".join((protocol, prefix, name, clase, location))
-                        score = randrange(1, 6)
-                        sql_add = (u"INSERT INTO bookmarks (url, score)"
-                            "VALUES ('%s', %d)" % (url, score))
-                        data.execute(sql_add)
-    data.close()
+    debug(u"Intentando importar los registros desde el csv a la tabla.")
+    data.csv_import(open(r"e:\data\input\clientes.csv"), u"clientes")
 
     data = Data_manager(dbfile)
-    print("First: %s, %s" % tuple(data.query_first(
-        u'SELECT url, score FROM bookmarks')))
-    print("All:")
+    debug(u"First: %s" % u', '.join((unicode(value)
+        for value in data.query_first(u'SELECT * FROM clientes'))))
+    debug(u"All:")
     counter = 0
-    for row in data.query_all(u'SELECT url, score FROM bookmarks'):
+    for row in data.query_all(u'SELECT * FROM clientes'):
         counter += 1
-    print("    repasados %d registros" % counter)
+    debug(u"    repasados %d registros" % counter)
 
-    print("Deleting all urls with score < 3")
+    debug(u"Exportando todos los registros a CSV con header")
+    data.csv_export(open(r"e:\data\output\hclientes.csv", "w"),
+        (u'SELECT COD_CLI, NRO_ZON, APNBR_CLI, DOM_PART_CLI, EST_CLI,'
+         u'CARACT_ZON FROM clientes'))
 
-    data.execute(u"DELETE FROM bookmarks WHERE score < 3")
+    debug(u"Eliminando todos los registros con NRO_ZON != 18")
+    data.execute(u"DELETE FROM clientes WHERE NRO_ZON <> 18")
+
     data.close()
 
+
 """
-BIT                 int
-TINYINT             int
-UNSIGNED TINYINT    int
-SMALLINT            int     yes
-UNSIGNED SMALLINT   int     yes
-INTEGER     int     yes
-UNSIGNED INTEGER     int     yes
-COUNTER     te)     int     yes
-BIGINT     long     yes
-REAL     float     yes
-FLOAT     EDbColReal64     float     yes
-DOUBLE     EDbColReal64     float     yes
-DOUBLE PRECISION     EDbColReal64     float     yes
-DATE     EDbColDateTime     float
+All types: int, float, long, str, unicode
 
-(or long, with col_rawtime()
-    yes
-TIME     EDbColDateTime     float
+    BIT                                     int        yes
+    TINYINT                                 int        yes
+    UNSIGNED           TINYINT              int        yes
+    SMALLINT                                int        yes
+    UNSIGNED           SMALLINT             int        yes
+    INTEGER                                 int        yes
+    UNSIGNED           INTEGER              int        yes
+    COUNTER                                 int        yes
+    BIGINT                                  long       yes
+    REAL                                    float      yes
+    FLOAT              EDbColReal64         float      yes
+    DOUBLE             EDbColReal64         float      yes
+    DOUBLE PRECISION   EDbColReal64         float      yes
+    DATE               EDbColDateTime       float      yes
+           with col_rawtime()               long       yes
+    TIME               EDbColDateTime       float      yes
+           with col_rawtime()               long       yes
+    TIMESTAMP          EDbColDateTime       float      yes
+           with col_rawtime()               long       yes
+    CHAR(n)            EDbColText           Unicode    yes
+    VARCHAR(n)         EDbColText           Unicode    yes
+    LONG VARCHAR       EDbColLongText       Unicode    yes
+    BINARY(n)          EDbColBinary         str        read only
+    VARBINARY(n)       EDbColBinary         str        read only
+    LONG VARBINARY     EDbColLongBinary     n/a        no
 
-(or long, with col_rawtime()
-    yes
-TIMESTAMP     EDbColDateTime     float
-
-(or long, with col_rawtime()
-    yes
-CHAR(n)     EDbColText     Unicode     yes
-VARCHAR(n)     EDbColText     Unicode     yes
-LONG VARCHAR     EDbColLongText     Unicode     yes
-BINARY(n)     EDbColBinary     str     read only
-VARBINARY(n)     EDbColBinary     str     read only
-LONG VARBINARY     EDbColLongBinary     n/a     no
 """

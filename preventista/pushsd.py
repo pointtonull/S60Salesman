@@ -2,9 +2,10 @@
 #-*- coding: UTF-8 -*-
 
 from subprocess import call, Popen, PIPE
+from decoradores import Retry
+from time import sleep
 import os
 import sys
-from time import sleep
 
 REMOTE = "/media/tarjeta"
 LOCAL = os.path.abspath("MMC")
@@ -23,6 +24,7 @@ def vcall(*args, **kwargs):
     return error
 
 
+@Retry(10, pause=1)
 def mount():
     proc = Popen("mount", stdout=PIPE, shell=True)
     mounteds = proc.stdout.readlines()
@@ -31,7 +33,10 @@ def mount():
         return True
     else:
         error = vcall("mount %s" % REMOTE, shell=True)
-        return error == 0
+        if error == 0:
+            return True
+        else:
+            return
 
 #        # FIXME: add media verification
 #        disksdir = "/dev/disk/by-id"
@@ -65,12 +70,10 @@ def rsync(origen, destino):
 
 def main():
     assert mount()
-    vcall('tail -n 50 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
+    rsync("%s/data/movil" % REMOTE, "%s/data/movil" % LOCAL)
+    rsync("%s/data/output" % REMOTE, "%s/data/output" % LOCAL)
+    vcall('tail -n 25 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
         shell=True)
-    try:
-        print(open("%s/debug.txt" % LOCAL).read())
-    except:
-        print("No debug file found.")
 
     for dirname in (LOCAL,):
         localdirname = os.path.join(LOCAL, dirname)
@@ -82,6 +85,12 @@ def main():
             rsync(localdirname, remotedirname)
 
     assert umount()
+
+    try:
+        print(open("%s/debug.txt" % LOCAL).read())
+    except:
+        print("No debug file found.")
+
 
 if __name__ == "__main__":
     exit(main())

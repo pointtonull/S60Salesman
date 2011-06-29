@@ -35,16 +35,16 @@ def main():
     from debug import debug, tracetofile
     debug("Path: %s" % sys.path)
 
-    from data import main as data_main
+#    from data import main as data_main
+#    try:
+#        data_main()
+#    except:
+#        tracetofile()
+
     try:
-        
-        for i in xrange(10):
-            data_main()
-
-#        from preventista import Preventista
-#        app = Preventista()
-#        app.run()
-
+        from preventista import Preventista
+        app = Preventista()
+        app.run()
     except:
         tracetofile()
 

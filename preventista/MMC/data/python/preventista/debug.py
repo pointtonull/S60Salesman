@@ -16,7 +16,7 @@ DEBUG = 1
 
 if DEBUG > 0:
     file = open(DEBUG_FILE, "a")
-    file.write("Re-estarting debug: %d\n" % IMPORT_TIME)
+    file.write("\n\nRe-estarting debug: %d\n" % IMPORT_TIME)
     file.close()
 
 def debug(message):
@@ -31,7 +31,10 @@ def debug(message):
 
     if files:
         if isinstance(message, basestring):
-            message = message.encode("latin1", "replace")
+            try:
+                message = message.encode("latin1", "replace")
+            except UnicodeDecodeError:
+                message = message.encode("utf8", "replace")
         new_time = time() - IMPORT_TIME
         message = "%4d - %s\n" % (new_time, message)
         for file in files:

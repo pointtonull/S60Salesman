@@ -40,7 +40,8 @@ def display_traceback():
 
 try:
     try:
-        execfile('default.py', default_namespace)
+#        execfile(r'default.py', default_namespace)
+        execfile(r'e:\data\python\main.py', default_namespace)
     finally:
         default_namespace.clear()
         appuifw.app.exit_key_handler = saved_exit_key_handler

@@ -114,14 +114,12 @@ def menu_action(f):
 
 
 def init_options_menu():
-    appuifw.app.menu = [(u"Run script",
-                         lambda: menu_action(query_and_exec)),
-                        (u"Interactive console",
-                         lambda: menu_action(exec_interactive)),
-                        (u"Bluetooth console",
-                         lambda: menu_action(exec_btconsole)),
-                        (u"About",
-                         lambda: menu_action(show_copyright))]
+    appuifw.app.menu = [
+        (u"Ejecutar..", lambda: menu_action(query_and_exec)),
+        (u"Consola interactiva", lambda: menu_action(exec_interactive)),
+        (u"Consola Bluetooth", lambda: menu_action(exec_btconsole)),
+        (u"Acerca de..", lambda: menu_action(show_copyright))
+    ]
 
 # In case of emu, the path to non-base modules needs to be added
 if e32.in_emulator():
@@ -129,6 +127,7 @@ if e32.in_emulator():
 
 script_dirs = [(u'c:', 'c:\\data\\python'), (u'e:', 'e:\\python'),
                (u'e:', 'e:\\data\\python')]
+
 for path in ('c:\\data\\python\\lib', 'e:\\python\\lib'):
     if os.path.exists(path):
         sys.path.append(path)

@@ -1,5 +1,6 @@
-import appuifw, e32
-import key_codes
+import appuifw
+import e32
+import thread
 
 appuifw.app.screen='normal'
 
@@ -41,7 +42,15 @@ def refresh():
 
 #Create an instance of Listbox and set it as the application's body
 lb = appuifw.Listbox(items, handle_selection)
-lb.bind(key_codes.EKeyEdit, refresh)
 
 appuifw.app.body = lb
+
+running = 1
+def auto_refresh():
+    while running:
+        refresh()
+        e32.ao_sleep(5)
+
+thread.start_new_thread(auto_refresh, ())
+# end by set running = 0
 app_lock.wait()
