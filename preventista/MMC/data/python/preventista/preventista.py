@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-#
-# Marcelo Barros de Almeida
-# marcelobarrosalmeida (at) gmail.com
-# License: GPL3
 
 from appuifw import Listbox, note, popup_menu, Text, query
-from data import Data_manager
+from data import Data_manager, escape
 from debug import debug, tracetofile
 from dialogs import Pedido_editor
 from formats import Date, DAY
@@ -23,17 +19,9 @@ DBFILE = ur"%s\preventista.db" % MOVIL_DIR
 
 class Preventista(Application):
     def __init__(self):
-        self.datamanager = Data_manager(DBFILE)
+        self.data = Data_manager(DBFILE)
         self.update_database()
-
-#        try:
-#            self.cliente_activo = self.datamanager.fromfile(
-#                MOVIL_DIR % "cliente_activo.csv")[-1]
-#        except:
-#            self.cliente_activo = None
-
-        if self.cliente_activo not in self.clientes:
-            self.cliente_activo = self.clientes[0]
+        self.set_cliente_activo()
 
         self.ilistbox = Ilistbox(self.get_ilistbox_items())
 
@@ -55,8 +43,96 @@ class Preventista(Application):
                 debug("Cargando los registros actualizados desde %s" % filename)
                 tablename = filename[:-4]
                 completefilename = INPUT_DIR + u"\\" + filename
-                self.datamanager.csv_import(open(completefilename), tablename)
+                self.create_table(tablename)
+                self.data.csv_import(open(completefilename), tablename)
                 os.remove(completefilename)
+
+
+    def create_table(self, tablename):
+        schemas = {
+
+            "cliente_activo": u"""CREATE TABLE cliente_activo (
+                COD_CLI INTEGER,
+                NRO_ZON INTEGER,
+                APNBR_CLI VARCHAR,
+                DOM_PART_CLI VARCHAR,
+                EST_CLI VARCHAR,
+                CARACT_ZON VARCHAR
+            )""",
+
+            "clientes":  u"""CREATE TABLE clientes (
+                COD_CLI INTEGER,
+                NRO_ZON INTEGER,
+                APNBR_CLI VARCHAR,
+                DOM_PART_CLI VARCHAR,
+                EST_CLI VARCHAR,
+                CARACT_ZON VARCHAR
+            )""",
+
+            "listas_frecuentes": u"""CREATE TABLE listas_frecuentes (
+                COD_CLI INTEGER,
+                COD_ZONA INTEGER,
+                COD_PRODUCTO INTEGER,
+                ID_PRODUCTO INTEGER,
+                NOMBRE_PRODUCTO VARCHAR,
+                MEDIDA_PRODUCTO VARCHAR,
+                CANTIDAD INTEGER,
+                PRECIO_PRODUCTO INTEGER,
+                COEF_MEDIDA_PRODUCTO INTEGER,
+                PCIO_TOTAL INTEGER
+            )""",
+
+            "preventista": u"""CREATE TABLE preventista (
+                COD_MOVIL INTEGER,
+                ULTIMO_NRO_PEDIDO INTEGER
+            )""",
+
+            "productos": u"""CREATE TABLE productos (
+                COD_PRODUCTO INTEGER,
+                ID_PRODUCTO INTEGER,
+                NOMBRE_PRODUCTO VARCHAR,
+                MEDIDA_PRODUCTO VARCHAR,
+                COEF_MEDIDA_PRODUCTO INTEGER,
+                PRECIO_PRODUCTO INTEGER,
+                ESTADO_PRODUCTO VARCHAR
+            )"""
+        }
+
+        if tablename in schemas:
+            debug(u"Intentando crear tabla %s." % tablename)
+            try:
+                error = self.data.execute(schemas[tablename])
+            except SymbianError, error:
+                if "KErrAlreadyExists" in error:
+                    debug(u"La tabla ya existía, reiniciandola.")
+                    drop_sql = u"DROP TABLE %s" % tablename
+                    error = self.data.execute(drop_sql)
+                    error = self.data.execute(schemas[tablename])
+                else:
+                    raise
+        else:
+            debug(u"No hay un esquema definido para la tabla: %s" % tablename)
+            error = False
+
+        return error
+
+
+    def get_cliente_activo(self):
+        return self.data_query_first(u"SELECT * FROM cliente_activo")
+
+
+    def set_cliente_activo(self, cliente=None):
+        if cliente is None or cliente in self.data.query(
+            "SELECT * FROM clientes"):
+            cliente = self.data.query_first(u"SELECT * FROM clientes")
+
+        self.create_table("cliente_activo")
+        values_fmt = """%d, %d, '%s', '%s', '%s', '%s'"""
+        values = values_fmt % cliente
+        insert_statement = u"""INSERT INTO cliente_activo
+            (COD_CLI, NRO_ZON, APNBR_CLI, DOM_PART_CLI,
+            EST_CLI, CARACT_ZON) VALUES (%s)""" % values
+        return self.data.execute(insert_statement)
 
 
     def edit_pedido(self, listboxitem, pedido):
@@ -95,8 +171,8 @@ class Preventista(Application):
 
 
     def get_ilistbox_items(self, own_item=None):
-        zona_cliente_activo = self.cliente_activo[u"CARACT_ZON"]
-        nombre_cliente_activo = self.cliente_activo[u"APNBR_CLI"]
+        zona_cliente_activo, nombre_cliente_activo = self.data.query_first(
+            u"SELECT CARACT_ZON, APNBR_CLI FROM cliente_activo")
 
         zonas_clientes = self.get_zonas_clientes()
         nombres_clientes = self.get_nombres_clientes(zona_cliente_activo)
@@ -158,7 +234,7 @@ class Preventista(Application):
         debug(nuevos_clientes)
         nuevo_cliente = nuevos_clientes[0]
         self.cliente_activo = nuevo_cliente
-        self.datamanager.tofile(MOVIL_DIR % "cliente_activo.csv" ,
+        self.data.tofile(MOVIL_DIR % "cliente_activo.csv" ,
             [nuevo_cliente])
 
 
@@ -180,9 +256,8 @@ class Preventista(Application):
 
 
     def get_zonas_clientes(self):
-        zonas_clientes = sorted(uniq([cliente[u"CARACT_ZON"]
-            for cliente in self.clientes]))
-#        zonas_clientes.insert(0, u"<TODAS>")
+        zonas_clientes = sorted(uniq(
+            self.data.query(u"SELECT CARACT_ZON FROM clientes")))
 
         return zonas_clientes
 
@@ -207,9 +282,10 @@ class Preventista(Application):
 
 
     def get_nombres_clientes(self, zona="<TODAS>"):
-        nombres_clientes = sorted(uniq([cliente[u"APNBR_CLI"]
-            for cliente in self.clientes
-                if cliente[u"CARACT_ZON"] == zona or zona==u"<TODAS>"]))
+        nombres_clientes = sorted(uniq(
+            self.data.query(u"""SELECT APNBR_CLI FROM clientes
+                WHERE CARACT_ZON='%s'
+                OR CARACT_ZON='<TODAS>'""" % escape(zona))))
 
         return nombres_clientes
 

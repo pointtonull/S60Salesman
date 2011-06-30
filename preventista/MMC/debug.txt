@@ -1,25 +1,25 @@
-    self.datamanager.csv_import(open(completefilename), tablename)
-  File "e:\data\python\preventista\data.py", line 125, in csv_import
-    values_fmt = guest_type(prelist)
-  File "e:\data\python\preventista\data.py", line 194, in guest_type
-    fmts.append(type2fmt[column[0]])
-KeyError: <type 'str'>
+    self.db_view.prepare(self.db_object, statement)
+SymbianError: [Errno -1] KErrNotFound
 
 
-Re-estarting debug: 1309045342
+Re-estarting debug: 1309380225
    0 - Path: ['E:\\Private\\20022ee9\\lib.zip', 'e:\\data\\python\\preventista', 'c:\\resource\\python25\\python25.zip', 'c:\\resource\\python25']
-   1 - Cargando los registros actualizados desde productos.csv
-   1 - Error [Errno -1] KErrNotFound on: INSERT INTO productos (COD_PRODUCTO, ID_PRODUCTO, NOMBRE_PRODUCTO, MEDIDA_PRODUCTO, COEF_MEDIDA_PRODUCTO, PRECIO_PRODUCTO, ESTADO_PRODUCTO) VALUES (14, 000010, 'CAJA X PIZZA ECONOMICA (A PEDIDO) $ 38,00', 100, 1, 38, 'ACTIVO') 
+   1 - Intentando crear tabla cliente_activo.
+   1 - Error [Errno -11] KErrAlreadyExists on: CREATE TABLE cliente_activo (
+                COD_CLI INTEGER,
+                NRO_ZON INTEGER,
+                APNBR_CLI VARCHAR,
+                DOM_PART_CLI VARCHAR,
+                EST_CLI VARCHAR,
+                CARACT_ZON VARCHAR
+            ) 
+   1 - La tabla ya existía, reiniciandola.
 Captured traceback
 Traceback (most recent call last):
   File "e:\data\python\main.py", line 46, in main
     app = Preventista()
-  File "e:\data\python\preventista\preventista.py", line 27, in __init__
-    self.update_database()
-  File "e:\data\python\preventista\preventista.py", line 58, in update_database
-    self.datamanager.csv_import(open(completefilename), tablename)
-  File "e:\data\python\preventista\data.py", line 134, in csv_import
-    self.execute(statement)
-  File "e:\data\python\preventista\data.py", line 96, in execute
-    result = self.db_object.execute(statement)
-SymbianError: [Errno -1] KErrNotFound
+  File "e:\data\python\preventista\preventista.py", line 26, in __init__
+    self.ilistbox = Ilistbox(self.get_ilistbox_items())
+  File "e:\data\python\preventista\preventista.py", line 191, in get_ilistbox_items
+    for pedido in self.get_pedidos(self.cliente_activo):
+AttributeError: 'Preventista' object has no attribute 'cliente_activo'

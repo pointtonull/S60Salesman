@@ -60,12 +60,16 @@ class Data_manager(object):
         return self._get_row()
 
 
-    def query_all(self, statement):
+    def query(self, statement):
         """
         Executes a query and returns a rows generator that will iterate all
         the result rows.
         """
-        self.db_view.prepare(self.db_object, statement)
+        try:
+            self.db_view.prepare(self.db_object, statement)
+        except:
+            debug("Query failed: %s" % statement)
+            raise
         self.db_view.first_line()
 
         for i in xrange(self.db_view.count_line()):
@@ -116,7 +120,7 @@ class Data_manager(object):
         fields = u", ".join(headers)
 
         prelist = []
-        for i in xrange(10):
+        for i in xrange(20):
             try:
                 prelist.append(reader.next())
             except StopIteration:
@@ -125,7 +129,7 @@ class Data_manager(object):
         values_fmt = guest_type(prelist)
 
         for row in chain(prelist, reader):
-            row = (scape(column) for column in row)
+            row = (escape(column) for column in row)
             values = values_fmt % tuple(row)
             values = values.decode("latin-1", "ignore")
             statement = u"INSERT INTO %s" % table_name
@@ -153,7 +157,7 @@ class Data_manager(object):
         if headers:
             csv_file.write("%s\n" % ";".join(headers))
 
-        for row in self.query_all(statement):
+        for row in self.query(statement):
             values = [u"'%s'" % value for value in row]
             line = u";".join(values) + u"\n"
             csv_file.write(line.encode("latin-1", "replace"))
@@ -196,9 +200,9 @@ def guest_type(rows):
     return ", ".join(fmts)
 
 
-def scape(string):
+def escape(string):
     """
-    Try to scape special chars
+    Try to escape special chars
     """
     specials = {
         r"'" : r"''"
@@ -253,7 +257,7 @@ def main():
         for value in data.query_first(u'SELECT * FROM clientes'))))
     debug(u"All:")
     counter = 0
-    for row in data.query_all(u'SELECT * FROM clientes'):
+    for row in data.query(u'SELECT * FROM clientes'):
         counter += 1
     debug(u"    repasados %d registros" % counter)
 
