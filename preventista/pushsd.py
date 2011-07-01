@@ -32,34 +32,32 @@ def mount():
     if any((REMOTE in line for line in mounteds)):
         return True
     else:
-        error = vcall("mount %s" % REMOTE, shell=True)
+        phones = get_phones()
+        error = vcall("mount %s" % phones[0], shell=True)
+
         if error == 0:
             return True
         else:
             return
 
-#        # FIXME: add media verification
-#        disksdir = "/dev/disk/by-id"
-#        disks = os.listdir(disksdir)
-#        sd_cards = [disk for disk in disks
-#            if (("Nokia_S60" in disk or "SD_MMCReader" in disk)
-#                and "part1" in disk)]
 
-#        assert sd_cards
-#        error = vcall("mount %s %s" % (os.path.join(disksdir, 
-#            sd_cards[0]), REMOTE), shell=True)
-#        return error == 0
+def get_phones():
+    disksdir = "/dev/disk/by-id"
+    disks = os.listdir(disksdir)
+    phones = [os.path.join(disksdir, disk) for disk in disks
+        if (("Nokia_S60" in disk or "SD_MMCReader" in disk)
+            and "part1" in disk)]
+    return phones
 
 
+@Retry(5)
 def umount():
-    for attemp in range(3):
-        error = vcall('umount "%s"' % REMOTE, shell=True)
-        if error:
-            print("Retrying")
-            sleep(1)
-        else:
-            break
-    return error == 0
+    phone = get_phones()[0]
+    error = vcall('umount "%s"' % phone, shell=True)
+    if error == 0:
+        return True
+    else:
+        return
 
 
 def rsync(origen, destino):
@@ -75,9 +73,9 @@ def main():
     vcall('tail -n 30 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
         shell=True)
 
-    for dirname in (LOCAL,):
+    for dirname in ("data", ):
         localdirname = os.path.join(LOCAL, dirname)
-        remotedirname = REMOTE
+        remotedirname = os.path.join(REMOTE, dirname)
         if "-r" in sys.argv:
             print("Ejecutando en modo inverso")
             rsync(remotedirname, localdirname)

@@ -3,16 +3,16 @@
                 EST_CLI VARCHAR,
                 CARACT_ZON VARCHAR
             ) 
-   1 - La tabla ya existía, se deja intacta.
-   1 - Intentando crear tabla pedidos_detalles.
-   1 - Error [Errno -11] KErrAlreadyExists on: CREATE TABLE pedidos (
+   2 - La tabla ya existía, se deja intacta.
+   2 - Intentando crear tabla pedidos_detalles.
+   2 - Error [Errno -11] KErrAlreadyExists on: CREATE TABLE pedidos (
                 NRO_PEDIDO INTEGER,
                 COD_PRODUCTO INTEGER,
                 CANTIDAD_PEDIDO INTEGER,
                 PRECIO_PRODUCTO FLOAT
             ) 
-   1 - La tabla ya existía, se deja intacta.
-   1 - Query failed: SELECT CARACT_ZON FROM clientes
+   2 - La tabla ya existía, se deja intacta.
+   3 - Query failed: SELECT CARACT_ZON FROM clientes
                 ORDER BY CARACT_ZON
                 GROUP BY CARACT_ZON
 Captured traceback
