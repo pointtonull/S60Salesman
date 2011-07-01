@@ -72,7 +72,7 @@ def main():
     assert mount()
     rsync("%s/data/movil" % REMOTE, "%s/data/movil" % LOCAL)
     rsync("%s/data/output" % REMOTE, "%s/data/output" % LOCAL)
-    vcall('tail -n 25 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
+    vcall('tail -n 30 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
         shell=True)
 
     for dirname in (LOCAL,):
