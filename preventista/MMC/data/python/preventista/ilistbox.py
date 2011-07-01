@@ -63,6 +63,8 @@ class Ilistbox: # Cannot inherit because of python version
 
         """
         listboxitems = [item[0] for item in self.items]
+        debug("Ilistbox:update_listboxitems::listboxitems = %s" % listboxitems)
+        debug("Ilistbox:update_listboxitems::updating ilistbox")
         for index, item in enumerate(listboxitems):
             if isinstance(item, unicode):
                 listboxitems[index] = item

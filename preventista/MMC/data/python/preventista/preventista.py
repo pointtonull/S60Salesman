@@ -149,8 +149,9 @@ class Preventista(Application):
                 if "KErrAlreadyExists" in error:
                     if force:
                         debug(u"La tabla ya existía, reiniciandola.")
-                        drop_sql = u"DROP TABLE %s" % tablename
-                        error = self.data.execute(drop_sql)
+                        error = self.data.execute(u"""
+                            DROP TABLE %s
+                        """ % escape(tablename))
                         error = self.data.execute(schemas[tablename])
                     else:
                         debug(u"La tabla ya existía, se deja intacta.")
@@ -170,13 +171,16 @@ class Preventista(Application):
 
 
     def set_cliente_activo(self, cliente=None):
-        if cliente is None or cliente in self.data.query(u"""
-            SELECT * FROM clientes
-            """):
+        if cliente is None or not self.data.query_count(u"""
+                SELECT * FROM clientes
+                WHERE APNBR_CLI='%s'
+                """ % escape(cliente[2])):
             cliente = self.data.query_first(u"""
                 SELECT * FROM clientes
                 """)
+        debug("Preventista:set_cliente_activo::cliente = %s" % str(cliente))
 
+        self.create_table("cliente_activo")
         values_fmt = """%s, %s, '%s', '%s', '%s', '%s'"""
         values = values_fmt % escape(cliente)
         insert_statement = u"""
@@ -213,7 +217,7 @@ class Preventista(Application):
 
     def update_ilistbox_items(self, own_item, changed_item, ilistbox):
         if changed_item[0][0] in (u"Zona", u"Cliente"):
-            debug("preventista:update_ilistbox_items:: ilistbox.items = %s" %
+            debug("Preventista:update_ilistbox_items:: ilistbox.items = %s" %
                 ilistbox.items)
             self.update_cliente_activo(
                 ilistbox.items[0][0][1],
@@ -278,13 +282,14 @@ class Preventista(Application):
 
 
     def update_cliente_activo(self, nombre_zona, nombre_cliente):
-        debug("Preventista:update_cliente_activo::zona = %s, cliente = %s" %
-            (nombre_zona, nombre_cliente))
+        debug("Preventista:update_cliente_activo::zona = %s" % nombre_zona)
+        debug("Preventista:update_cliente_activo::cliente = %s" %
+            nombre_cliente)
         nuevo_cliente = self.data.query_first(u"""
             SELECT * FROM clientes
             WHERE CARACT_ZON='%s'
             AND APNBR_CLI='%s'
-            """ % (nombre_zona, nombre_cliente))
+            """ % escape((nombre_zona, nombre_cliente)))
         self.set_cliente_activo(nuevo_cliente)
 
 
