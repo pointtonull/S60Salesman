@@ -136,24 +136,29 @@ class Application(Window):
 
         Window.__init__(self, title, body, menu, exit_handler)
 
+
     def close_app(self):
         """ Signalize the application lock, allowing run() to terminate the application.
         """
         Application.__lock.signal()
+
             
     def run(self):
         """ Show the the application and wait until application lock is
             signalized. After that, make all necessary cleanup.
         """
         old_title = app.title
+        old_layout = app.screen
         self.refresh()        
         Application.__lock.wait()
         # restore everything !
-        app.set_tabs( [], None )
+        app.set_tabs([], None)
         app.title = old_title
+        app.screen = old_layout
         app.menu = []
         app.body = None
-        app.set_exit()        
+        app.set_exit() 
+
 
 class Dialog(Window):
     """ This class is in the charge of showing/hiding dialogs when necessary.

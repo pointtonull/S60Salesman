@@ -1,30 +1,30 @@
-                APNBR_CLI VARCHAR,
-                DOM_PART_CLI VARCHAR,
-                EST_CLI VARCHAR,
-                CARACT_ZON VARCHAR
-            ) 
-   2 - La tabla ya existía, se deja intacta.
-   2 - Intentando crear tabla pedidos_detalles.
-   2 - Error [Errno -11] KErrAlreadyExists on: CREATE TABLE pedidos (
-                NRO_PEDIDO INTEGER,
-                COD_PRODUCTO INTEGER,
-                CANTIDAD_PEDIDO INTEGER,
-                PRECIO_PRODUCTO FLOAT
-            ) 
-   2 - La tabla ya existía, se deja intacta.
-   3 - Query failed: SELECT CARACT_ZON FROM clientes
-                ORDER BY CARACT_ZON
-                GROUP BY CARACT_ZON
-Captured traceback
-Traceback (most recent call last):
-  File "e:\data\python\main.py", line 46, in main
-    app = Preventista()
-  File "e:\data\python\preventista\preventista.py", line 28, in __init__
-    self.ilistbox = Ilistbox(self.get_ilistbox_items())
-  File "e:\data\python\preventista\preventista.py", line 201, in get_ilistbox_items
-    zonas_clientes = self.get_zonas_clientes()
-  File "e:\data\python\preventista\preventista.py", line 284, in get_zonas_clientes
-    GROUP BY CARACT_ZON""")]
-  File "e:\data\python\preventista\data.py", line 69, in query
-    self.db_view.prepare(self.db_object, statement)
-SymbianError: [Errno -6] KErrArgument
+                    COD_MOVIL INTEGER,
+                    COMENTARIO LONG VARCHAR,
+                    FECHA_PEDIDO DATE, 
+                    FECHA_ENTREGA DATE
+                )
+             
+   1 - La tabla ya existía, se deja intacta.
+   1 - Intentando crear tabla cliente_activo.
+   1 - Error [Errno -11] KErrAlreadyExists on: 
+                CREATE TABLE cliente_activo (
+                    COD_CLI INTEGER,
+                    NRO_ZON INTEGER,
+                    APNBR_CLI VARCHAR,
+                    DOM_PART_CLI VARCHAR,
+                    EST_CLI VARCHAR,
+                    CARACT_ZON VARCHAR
+                )
+             
+   1 - La tabla ya existía, se deja intacta.
+   1 - Intentando crear tabla pedidos_detalles.
+   1 - Error [Errno -11] KErrAlreadyExists on: 
+                CREATE TABLE pedidos (
+                    NRO_PEDIDO INTEGER,
+                    COD_PRODUCTO INTEGER,
+                    CANTIDAD_PEDIDO INTEGER,
+                    PRECIO_PRODUCTO FLOAT
+                )
+             
+   1 - La tabla ya existía, se deja intacta.
+   2 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'X CENTRO'), (u'Cliente', u'ABRAHAM - CARNICERIA'), (u'A\xf1adir pedido', u'Crea un pedido nuevo')]

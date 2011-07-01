@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from appuifw import Listbox, note, popup_menu, Text, query
+from appuifw import Listbox, note, popup_menu, Text, query, app
 from data import Data_manager, escape
 from debug import debug, tracetofile
 from dialogs import Pedido_editor
 from formats import Date, DAY
 from ilistbox import Ilistbox, list_editor
-from time import time
+from time import time, sleep
 from uniq import uniq
 from window import Application, Dialog
 import os
@@ -26,12 +26,12 @@ class Preventista(Application):
         self.set_cliente_activo()
 
         self.ilistbox = Ilistbox(self.get_ilistbox_items())
-
+        app.screen = "normal"
         body = self.ilistbox.listbox
 
         #FIXME: Crear un menú pertinente
         menu = [
-            (u"Text editor", self.text_editor),
+            (u"Preparar envío a PC", self.export_all),
             (u"Number selection", self.number_sel),
             (u"Name list", self.name_list),
         ]
@@ -52,71 +52,92 @@ class Preventista(Application):
         for table in ("pedidos", "cliente_activo", "pedidos_detalles"): 
             self.create_table(table, force=False)
 
+
+    def export_all(self):
+        #TODO: Escribir y exportar sentencias
+        sleep(5)
+        note(u"Listo para transferir a PC", "info")
+
+
     def create_table(self, tablename, force=True):
         schemas = {
 
-            "clientes":  u"""CREATE TABLE clientes (
-                COD_CLI INTEGER,
-                NRO_ZON INTEGER,
-                APNBR_CLI VARCHAR,
-                DOM_PART_CLI VARCHAR,
-                EST_CLI VARCHAR,
-                CARACT_ZON VARCHAR
-            )""",
+            "clientes":  u"""
+                CREATE TABLE clientes (
+                    COD_CLI INTEGER,
+                    NRO_ZON INTEGER,
+                    APNBR_CLI VARCHAR,
+                    DOM_PART_CLI VARCHAR,
+                    EST_CLI VARCHAR,
+                    CARACT_ZON VARCHAR
+                )
+            """,
 
-            "listas_frecuentes": u"""CREATE TABLE listas_frecuentes (
-                COD_CLI INTEGER,
-                COD_ZONA INTEGER,
-                COD_PRODUCTO INTEGER,
-                ID_PRODUCTO INTEGER,
-                NOMBRE_PRODUCTO VARCHAR,
-                MEDIDA_PRODUCTO VARCHAR,
-                CANTIDAD INTEGER,
-                PRECIO_PRODUCTO INTEGER,
-                COEF_MEDIDA_PRODUCTO INTEGER,
-                PCIO_TOTAL INTEGER
-            )""",
+            "listas_frecuentes": u"""
+                CREATE TABLE listas_frecuentes (
+                    COD_CLI INTEGER,
+                    COD_ZONA INTEGER,
+                    COD_PRODUCTO INTEGER,
+                    ID_PRODUCTO INTEGER,
+                    NOMBRE_PRODUCTO VARCHAR,
+                    MEDIDA_PRODUCTO VARCHAR,
+                    CANTIDAD INTEGER,
+                    PRECIO_PRODUCTO INTEGER,
+                    COEF_MEDIDA_PRODUCTO INTEGER,
+                    PCIO_TOTAL INTEGER
+                )
+            """,
 
-            "preventista": u"""CREATE TABLE preventista (
-                COD_MOVIL INTEGER,
-                ULTIMO_NRO_PEDIDO INTEGER
-            )""",
+            "preventista": u"""
+                CREATE TABLE preventista (
+                    COD_MOVIL INTEGER,
+                    ULTIMO_NRO_PEDIDO INTEGER
+                )
+            """,
 
-            "productos": u"""CREATE TABLE productos (
-                COD_PRODUCTO INTEGER,
-                ID_PRODUCTO INTEGER,
-                NOMBRE_PRODUCTO VARCHAR,
-                MEDIDA_PRODUCTO VARCHAR,
-                COEF_MEDIDA_PRODUCTO INTEGER,
-                PRECIO_PRODUCTO INTEGER,
-                ESTADO_PRODUCTO VARCHAR
-            )""",
+            "productos": u"""
+                CREATE TABLE productos (
+                    COD_PRODUCTO INTEGER,
+                    ID_PRODUCTO INTEGER,
+                    NOMBRE_PRODUCTO VARCHAR,
+                    MEDIDA_PRODUCTO VARCHAR,
+                    COEF_MEDIDA_PRODUCTO INTEGER,
+                    PRECIO_PRODUCTO INTEGER,
+                    ESTADO_PRODUCTO VARCHAR
+                )
+            """,
 
-            "pedidos": u"""CREATE TABLE pedidos (
-                NRO_PEDIDO INTEGER,
-                COD_CLI INTEGER,
-                NRO_ZON INTEGER,
-                COD_MOVIL INTEGER,
-                COMENTARIO LONG VARCHAR,
-                FECHA_PEDIDO DATE, 
-                FECHA_ENTREGA DATE
-            )""",
+            "pedidos": u"""
+                CREATE TABLE pedidos (
+                    NRO_PEDIDO INTEGER,
+                    COD_CLI INTEGER,
+                    NRO_ZON INTEGER,
+                    COD_MOVIL INTEGER,
+                    COMENTARIO LONG VARCHAR,
+                    FECHA_PEDIDO DATE, 
+                    FECHA_ENTREGA DATE
+                )
+            """,
 
-            "pedidos_detalles": u"""CREATE TABLE pedidos (
-                NRO_PEDIDO INTEGER,
-                COD_PRODUCTO INTEGER,
-                CANTIDAD_PEDIDO INTEGER,
-                PRECIO_PRODUCTO FLOAT
-            )""",
+            "pedidos_detalles": u"""
+                CREATE TABLE pedidos (
+                    NRO_PEDIDO INTEGER,
+                    COD_PRODUCTO INTEGER,
+                    CANTIDAD_PEDIDO INTEGER,
+                    PRECIO_PRODUCTO FLOAT
+                )
+            """,
 
-            "cliente_activo": u"""CREATE TABLE cliente_activo (
-                COD_CLI INTEGER,
-                NRO_ZON INTEGER,
-                APNBR_CLI VARCHAR,
-                DOM_PART_CLI VARCHAR,
-                EST_CLI VARCHAR,
-                CARACT_ZON VARCHAR
-            )""",
+            "cliente_activo": u"""
+                CREATE TABLE cliente_activo (
+                    COD_CLI INTEGER,
+                    NRO_ZON INTEGER,
+                    APNBR_CLI VARCHAR,
+                    DOM_PART_CLI VARCHAR,
+                    EST_CLI VARCHAR,
+                    CARACT_ZON VARCHAR
+                )
+            """,
 
         }
 
@@ -143,19 +164,26 @@ class Preventista(Application):
 
 
     def get_cliente_activo(self):
-        return self.data.query_first(u"SELECT * FROM cliente_activo")
+        return self.data.query_first(u"""
+            SELECT * FROM cliente_activo
+            """)
 
 
     def set_cliente_activo(self, cliente=None):
-        if cliente is None or cliente in self.data.query(
-            "SELECT * FROM clientes"):
-            cliente = self.data.query_first(u"SELECT * FROM clientes")
+        if cliente is None or cliente in self.data.query(u"""
+            SELECT * FROM clientes
+            """):
+            cliente = self.data.query_first(u"""
+                SELECT * FROM clientes
+                """)
 
         values_fmt = """%s, %s, '%s', '%s', '%s', '%s'"""
         values = values_fmt % escape(cliente)
-        insert_statement = u"""INSERT INTO cliente_activo
-            (COD_CLI, NRO_ZON, APNBR_CLI, DOM_PART_CLI,
-            EST_CLI, CARACT_ZON) VALUES (%s)""" % values
+        insert_statement = u"""
+            INSERT INTO cliente_activo
+            (COD_CLI, NRO_ZON, APNBR_CLI, DOM_PART_CLI, EST_CLI, CARACT_ZON)
+            VALUES (%s)
+            """ % values
         return self.data.execute(insert_statement)
 
 
@@ -196,7 +224,9 @@ class Preventista(Application):
 
     def get_ilistbox_items(self, own_item=None):
         zona_cliente_activo, nombre_cliente_activo = self.data.query_first(
-            u"SELECT CARACT_ZON, APNBR_CLI FROM cliente_activo")
+            u"""
+            SELECT CARACT_ZON, APNBR_CLI FROM cliente_activo
+            """)
 
         zonas_clientes = self.get_zonas_clientes()
         nombres_clientes = self.get_nombres_clientes(zona_cliente_activo)
@@ -250,21 +280,20 @@ class Preventista(Application):
     def update_cliente_activo(self, nombre_zona, nombre_cliente):
         debug("Preventista:update_cliente_activo::zona = %s, cliente = %s" %
             (nombre_zona, nombre_cliente))
-        nuevos_clientes = [cliente for cliente in self.clientes
-            if cliente[u"CARACT_ZON"] == nombre_zona
-                and cliente[u"APNBR_CLI"] == nombre_cliente]
-        debug(nuevos_clientes)
-        nuevo_cliente = nuevos_clientes[0]
-        self.cliente_activo = nuevo_cliente
-        self.data.tofile(MOVIL_DIR % "cliente_activo.csv" ,
-            [nuevo_cliente])
+        nuevo_cliente = self.data.query_first(u"""
+            SELECT * FROM clientes
+            WHERE CARACT_ZON='%s'
+            AND APNBR_CLI='%s'
+            """ % (nombre_zona, nombre_cliente))
+        self.set_cliente_activo(nuevo_cliente)
 
 
     def update_clients_list(self, item_clientes, item_modificado, ilistbox):
         if item_modificado[0][0] == u"Zona":
             nueva_zona = item_modificado[0][1]
             nombre_cliente = item_clientes[0][1]
-            debug("Zona ha sido cambiada, actualizando lista de clientes.")
+            debug("Zona ha sido cambiada (%s), actualizando lista de clientes."
+                % nueva_zona)
             clientes = sorted(self.get_nombres_clientes(nueva_zona))
             posicion = item_clientes[2][1]
             if item_clientes[0][1] not in clientes:
@@ -278,10 +307,10 @@ class Preventista(Application):
 
 
     def get_zonas_clientes(self):
-        zonas_clientes = [item[0] for item in self.data.query(
-            u"""SELECT CARACT_ZON FROM clientes
-                ORDER BY CARACT_ZON
-                GROUP BY CARACT_ZON""")]
+        zonas_clientes = uniq((item[0] for item in self.data.query(u"""
+            SELECT CARACT_ZON FROM clientes
+            ORDER BY CARACT_ZON
+            """)))
 
         return zonas_clientes
 
@@ -291,7 +320,8 @@ class Preventista(Application):
             pedidos_cliente = self.data.query(u"""
                 SELECT NRO_PEDIDO, FECHA_ENTREGA, COMENTARIO FROM pedidos
                 WHERE COD_CLI=%s
-                AND NRO_ZON=%s""" % (cliente[0], cliente[1]))
+                AND NRO_ZON=%s
+                """ % (cliente[0], cliente[1]))
             return pedidos_cliente
         else:
             return self.pedidos
@@ -306,12 +336,12 @@ class Preventista(Application):
 
 
     def get_nombres_clientes(self, zona="<TODAS>"):
-        nombres_clientes = [item[0] for item in self.data.query(
-            u"""SELECT APNBR_CLI FROM clientes
-                WHERE CARACT_ZON='%s'
-                OR CARACT_ZON='<TODAS>'
-                ORDER BY APNBR_CLI
-                GROUP BY APNBR_CLI""" % escape(zona))]
+        nombres_clientes = uniq((item[0] for item in self.data.query(u"""
+            SELECT APNBR_CLI FROM clientes
+            WHERE CARACT_ZON='%s'
+            OR CARACT_ZON='<TODAS>'
+            ORDER BY APNBR_CLI
+            """ % escape(zona))))
 
         return nombres_clientes
 

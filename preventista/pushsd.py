@@ -33,6 +33,7 @@ def mount():
         return True
     else:
         phones = get_phones()
+        assert phones
         error = vcall("mount %s" % phones[0], shell=True)
 
         if error == 0:
@@ -41,13 +42,15 @@ def mount():
             return
 
 
+@Retry(5)
 def get_phones():
     disksdir = "/dev/disk/by-id"
     disks = os.listdir(disksdir)
     phones = [os.path.join(disksdir, disk) for disk in disks
         if (("Nokia_S60" in disk or "SD_MMCReader" in disk)
             and "part1" in disk)]
-    return phones
+    if phones:
+        return phones
 
 
 @Retry(5)
