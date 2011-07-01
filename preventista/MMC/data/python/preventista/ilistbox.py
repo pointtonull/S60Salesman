@@ -260,7 +260,12 @@ def list_editor(listboxitem, itemdata=None):
 
     choices, current_index, search_field = itemdata
 
-    new_index = selection_list(choices, search_field=search_field)
+    try:
+        new_index = selection_list(choices, search_field=search_field)
+    except SymbianError:
+        debug("ilistbox:list_editor::coices = %s" % str(choices))
+        raise
+
     if new_index is not None:
         new_value = unicode(choices[new_index])
 

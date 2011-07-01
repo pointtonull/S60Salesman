@@ -200,7 +200,7 @@ def guest_type(rows):
     return ", ".join(fmts)
 
 
-def escape(string):
+def escape(value):
     """
     Try to escape special chars
     """
@@ -208,12 +208,23 @@ def escape(string):
         r"'" : r"''"
     }
  
-    for key, value in specials.iteritems():
-        if key in string:
-            debug(string)
-            string = string.replace(key, value)
-            debug(string)
-    return string
+    if issubclass(type(value), list) or issubclass(type(value), tuple):
+        return tuple((escape(item) for item in value))
+    elif issubclass(type(value), int):
+        value = "%d" % value
+    elif issubclass(type(value), float):
+        value = "%f" % value
+    elif issubclass(type(value), basestring):
+        pass
+    else:
+        raise ValueError(type(value))
+
+    for especial, replacement in specials.iteritems():
+        if especial in value:
+            debug(value)
+            value = value.replace(especial, replacement)
+            debug(value)
+    return value
 
 
 def csv_reader(iterator):

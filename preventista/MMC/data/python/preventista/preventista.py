@@ -11,11 +11,13 @@ from uniq import uniq
 from window import Application, Dialog
 import os
 
+
 SD_LETTER = "e"
 INPUT_DIR = ur"%s:\data\input" % SD_LETTER
 OUTPUT_DIR = ur"%s:\data\output" % SD_LETTER
 MOVIL_DIR = ur"%s:\data\movil" % SD_LETTER
 DBFILE = ur"%s\preventista.db" % MOVIL_DIR
+
 
 class Preventista(Application):
     def __init__(self):
@@ -47,18 +49,11 @@ class Preventista(Application):
                 self.data.csv_import(open(completefilename), tablename)
                 os.remove(completefilename)
 
+        for table in ("pedidos", "cliente_activo", "pedidos_detalles"): 
+            self.create_table(table, force=False)
 
-    def create_table(self, tablename):
+    def create_table(self, tablename, force=True):
         schemas = {
-
-            "cliente_activo": u"""CREATE TABLE cliente_activo (
-                COD_CLI INTEGER,
-                NRO_ZON INTEGER,
-                APNBR_CLI VARCHAR,
-                DOM_PART_CLI VARCHAR,
-                EST_CLI VARCHAR,
-                CARACT_ZON VARCHAR
-            )""",
 
             "clientes":  u"""CREATE TABLE clientes (
                 COD_CLI INTEGER,
@@ -95,7 +90,34 @@ class Preventista(Application):
                 COEF_MEDIDA_PRODUCTO INTEGER,
                 PRECIO_PRODUCTO INTEGER,
                 ESTADO_PRODUCTO VARCHAR
-            )"""
+            )""",
+
+            "pedidos": u"""CREATE TABLE pedidos (
+                NRO_PEDIDO INTEGER,
+                COD_CLI INTEGER,
+                NRO_ZON INTEGER,
+                COD_MOVIL INTEGER,
+                COMENTARIO LONG VARCHAR,
+                FECHA_PEDIDO DATE, 
+                FECHA_ENTREGA DATE
+            )""",
+
+            "pedidos_detalles": u"""CREATE TABLE pedidos (
+                NRO_PEDIDO INTEGER,
+                COD_PRODUCTO INTEGER,
+                CANTIDAD_PEDIDO INTEGER,
+                PRECIO_PRODUCTO FLOAT
+            )""",
+
+            "cliente_activo": u"""CREATE TABLE cliente_activo (
+                COD_CLI INTEGER,
+                NRO_ZON INTEGER,
+                APNBR_CLI VARCHAR,
+                DOM_PART_CLI VARCHAR,
+                EST_CLI VARCHAR,
+                CARACT_ZON VARCHAR
+            )""",
+
         }
 
         if tablename in schemas:
@@ -104,10 +126,13 @@ class Preventista(Application):
                 error = self.data.execute(schemas[tablename])
             except SymbianError, error:
                 if "KErrAlreadyExists" in error:
-                    debug(u"La tabla ya existía, reiniciandola.")
-                    drop_sql = u"DROP TABLE %s" % tablename
-                    error = self.data.execute(drop_sql)
-                    error = self.data.execute(schemas[tablename])
+                    if force:
+                        debug(u"La tabla ya existía, reiniciandola.")
+                        drop_sql = u"DROP TABLE %s" % tablename
+                        error = self.data.execute(drop_sql)
+                        error = self.data.execute(schemas[tablename])
+                    else:
+                        debug(u"La tabla ya existía, se deja intacta.")
                 else:
                     raise
         else:
@@ -118,7 +143,7 @@ class Preventista(Application):
 
 
     def get_cliente_activo(self):
-        return self.data_query_first(u"SELECT * FROM cliente_activo")
+        return self.data.query_first(u"SELECT * FROM cliente_activo")
 
 
     def set_cliente_activo(self, cliente=None):
@@ -126,9 +151,8 @@ class Preventista(Application):
             "SELECT * FROM clientes"):
             cliente = self.data.query_first(u"SELECT * FROM clientes")
 
-        self.create_table("cliente_activo")
-        values_fmt = """%d, %d, '%s', '%s', '%s', '%s'"""
-        values = values_fmt % cliente
+        values_fmt = """%s, %s, '%s', '%s', '%s', '%s'"""
+        values = values_fmt % escape(cliente)
         insert_statement = u"""INSERT INTO cliente_activo
             (COD_CLI, NRO_ZON, APNBR_CLI, DOM_PART_CLI,
             EST_CLI, CARACT_ZON) VALUES (%s)""" % values
@@ -188,13 +212,11 @@ class Preventista(Application):
             ),
         ]
 
-        for pedido in self.get_pedidos(self.cliente_activo):
+        for pedido in self.get_pedidos(self.get_cliente_activo()):
             item_pedido = (
                 (
-                    u"  Ped. %s para el %s" % (           
-                    pedido[u"NRO_PEDIDO"],
-                        unicode(Date(pedido[u"FECHA_ENTREGA"]))),
-                    u"  Comentario: %s " % pedido[u"COMENTARIO"]
+                    u"  Ped. %s para el %s" % pedido[:2],
+                    u"  Comentario: %s " % pedido[2]
                 ),
                 self.edit_pedido, pedido,
                 self.update_ilistbox_items
@@ -256,18 +278,20 @@ class Preventista(Application):
 
 
     def get_zonas_clientes(self):
-        zonas_clientes = sorted(uniq(
-            self.data.query(u"SELECT CARACT_ZON FROM clientes")))
+        zonas_clientes = [item[0] for item in self.data.query(
+            u"""SELECT CARACT_ZON FROM clientes
+                ORDER BY CARACT_ZON
+                GROUP BY CARACT_ZON""")]
 
         return zonas_clientes
 
 
     def get_pedidos(self, cliente=None):
         if cliente:
-            pedidos_cliente = [pedido
-                for pedido in self.pedidos
-                    if pedido[u"COD_CLI"] == self.cliente_activo[u"COD_CLI"] and
-                        pedido[u"NRO_ZON"] == self.cliente_activo[u"NRO_ZON"]]
+            pedidos_cliente = self.data.query(u"""
+                SELECT NRO_PEDIDO, FECHA_ENTREGA, COMENTARIO FROM pedidos
+                WHERE COD_CLI=%s
+                AND NRO_ZON=%s""" % (cliente[0], cliente[1]))
             return pedidos_cliente
         else:
             return self.pedidos
@@ -282,10 +306,12 @@ class Preventista(Application):
 
 
     def get_nombres_clientes(self, zona="<TODAS>"):
-        nombres_clientes = sorted(uniq(
-            self.data.query(u"""SELECT APNBR_CLI FROM clientes
+        nombres_clientes = [item[0] for item in self.data.query(
+            u"""SELECT APNBR_CLI FROM clientes
                 WHERE CARACT_ZON='%s'
-                OR CARACT_ZON='<TODAS>'""" % escape(zona))))
+                OR CARACT_ZON='<TODAS>'
+                ORDER BY APNBR_CLI
+                GROUP BY APNBR_CLI""" % escape(zona))]
 
         return nombres_clientes
 

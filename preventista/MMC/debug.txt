@@ -1,25 +1,30 @@
-    self.db_view.prepare(self.db_object, statement)
-SymbianError: [Errno -1] KErrNotFound
-
-
-Re-estarting debug: 1309380225
-   0 - Path: ['E:\\Private\\20022ee9\\lib.zip', 'e:\\data\\python\\preventista', 'c:\\resource\\python25\\python25.zip', 'c:\\resource\\python25']
-   1 - Intentando crear tabla cliente_activo.
-   1 - Error [Errno -11] KErrAlreadyExists on: CREATE TABLE cliente_activo (
-                COD_CLI INTEGER,
-                NRO_ZON INTEGER,
                 APNBR_CLI VARCHAR,
                 DOM_PART_CLI VARCHAR,
                 EST_CLI VARCHAR,
                 CARACT_ZON VARCHAR
             ) 
-   1 - La tabla ya existía, reiniciandola.
+   1 - La tabla ya existía, se deja intacta.
+   1 - Intentando crear tabla pedidos_detalles.
+   1 - Error [Errno -11] KErrAlreadyExists on: CREATE TABLE pedidos (
+                NRO_PEDIDO INTEGER,
+                COD_PRODUCTO INTEGER,
+                CANTIDAD_PEDIDO INTEGER,
+                PRECIO_PRODUCTO FLOAT
+            ) 
+   1 - La tabla ya existía, se deja intacta.
+   1 - Query failed: SELECT CARACT_ZON FROM clientes
+                ORDER BY CARACT_ZON
+                GROUP BY CARACT_ZON
 Captured traceback
 Traceback (most recent call last):
   File "e:\data\python\main.py", line 46, in main
     app = Preventista()
-  File "e:\data\python\preventista\preventista.py", line 26, in __init__
+  File "e:\data\python\preventista\preventista.py", line 28, in __init__
     self.ilistbox = Ilistbox(self.get_ilistbox_items())
-  File "e:\data\python\preventista\preventista.py", line 191, in get_ilistbox_items
-    for pedido in self.get_pedidos(self.cliente_activo):
-AttributeError: 'Preventista' object has no attribute 'cliente_activo'
+  File "e:\data\python\preventista\preventista.py", line 201, in get_ilistbox_items
+    zonas_clientes = self.get_zonas_clientes()
+  File "e:\data\python\preventista\preventista.py", line 284, in get_zonas_clientes
+    GROUP BY CARACT_ZON""")]
+  File "e:\data\python\preventista\data.py", line 69, in query
+    self.db_view.prepare(self.db_object, statement)
+SymbianError: [Errno -6] KErrArgument
