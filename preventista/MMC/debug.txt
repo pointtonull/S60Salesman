@@ -1,30 +1,30 @@
-                    COD_MOVIL INTEGER,
-                    COMENTARIO LONG VARCHAR,
-                    FECHA_PEDIDO DATE, 
-                    FECHA_ENTREGA DATE
-                )
-             
-   1 - La tabla ya existía, se deja intacta.
-   1 - Intentando crear tabla cliente_activo.
-   1 - Error [Errno -11] KErrAlreadyExists on: 
-                CREATE TABLE cliente_activo (
-                    COD_CLI INTEGER,
-                    NRO_ZON INTEGER,
-                    APNBR_CLI VARCHAR,
-                    DOM_PART_CLI VARCHAR,
-                    EST_CLI VARCHAR,
-                    CARACT_ZON VARCHAR
-                )
-             
-   1 - La tabla ya existía, se deja intacta.
-   1 - Intentando crear tabla pedidos_detalles.
-   1 - Error [Errno -11] KErrAlreadyExists on: 
-                CREATE TABLE pedidos (
-                    NRO_PEDIDO INTEGER,
-                    COD_PRODUCTO INTEGER,
-                    CANTIDAD_PEDIDO INTEGER,
-                    PRECIO_PRODUCTO FLOAT
-                )
-             
-   1 - La tabla ya existía, se deja intacta.
-   2 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'X CENTRO'), (u'Cliente', u'ABRAHAM - CARNICERIA'), (u'A\xf1adir pedido', u'Crea un pedido nuevo')]
+   3 - La tabla ya existía, reiniciandola.
+   4 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'X CENTRO'), (u'Cliente', u'ABRAHAM - CARNICERIA'), (u'A\xf1adir pedido', u'Crea un pedido nuevo')]
+   4 - Ilistbox:update_listboxitems::updating ilistbox
+   5 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'X CENTRO'), (u'Cliente', u'ABRAHAM - CARNICERIA'), (u'A\xf1adir pedido', u'Crea un pedido nuevo')]
+   9 - Ilistbox:handler::changed were made: new_listboxitem = [u'Cliente', u"CD' S"]
+   9 - Ilistbox:item Zona has no change_handler
+   9 - Zona no ha sido actualizada
+   9 - Ilistbox:item Cliente:change_handler::None
+  10 - Ilistbox:item Cliente:post::chaged_item = [[u'Cliente', u"CD' S"], <function list_editor at 0x17895b0>, ([u'ABRAHAM - CARNICERIA', u'BIANCA PIZZERIA', u'BURBUJAS', u"CD' S", u'CIRO - POLLERIA', u'COCCO - PIZZERIA', u'DON EMILIO', u'DON EMILO - ROBERTO', u'DON JOSE', u'DORA', u'DORA - LOC 41', u'EL 36 - FLORENCIA', u'EL 36 - LOIDA', u'EL CORDOBES', u'EL TRIANGULO', u'ESPECIAS VALERIA', u'EUROFIA', u'FLORES - MERCADO -', u'FLORES - VENDEDORAS DE FLORES -', u'GARCIA - VERDULERIA', u'HAYDEE - POLLERIA 10', u'HECTOR PIZZERIA', u'JORGE - CARNICERIA', u'JORGE - HERBALIFE', u'JULIA - POLLERIA', u'LA ROSADITA - RESTAURANTE', u'LADY - VEDULERIA', u'LEONARDO - CARNICERIA', u'LOC.35 - ESPECIAS', u'LORENZO - CARNICERIA', u'MARCELA CASIMIRO', u'MARCELO - CARNICERIA', u'MARIO - VERDULERIA', u'MIGUEL - CARNICERIA', u'MORALES - CARNICERIA', u'PATRICIA - VERDULERIA', u'PIZZA EMANUEL', u'PIZZAERIA CENTRO', u'POGGIO - VERDULERIA', u'POLLERIA 10 - HAYDE', u'POLLERIA 9 - RAMON', u'POLLERIA ESTELA', u'PUPPY - CARNICERIA', u'QUESERIA - MORALES', u'QUESERIA X URQUIZA', u'RACEDO - CARNICERIA', u'RAMON - VERDULERIA', u'REVECCA', u'SANTINO - OLIVERA LUIS', u'SERGIO CARNICERIA', u'TELECENTRO MONICA', u'TELEFONICA'], 0, 1), <bound method Preventista.update_clients_list of <preventista.Preventista object at 0x176dd70>>]
+  10 - Preventista:update_ilistbox_items:: ilistbox.items = [[(u'Zona', u'X CENTRO'), <function list_editor at 0x17895b0>, ([u'2 COVI', u'3 DAVID', u'4 ANITA', u'5 EXENI', u'9 DE JULIO Y AFINES', u'ALBERDI', u'CERCANIA MERCADO S. MIGUEL', u'FERIAS VARIAS', u'ITUZAINGO', u'JUJUY', u'MENDOZA', u'PELLEGRINI', u'SAN MARTIN', u'URQUIZA', u'VARIAS', u'X CENTRO', u'X FLORIDA ', u'X FLORIDA P.A.', u'X ITUZAINGO', u'X PATIO DE COMIDA'], 0, 1), None], [[u'Cliente', u"CD' S"], <function list_editor at 0x17895b0>, ([u'ABRAHAM - CARNICERIA', u'BIANCA PIZZERIA', u'BURBUJAS', u"CD' S", u'CIRO - POLLERIA', u'COCCO - PIZZERIA', u'DON EMILIO', u'DON EMILO - ROBERTO', u'DON JOSE', u'DORA', u'DORA - LOC 41', u'EL 36 - FLORENCIA', u'EL 36 - LOIDA', u'EL CORDOBES', u'EL TRIANGULO', u'ESPECIAS VALERIA', u'EUROFIA', u'FLORES - MERCADO -', u'FLORES - VENDEDORAS DE FLORES -', u'GARCIA - VERDULERIA', u'HAYDEE - POLLERIA 10', u'HECTOR PIZZERIA', u'JORGE - CARNICERIA', u'JORGE - HERBALIFE', u'JULIA - POLLERIA', u'LA ROSADITA - RESTAURANTE', u'LADY - VEDULERIA', u'LEONARDO - CARNICERIA', u'LOC.35 - ESPECIAS', u'LORENZO - CARNICERIA', u'MARCELA CASIMIRO', u'MARCELO - CARNICERIA', u'MARIO - VERDULERIA', u'MIGUEL - CARNICERIA', u'MORALES - CARNICERIA', u'PATRICIA - VERDULERIA', u'PIZZA EMANUEL', u'PIZZAERIA CENTRO', u'POGGIO - VERDULERIA', u'POLLERIA 10 - HAYDE', u'POLLERIA 9 - RAMON', u'POLLERIA ESTELA', u'PUPPY - CARNICERIA', u'QUESERIA - MORALES', u'QUESERIA X URQUIZA', u'RACEDO - CARNICERIA', u'RAMON - VERDULERIA', u'REVECCA', u'SANTINO - OLIVERA LUIS', u'SERGIO CARNICERIA', u'TELECENTRO MONICA', u'TELEFONICA'], 0, 1), <bound method Preventista.update_clients_list of <preventista.Preventista object at 0x176dd70>>], [(u'A\xf1adir pedido', u'Crea un pedido nuevo'), <bound method Preventista.edit_pedido of <preventista.Preventista object at 0x176dd70>>, None, <bound method Preventista.update_ilistbox_items of <preventista.Preventista object at 0x176dd70>>]]
+  10 - Preventista:update_cliente_activo::zona = X CENTRO
+  10 - Preventista:update_cliente_activo::cliente = CD' S
+  10 - Query failed: 
+            SELECT * FROM clientes
+            WHERE CARACT_ZON='X CENTRO'
+            AND APNBR_CLI='CD' S'
+            
+Captured traceback
+Traceback (most recent call last):
+  File "e:\data\python\preventista\ilistbox.py", line 115, in handler
+    result = change_handler(item, changed_item, self)
+  File "e:\data\python\preventista\preventista.py", line 224, in update_ilistbox_items
+    ilistbox.items[1][0][1])
+  File "e:\data\python\preventista\preventista.py", line 292, in update_cliente_activo
+    """ % (nombre_zona, nombre_cliente))
+  File "e:\data\python\preventista\data.py", line 43, in query_first
+    self._query(db_view, statement)
+  File "e:\data\python\preventista\data.py", line 76, in _query
+    db_view.prepare(self.db_object, statement)
+SymbianError: [Errno -6] KErrArgument

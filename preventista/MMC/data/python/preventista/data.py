@@ -26,8 +26,6 @@ class Data_manager(object):
         a new database and open that.
         """
         self.db_object = e32db.Dbms()
-        self.db_view = e32db.Db_view()
-
         try:
             self.db_object.open(dbfile)
         except:
@@ -37,27 +35,23 @@ class Data_manager(object):
         self._changes = 0
 
 
-    def _get_row(self):
-        """
-        Returns the current row.
-        """
-        self.db_view.get_line()
-        row = []
-        for i in xrange(self.db_view.col_count()):
-            try:
-                row.append(self.db_view.col(i + 1))
-            except TypeError:
-                row.append(None)
-        return tuple(row)
-
-
     def query_first(self, statement):
         """
         Executes a query and retrieve the first resulting row.
         """
-        self.db_view.prepare(self.db_object, statement)
-        self.db_view.first_line()
-        return self._get_row()
+        db_view = e32db.Db_view()
+        self._query(db_view, statement)
+        db_view.first_line()
+        return get_row(db_view)
+
+
+    def query_count(self, statement):
+        """
+        Executes a query and returns the amount of rows that will produce.
+        """
+        db_view = e32db.Db_view()
+        self._query(db_view, statement)
+        return db_view.count_line()
 
 
     def query(self, statement):
@@ -65,16 +59,24 @@ class Data_manager(object):
         Executes a query and returns a rows generator that will iterate all
         the result rows.
         """
+        db_view = e32db.Db_view()
+        self._query(db_view, statement)
+        db_view.first_line()
+
+        for i in xrange(db_view.count_line()):
+            yield get_row(db_view)
+            db_view.next_line()
+
+
+    def _query(self, db_view, statement):
+        """
+        Try to execute a query preparing view to fetch results.
+        """
         try:
-            self.db_view.prepare(self.db_object, statement)
+            db_view.prepare(self.db_object, statement)
         except:
             debug("Query failed: %s" % statement)
             raise
-        self.db_view.first_line()
-
-        for i in xrange(self.db_view.count_line()):
-            yield self._get_row()
-            self.db_view.next_line()
 
 
     def close(self):
@@ -164,6 +166,19 @@ class Data_manager(object):
 
         csv_file.flush()
 
+
+def get_row(db_view):
+    """
+    Returns the current row.
+    """
+    db_view.get_line()
+    row = []
+    for i in xrange(db_view.col_count()):
+        try:
+            row.append(db_view.col(i + 1))
+        except TypeError:
+            row.append(None)
+    return tuple(row)
 
 
 def guest_type(rows):
