@@ -3,6 +3,7 @@ from formats import Number, Date
 from debug import debug, tracetofile
 import appuifw
 
+
 class Ilistbox: # Cannot inherit because of python version
     def __init__(self, items, default_editor=None):
         """
