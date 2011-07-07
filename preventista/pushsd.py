@@ -71,12 +71,13 @@ def rsync(origen, destino):
 
 def main():
     assert mount()
-    rsync("%s/data/movil" % REMOTE, "%s/data/movil" % LOCAL)
+    rsync("%s/data/input" % REMOTE, "%s/data/input" % LOCAL)
     rsync("%s/data/output" % REMOTE, "%s/data/output" % LOCAL)
-    vcall('tail -n 30 "%s/debug.txt" > "%s/debug.txt"' % (REMOTE, LOCAL),
-        shell=True)
+    rsync("%s/data/movil" % REMOTE, "%s/data/movil" % LOCAL)
+    vcall('tail -n 30 "%s/data/movil/debug.txt" > "%s/data/movil/debug.txt"' %
+        (REMOTE, LOCAL), shell=True) 
 
-    for dirname in ("data", ):
+    for dirname in ("data", "Private/20022ee9"):
         localdirname = os.path.join(LOCAL, dirname)
         remotedirname = os.path.join(REMOTE, dirname)
         if "-r" in sys.argv:
@@ -88,7 +89,7 @@ def main():
     assert umount()
 
     try:
-        print(open("%s/debug.txt" % LOCAL).read())
+        print(open("%s/data/movil/debug.txt" % LOCAL).read())
     except:
         print("No debug file found.")
 

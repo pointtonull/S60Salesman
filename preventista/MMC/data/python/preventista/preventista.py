@@ -36,7 +36,7 @@ class Preventista(Application):
             (u"Name list", self.name_list),
         ]
 
-        Application.__init__(self, u"MyApp title", body, menu)
+        Application.__init__(self, u"Sistema de pedidos", body, menu)
 
 
     def update_database(self):
@@ -49,7 +49,8 @@ class Preventista(Application):
                 self.data.csv_import(open(completefilename), tablename)
                 os.remove(completefilename)
 
-        for table in ("pedidos", "cliente_activo", "pedidos_detalles"): 
+        for table in ("pedidos", "cliente_activo", "pedidos_detalles",
+            "zonas", "estado"): 
             self.create_table(table, force=False)
 
 
@@ -69,6 +70,21 @@ class Preventista(Application):
                     APNBR_CLI VARCHAR,
                     DOM_PART_CLI VARCHAR,
                     EST_CLI VARCHAR,
+                    CARACT_ZON VARCHAR
+                )
+            """,
+
+            "estado": u"""
+                CREATE TABLE estado (
+                    key VARCHAR,
+                    value LONG VARCHAR
+                )
+            """,
+
+            "zonas": u"""
+                CREATE TABLE zonas (
+                    NRO_ZON INTEGER,
+                    NRO_ZON_PADRE INTEGER,
                     CARACT_ZON VARCHAR
                 )
             """,
@@ -165,9 +181,16 @@ class Preventista(Application):
 
 
     def get_cliente_activo(self):
-        return self.data.query_first(u"""
+        cliente = self.data.query_first(u"""
             SELECT * FROM cliente_activo
             """)
+        if cliente is None:
+            cliente = self.data.query_first(u"""
+                SELECT * FROM clientes
+                WHERE CARACT_ZON='%s'
+                """ % escape(self.get_zona_activa()))
+
+        return cliente
 
 
     def set_cliente_activo(self, cliente=None):
@@ -268,9 +291,25 @@ class Preventista(Application):
 
 
     def get_nuevo_pedido(self):
+        º
+        numero_ultimo_pedido = self.data.query_first(u"""
+            SELECT value FROM estado
+            WHERE key='NRO_PEDIDO'
+            """)
+        if numero_ultimo_pedido:
+            numero_nuevo_pedido = int(numero_ultimo_pedido) + 1
+        else:
+            numero_nuevo_pedido = 1
+
+        cliente_activo = self.data.query_first(u"""
+            SELECT value FROM estado
+            WHERE key='CLIENTE_ACTIVO'
+            """)
+        if cliente_activo == None:
+            cliente_activo = self.get_cliente
+
         pedido = {
-            u'NRO_PEDIDO' :
-                unicode(int(self.preventista[u"ULTIMO_NRO_PEDIDO"]) + 1),
+            u'NRO_PEDIDO' : numero_nuevo_pedido,
             u'COD_CLI' : self.cliente_activo[u"COD_CLI"],
             u'NRO_ZON' : self.cliente_activo[u"NRO_ZON"],
             u'COD_MOVIL' : self.preventista[u"COD_MOVIL"],

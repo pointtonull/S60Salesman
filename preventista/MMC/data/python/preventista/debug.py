@@ -6,7 +6,7 @@ import sys
 import traceback
 from appuifw import note
 
-DEBUG_FILE = r"e:\debug.txt"
+DEBUG_FILE = ur"e:\data\movil\debug.txt"
 IMPORT_TIME = time()
 DEBUG = 1
 # 0: no messages

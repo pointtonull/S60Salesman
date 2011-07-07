@@ -1,0 +1,30 @@
+                    key VARCHAR,
+                    value LONG VARCHAR
+                )
+             
+   3 - La tabla ya existía, se deja intacta.
+   3 - Preventista:set_cliente_activo::cliente = (116, 10, u'ABRAHAM - CARNICERIA', u'CENTRO', u'ACTIVO', u'X CENTRO')
+   3 - Intentando crear tabla cliente_activo.
+   3 - Error [Errno -11] KErrAlreadyExists on: 
+                CREATE TABLE cliente_activo (
+                    COD_CLI INTEGER,
+                    NRO_ZON INTEGER,
+                    APNBR_CLI VARCHAR,
+                    DOM_PART_CLI VARCHAR,
+                    EST_CLI VARCHAR,
+                    CARACT_ZON VARCHAR
+                )
+             
+   3 - La tabla ya existía, reiniciandola.
+   4 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'X CENTRO'), (u'Cliente', u'ABRAHAM - CARNICERIA'), (u'A\xf1adir pedido', u'Crea un pedido nuevo')]
+   4 - Ilistbox:update_listboxitems::updating ilistbox
+   4 - Ilistbox:update_listboxitems::listboxitems = [(u'Zona', u'X CENTRO'), (u'Cliente', u'ABRAHAM - CARNICERIA'), (u'A\xf1adir pedido', u'Crea un pedido nuevo')]
+Captured traceback
+Traceback (most recent call last):
+  File "e:\data\python\preventista\ilistbox.py", line 101, in handler
+    new_listboxitem, new_itemdata = itemeditor(listboxitem, itemdata)
+  File "e:\data\python\preventista\preventista.py", line 228, in edit_pedido
+    pedido = self.get_nuevo_pedido()
+  File "e:\data\python\preventista\preventista.py", line 304, in get_nuevo_pedido
+    u'COD_CLI' : self.cliente_activo[u"COD_CLI"],
+AttributeError: 'Preventista' object has no attribute 'cliente_activo'

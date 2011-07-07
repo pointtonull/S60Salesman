@@ -12,51 +12,55 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
 import sys
 import os
-import series60_console
-import appuifw
 
 sys.path.insert(0, os.path.join(os.getcwd(), 'lib.zip'))
 default_namespace = {'__builtins__': __builtins__, '__name__': '__main__'}
+execfile(r'e:\data\python\main.py', default_namespace)
 
-my_console = series60_console.Console()
-saved_exit_key_handler = appuifw.app.exit_key_handler
+#import os
+#import series60_console
+#import appuifw
 
-
-def restore_defaults():
-    appuifw.app.body = my_console.text
-    sys.stderr = sys.stdout = my_console
-    appuifw.app.screen = 'large'
-    appuifw.app.menu = []
-
-restore_defaults()
+#my_console = series60_console.Console()
+#saved_exit_key_handler = appuifw.app.exit_key_handler
 
 
-def display_traceback():
-    import traceback
-    traceback.print_exc()
+#def restore_defaults():
+#    appuifw.app.body = my_console.text
+#    sys.stderr = sys.stdout = my_console
+#    appuifw.app.screen = 'large'
+#    appuifw.app.menu = []
+
+#restore_defaults()
 
 
-try:
-    try:
-#        execfile(r'default.py', default_namespace)
-        execfile(r'e:\data\python\main.py', default_namespace)
-    finally:
-        default_namespace.clear()
-        appuifw.app.exit_key_handler = saved_exit_key_handler
-        restore_defaults()
-except SystemExit, err:
-    # Check whether it is a successful or an abnormal termination. '' is also
-    # checked as not passing any arguments in the sys.exit() call evaluates to
-    # `None`.
-    if str(err) not in [str(0), '']:
-        display_traceback()
-    else:
-        appuifw.app.set_exit()
-except:
-    display_traceback()
-else:
-    # If nothing was written onto the text widget, exit immediately
-    if not appuifw.app.body.len():
-        appuifw.app.set_exit()
+#def display_traceback():
+#    import traceback
+#    traceback.print_exc()
+
+
+#try:
+#    try:
+##        execfile(r'default.py', default_namespace)
+#        execfile(r'e:\data\python\main.py', default_namespace)
+#    finally:
+#        default_namespace.clear()
+#        appuifw.app.exit_key_handler = saved_exit_key_handler
+#        restore_defaults()
+#except SystemExit, err:
+#    # Check whether it is a successful or an abnormal termination. '' is also
+#    # checked as not passing any arguments in the sys.exit() call evaluates to
+#    # `None`.
+#    if str(err) not in [str(0), '']:
+#        display_traceback()
+#    else:
+#        appuifw.app.set_exit()
+#except:
+#    display_traceback()
+#else:
+#    # If nothing was written onto the text widget, exit immediately
+#    if not appuifw.app.body.len():
+#        appuifw.app.set_exit()

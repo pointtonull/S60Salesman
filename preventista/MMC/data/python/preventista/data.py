@@ -42,7 +42,10 @@ class Data_manager(object):
         db_view = e32db.Db_view()
         self._query(db_view, statement)
         db_view.first_line()
-        return get_row(db_view)
+        if db_view.count_line():
+            return get_row(db_view)
+        else:
+            return None
 
 
     def query_count(self, statement):
